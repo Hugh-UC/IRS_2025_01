@@ -3,12 +3,12 @@ from rclpy.node import Node
 from std_msgs.msg import String
 import json
 
-class WarehouseEavesdropper(Node):
+class WarehouseHmiListener(Node):
     def __init__(self):
-        super().__init__('warehouse_eavesdropper')
+        super().__init__('warehouse_hmi_listener')
         self.subscription = self.create_subscription(
             String,
-            'hmi/unified_status', # Now listening to the PLC topic
+            'hmi/unified_status', # listening to the ros2 PLC topic
             self.listener_callback,
             10)
 
@@ -31,9 +31,9 @@ class WarehouseEavesdropper(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    warehouse_eavesdropper = WarehouseEavesdropper()
-    rclpy.spin(warehouse_eavesdropper)
-    warehouse_eavesdropper.destroy_node()
+    warehouse_hmi_listener = WarehouseHmiListener()
+    rclpy.spin(warehouse_hmi_listener)
+    warehouse_hmi_listener.destroy_node()
     rclpy.shutdown()
 
 if __name__ == '__main__':
