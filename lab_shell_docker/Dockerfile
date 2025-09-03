@@ -45,8 +45,11 @@ RUN apt-get update && apt-get install -y \
 WORKDIR ${WORKSPACE_ROOT}
 RUN mkdir -p src
 
-# Copy your local ROS 2 package into the container
-COPY ./src ${WORKSPACE_ROOT}/src
+# Clone your local ROS 2 package into the container
+WORKDIR ${WORKSPACE_ROOT}/src
+RUN git clone https://github.com/Hugh-UC/IRS_2025_01.git
+
+WORKDIR ${WORKSPACE_ROOT}
 
 # Source ROS setup and build workspace
 RUN . /opt/ros/humble/setup.sh && colcon build --symlink-install
