@@ -19,7 +19,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  OWNER: Hugh-UC
+  OWNER: hugh-uc
   IMAGE_NAME: irs_2025_01
 
 concurrency:
