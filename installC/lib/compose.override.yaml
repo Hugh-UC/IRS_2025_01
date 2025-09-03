@@ -1,0 +1,20 @@
+services:
+  lab-shell:
+    image: ghcr.io/hugh-uc/irs_2025_01:humble
+    environment:
+      - PYTHONUNBUFFERED=1
+      - DISPLAY
+      - QT_X11_NO_MITSHM=1
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+      - ROS_DOMAIN_ID=0
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
+    volumes:
+      - ~/irslab_ws/src/IRS_2025_01:/lab_shell_ws/src/irs-shell
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /dev:/dev
+      - /etc/localtime:/etc/localtime:ro
+      - ~/.ssh:/home/student/.ssh
+    entrypoint: /workspace_entrypoint.sh
