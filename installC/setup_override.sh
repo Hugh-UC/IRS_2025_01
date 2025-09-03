@@ -23,6 +23,6 @@ if [ ! -f "$OVERRIDE_FILE_SOURCE" ]; then
 fi
 
 # Copy the override file to the specified directory
-cp "$OVERRIDE_FILE_SOURCE" "$lab_dir/docker-compose.override.yaml"
+cp "$OVERRIDE_FILE_SOURCE" "$lab_dir/compose.override.yaml"
 
 echo "Success! 'compose.override.yaml' has been copied to '$lab_dir'."
