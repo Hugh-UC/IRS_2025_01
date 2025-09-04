@@ -1,7 +1,6 @@
 # Use a base image with ROS Humble and Ubuntu Jammy
 FROM ros:humble-ros-base-jammy AS base
 
-
 # Set shell to bash
 SHELL ["/bin/bash", "-c"]
 
@@ -10,6 +9,7 @@ ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 ENV ROS_DOMAIN_ID=0
 ENV DEBIAN_FRONTEND=noninteractive
 
+ENV WORKSPACE_ROOT=/root/irslab_ws
 
 # Install development tools and useful utilities
 # The `&&` links commands together to reduce the number of image layers
