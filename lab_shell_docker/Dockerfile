@@ -5,7 +5,7 @@ FROM ros:humble-ros-base-jammy AS base
 
 # Environment
 ENV DEBIAN_FRONTEND=noninteractive
-ENV WORKSPACE_ROOT=/lab_shell_ws
+ENV WORKSPACE_ROOT=/irslab_ws
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
@@ -62,7 +62,7 @@ RUN rm -rf ${WORKSPACE_ROOT}/src \
 # ------------------------------------------------------------------------------------------------------------------------
 FROM ros:humble-ros-base-jammy AS final
 
-ENV WORKSPACE_ROOT=/lab_shell_ws
+ENV WORKSPACE_ROOT=/irslab_ws
 ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 ENV DEBIAN_FRONTEND=noninteractive
 ENV ROS_DOMAIN_ID=0
