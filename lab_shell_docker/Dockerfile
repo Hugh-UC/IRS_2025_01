@@ -1,15 +1,24 @@
-# ------------------------------------------------------------------------------------------------------------------------
-# Base stage: Build workspace with required ROS 2 packages, MoveIt, and Nav2
-# ------------------------------------------------------------------------------------------------------------------------
 FROM ros:humble-ros-base-jammy AS base
 
-# Environment
-ENV DEBIAN_FRONTEND=noninteractive
-ENV WORKSPACE_ROOT=/irslab_ws
 
-# Install dependencies
-RUN apt-get update && apt-get install -y \
+# Set shell to bash
+SHELL ["/bin/bash", "-c"]
+
+# Set environment variables to match the lab setup for seamless ROS 2 communication
+ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+ENV ROS_DOMAIN_ID=0
+ENV DEBIAN_FRONTEND=noninteractive
+
+
+# Install development tools and useful utilities
+# The `&&` links commands together to reduce the number of image layers
+RUN apt-get update && \
+    apt-get install -y \
+    nano \
+    less \
     git \
+    iproute2 \
+    net-tools \
     python3-pip \
     python3-colcon-common-extensions \
     python3-rosdep \
@@ -34,52 +43,30 @@ RUN apt-get update && apt-get install -y \
     ros-humble-navigation2 \
     ros-humble-nav2-simple-commander \
     ros-humble-tf2-tools \
+    libx11-6 \
+    libxext6 \
+    libxrender1 \
+    libxtst6 \
+    libxi6 \
+    libgtk-3-0 \
+    x11-xserver-utils \
+    ffmpeg \
+    libsm6 \
+    unzip \
+    findutils \
     libx11-dev \
     libxext-dev \
     libxtst-dev \
-    libxrender-dev && \
-    apt-get clean && \
+    libxrender-dev \
+    && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-WORKDIR ${WORKSPACE_ROOT}
-RUN mkdir -p src
 
-# Copy your local ROS 2 package into the container
-COPY .. ${WORKSPACE_ROOT}/src
+# Add ROS 2 environment sourcing to the bashrc file
+RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc
 
-# Source ROS setup and build workspace
-RUN . /opt/ros/humble/setup.sh && colcon build --symlink-install
-
-# Clean up
-RUN rm -rf ${WORKSPACE_ROOT}/src \
-           ${WORKSPACE_ROOT}/log \
-           ${WORKSPACE_ROOT}/build \
-           /tmp/* \
-           /var/lib/apt/lists/*
-
-# ------------------------------------------------------------------------------------------------------------------------
-# Final stage: Minimal runtime image with built workspace and GUI support
-# ------------------------------------------------------------------------------------------------------------------------
-FROM ros:humble-ros-base-jammy AS final
-
-ENV WORKSPACE_ROOT=/irslab_ws
-ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
-ENV DEBIAN_FRONTEND=noninteractive
-ENV ROS_DOMAIN_ID=0
-ENV DISPLAY=:0
-ENV QT_X11_NO_MITSHM=1
-
-WORKDIR /
-
-# Copy built workspace from base stage
-COPY --from=base /irslab_ws /irslab_ws
-
-# Optional: custom entrypoint (make sure this script exists)
-COPY workspace_entrypoint.sh /workspace_entrypoint.sh
-RUN chmod +x /workspace_entrypoint.sh
-
+# Create a directory for your ROS 2 workspace
 WORKDIR ${WORKSPACE_ROOT}
 
-# Entry point
-ENTRYPOINT ["/workspace_entrypoint.sh"]
-CMD ["bash"]
+# Set the default command to keep the container running
+CMD ["tail", "-f", "/dev/null"]
