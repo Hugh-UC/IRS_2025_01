@@ -41,25 +41,21 @@ RUN apt-get update && apt-get install -y \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Create a ROS 2 workspace
 WORKDIR ${WORKSPACE_ROOT}
 RUN mkdir -p src
 
-# Clone your local ROS 2 package into the container
-WORKDIR ${WORKSPACE_ROOT}/src
-RUN git clone https://github.com/Hugh-UC/IRS_2025_01.git
-
-WORKDIR ${WORKSPACE_ROOT}
+# Copy your local ROS 2 package into the container
+COPY .. ${WORKSPACE_ROOT}/src
 
 # Source ROS setup and build workspace
 RUN . /opt/ros/humble/setup.sh && colcon build --symlink-install
 
 # Clean up
 RUN rm -rf ${WORKSPACE_ROOT}/src \
-           ${WORKSPACE_ROOT}/log \
-           ${WORKSPACE_ROOT}/build \
-           /tmp/* \
-           /var/lib/apt/lists/*
+           ${WORKSPACE_ROOT}/log \
+           ${WORKSPACE_ROOT}/build \
+           /tmp/* \
+           /var/lib/apt/lists/*
 
 # ------------------------------------------------------------------------------------------------------------------------
 # Final stage: Minimal runtime image with built workspace and GUI support
@@ -76,7 +72,7 @@ ENV QT_X11_NO_MITSHM=1
 WORKDIR /
 
 # Copy built workspace from base stage
-COPY --from=base /lab_shell_ws /lab_shell_ws
+COPY --from=base /irslab_ws /irslab_ws
 
 # Optional: custom entrypoint (make sure this script exists)
 COPY workspace_entrypoint.sh /workspace_entrypoint.sh
