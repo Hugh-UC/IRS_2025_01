@@ -60,8 +60,8 @@ jobs:
       - name: Build and Push
         uses: docker/build-push-action@v5
         with:
-          context: .
-          file: ./lab_shell_docker/Dockerfile
+          context: ./lab_shell_docker
+          file: lab_shell_docker/Dockerfile
           platforms: linux/amd64
           push: true
           tags: |
