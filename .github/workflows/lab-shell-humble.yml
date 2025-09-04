@@ -2,12 +2,10 @@ name: IRS Shell Build
 
 on:
   workflow_dispatch:
-
   push:
     branches: 
       - main
     paths:
-      - '/**'
       - lab_shell_docker/**
       - .github/workflows/lab-shell-humble.yml
 
@@ -15,14 +13,13 @@ on:
     branches: 
       - main
     paths:
-      - '/**'
       - lab_shell_docker/**
       - .github/workflows/lab-shell-humble.yml
 
 env:
   REGISTRY: ghcr.io
   OWNER: hugh-uc
-  IMAGE_NAME: irs_2025_01
+  IMAGE_NAME: irs-lab-shell
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -31,8 +28,9 @@ concurrency:
 jobs:
   build-and-push-image:
     runs-on: ubuntu-latest
+    
     permissions:
-      contents: write
+      contents: read
       packages: write
 
     steps:
@@ -56,6 +54,12 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}
 
       - name: Build and Push
         uses: docker/build-push-action@v5
