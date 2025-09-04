@@ -31,3 +31,20 @@ services:
 
     privileged: true
     restart: unless-stopped
+  
+  # adds a volume to share local files with lab containers
+  irs-simulation:
+    volumes:
+      - PLACEHOLDER:/root/irslab_ws/src
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw    # GUI related
+
+  irs-openplc-runtime:
+    volumes:
+      - PLACEHOLDER:/root/irslab_ws/src
+  
+  # disable service
+  omron_moma_ros2:
+    volumes:
+      - PLACEHOLDER:/root/irslab_ws/src
+      - /dev:/dev
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
