@@ -16,5 +16,24 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - /dev:/dev
       - /etc/localtime:/etc/localtime:ro
-      - ~/.ssh:/home/student/.ssh
+      - ~/.ssh:/root/.ssh
     entrypoint: /workspace_entrypoint.sh
+
+# adds a volume to share local files with lab containers
+  irs-simulation:
+    volumes:
+      - ~/IRS_2025_01/:/irslab_ws/src/IRS_2025_01/
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw    # GUI related
+
+  irs-openplc-runtime:
+    volumes:
+      - ~/IRS_2025_01/:/irslab_ws/src/IRS_2025_01/
+  
+  # disable service
+  omron_moma_ros2:
+
+
+#    volumes:
+#      - ~/IRS_2025_01/:/irslab_ws/src/IRS_2025_01/
+#      - /dev:/dev
+#      - /tmp/.X11-unix:/tmp/.X11-unix:rw
