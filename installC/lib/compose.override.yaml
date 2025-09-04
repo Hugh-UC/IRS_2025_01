@@ -12,7 +12,7 @@ services:
     privileged: true
     network_mode: host
     volumes:
-      - ~/irslab_ws/src/IRS_2025_01:/lab_shell_ws/src/irs-shell
+      - ~/IRS_2025_01/:/irslab_ws/src/IRS_2025_01/
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - /dev:/dev
       - /etc/localtime:/etc/localtime:ro
