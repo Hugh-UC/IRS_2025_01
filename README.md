@@ -189,7 +189,7 @@ If you had this error you will likely have next error in this list.
 
 ### RMW Implementation Not Configured &nbsp; | &nbsp; 'Error getting RMW implementation identifier'
 
-<code style="color : red">[ERROR] [error_id] [rcl]: Error getting RMW implementation identifier / RMW implementation not installed (expected identifier of &apos;rmw_cyclonedds_cpp&apos;)...</code>
+<code style="color : red">[ERROR] [error_id] [rcl]: Error getting RMW implementation identifier / RMW implementation not installed (expected identifier of &apos;rmw_cyclonedds_cpp&apos;)... </code>
 
 This error means that the ROS 2 environment is not properly configured. The `ROS_DOMAIN_ID` and `RMW_IMPLEMENTATION` environment variables are likely missing from your container's configuration. This can happen if the docker's `compose.yaml` file is not correctly applying the environment variables defined in the `compose.override.yaml` file.
 
