@@ -14,6 +14,8 @@
 
 <br>
 
+***
+
 ## Lab Shell | Docker for Industrial Robots and Systems
 
 Welcome to the Industrial Robots and Systems Lab Shell repository! This provides a pre-configured Docker environment for developing ROS 2 projects. The provided scripts automatically configure your local environment to work with the main lab's `industrial-robots-and-systems-world` repository.
