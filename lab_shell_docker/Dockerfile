@@ -42,6 +42,7 @@ RUN apt-get update && \
     ros-humble-navigation2 \
     ros-humble-nav2-simple-commander \
     ros-humble-tf2-tools \
+    ros-humble-rqt-tf-tree \
     libx11-6 \
     libxext6 \
     libxrender1 \
