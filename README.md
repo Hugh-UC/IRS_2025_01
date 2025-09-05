@@ -20,6 +20,8 @@
 
 Welcome to the Industrial Robots and Systems Lab Shell repository! This provides a pre-configured Docker environment for developing ROS 2 projects. The provided scripts automatically configure your local environment to work with the main lab's `industrial-robots-and-systems-world` repository.
 
+<br>
+
 ## Getting Started
 
 ### 1. Clone the Repositories
@@ -37,6 +39,8 @@ Clone [this repository](https://github.com/Hugh-UC/IRS_2025_01.git)
 git clone https://github.com/Hugh-UC/IRS_2025_01.git ~/IRS_2025_<group_number>
 # replace <group_number> with your group's (i.e. 07)
 ```
+
+<br>
 
 ### 2. Run the Setup Script
 
@@ -63,6 +67,7 @@ Run Override file setup script
 
 - Updates the compose.override.yaml file to link your local ~/IRS_2025_01 directory to the Docker container's workspace.
 
+<br>
 
 ## Launching the Containers
 
@@ -97,6 +102,8 @@ docker compose up -d --build
 - `docker compose up -d`: Use the `-d` (detached) flag to run the containers in the background.
 - `docker compose up --build`: Use the `--build` flag to force a rebuild of the Docker image from the Dockerfile.
 
+<br>
+
 ### 2. Access the Lab Shell
 
 To access your code inside the running container, open a new terminal (if not using flag: `-d`) and execute a bash session inside the container. You can then navigate to your workspace to start development.
@@ -106,11 +113,6 @@ Enter the folder
 ```sh
 cd ~/industrial-robots-and-systems-world
 docker compose up -d --build
-```
-
-Find container name/id
-```sh
-docker ps
 ```
 
 Execute new session
@@ -124,6 +126,7 @@ cd ~/irslab_ws/src/IRS_2025_<group_number>
 ```
 Your local files from `~/IRS_2025_<group_number>` will be available in `~/irslab_ws/src/IRS_2025_<group_number>` inside the container.
 
+<br>
 
 ## Stopping the Containers
 
@@ -146,10 +149,11 @@ Remove docker containers
 docker compose down
 ```
 
+<br>
 
 ## Debugging
 
-### If the container `lab-shell` is not being found.
+### Container Not Found &nbsp; | &nbsp; 'lab-shell' is not being found.
 
 You can check that the container is running and that you are using the correct `name` for the `exec` command:
 
@@ -163,7 +167,9 @@ Execute new session
 docker exec -it <container_name> /bin/bash
 ```
 
-### If you are getting `bash: ros2: command not found`
+<br>
+
+### ROS2 Not Sourced &nbsp; | &nbsp; 'bash: ros2: command not found'
 
 There may have been an issue with the custom docker sourcing the ros2 environment. In this case you may have to manually source it after every Docker restart. set
 
@@ -179,7 +185,9 @@ source /opt/ros/humble/setup.bash
 
 If you had this error you will likely have next error in this list.
 
-### If you are getting `Error getting RMW implementation identifier`
+<br>
+
+### RMW Implementation Not Configured &nbsp; | &nbsp; 'Error getting RMW implementation identifier'
 
 <pre><font color="#C01C28">[ERROR] [error_id] [rcl]: Error getting RMW implementation identifier / RMW implementation not installed (expected identifier of &apos;rmw_cyclonedds_cpp&apos;)...</font></pre>
 
