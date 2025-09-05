@@ -122,9 +122,9 @@ docker exec -it lab-shell /bin/bash
 
 Navigate to workspace
 ```bash
-cd ~/irslab_ws/src/IRS_2025_<group_number>
+cd ~/irslab_ws/src
 ```
-Your local files from `~/IRS_2025_<group_number>` will be available in `~/irslab_ws/src/IRS_2025_<group_number>` inside the container.
+Your local files from `~/IRS_2025_<group_number>` will be available in `~/irslab_ws/src>` inside the container.
 
 <br>
 
