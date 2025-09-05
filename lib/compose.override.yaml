@@ -1,7 +1,7 @@
 services:
   lab-shell:
     container_name: lab-shell
-    image: ghcr.io/hugh-uc/irs-2025-01:humble
+    image: ghcr.io/hugh-uc/irs-lab-shell:humble
 
     # Keep the container running and allow interactive sessions
     tty: true
