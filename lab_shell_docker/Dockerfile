@@ -69,5 +69,13 @@ RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc
 # Create a directory for your ROS 2 workspace
 WORKDIR ${WORKSPACE_ROOT}
 
+# Optional: custom entrypoint (make sure this script exists)
+COPY /workspace_entrypoint.sh /workspace_entrypoint.sh
+
+RUN chmod +x /workspace_entrypoint.sh
+
+# Entry point
+ENTRYPOINT ["/workspace_entrypoint.sh"]
+
 # Set the default command to keep the container running
-CMD ["tail", "-f", "/dev/null"]
+CMD ["bash"]        # depricated: CMD ["tail", "-f", "/dev/null"]
