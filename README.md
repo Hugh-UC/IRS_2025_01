@@ -82,7 +82,7 @@ cd ~/industrial-robots-and-systems-world
 
 Pull the latest docker containers
 ```bash
-docker compose -f compose-editor.yaml pull
+docker compose pull
 ```
 
 Allow permission for UI interfaces from docker containers
