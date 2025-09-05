@@ -20,8 +20,6 @@
 
 Welcome to the Industrial Robots and Systems Lab Shell repository! This provides a pre-configured Docker environment for developing ROS 2 projects. The provided scripts automatically configure your local environment to work with the main lab's `industrial-robots-and-systems-world` repository.
 
-***
-
 ## Getting Started
 
 ### 1. Clone the Repositories
@@ -165,8 +163,6 @@ Execute new session
 docker exec -it <container_name> /bin/bash
 ```
 
-***
-
 ### If you are getting `bash: ros2: command not found`
 
 There may have been an issue with the custom docker sourcing the ros2 environment. In this case you may have to manually source it after every Docker restart. set
@@ -182,8 +178,6 @@ source /opt/ros/humble/setup.bash
 ```
 
 If you had this error you will likely have next error in this list.
-
-***
 
 ### If you are getting `Error getting RMW implementation identifier`
 
