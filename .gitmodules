@@ -1,0 +1,3 @@
+[submodule "lab_shell_docker"]
+	path = lab_shell_docker
+	url = https://github.com/Hugh-UC/IRS_Lab_Shell.git
