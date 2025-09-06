@@ -16,7 +16,9 @@
 
 <br>
 
-### Getting Started
+## Getting Started
+
+### 1. Clone the Repositories
 
 First, you need to clone both the main lab repository and then this repository. You should clone them into your user's home directory (`~`).
 
@@ -94,6 +96,8 @@ docker compose down
 ```
 
 <br>
+
+***
 
 <br>
 
