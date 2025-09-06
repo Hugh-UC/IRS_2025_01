@@ -35,7 +35,7 @@ git clone https://github.com/Hugh-UC/IRS_2025_01.git ~/IRS_2025_01
 
 <br>
 
-**!** Optional: You can clone the repository with a custom Docker development shell, see [Lab Shell](https://github.com/Hugh-UC/IRS_2025_01/?tab=readme-ov-file#lab-shell--docker-for-industrial-robots-and-systems).
+**! Optional:** You can clone this repository with a custom Docker development shell, see [Lab Shell](https://github.com/Hugh-UC/IRS_2025_01/?tab=readme-ov-file#lab-shell--docker-for-industrial-robots-and-systems).
 
 <br>
 
