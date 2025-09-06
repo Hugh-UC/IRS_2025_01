@@ -12,9 +12,9 @@
     Dylan:  u3
     Kinley: u3 
 
-<br>
-
 ***
+
+<br>
 
 ### Getting Started
 
@@ -31,8 +31,13 @@ Clone [this repository](https://github.com/Hugh-UC/IRS_2025_01.git)
 git clone https://github.com/Hugh-UC/IRS_2025_01.git ~/IRS_2025_01
 ```
 
+<br>
+
 **!** Optional: You can clone the repository with a custom Docker development shell, see [Lab Shell](https://github.com/Hugh-UC/IRS_2025_01/?tab=readme-ov-file#start-the-editor).
 
+***
+
+<br>
 
 ### Lab Shell | Docker for Industrial Robots and Systems
 
@@ -42,6 +47,8 @@ To clone this repository with the Lab Shell Docker
 ```sh
 git clone --recurse-submodules https://github.com/Hugh-UC/IRS_2025_01.git ~/IRS_2025_01
 ```
+
+<br>
 
 For seperate installation instructions visit [https://github.com/Hugh-UC/IRS_Lab_Shell](https://github.com/Hugh-UC/IRS_Lab_Shell)
 
