@@ -1,3 +1,6 @@
 [submodule "lab_shell_docker"]
 	path = lab_shell_docker
 	url = https://github.com/Hugh-UC/IRS_Lab_Shell.git
+[submodule "tmr_ros2"]
+	path = tmr_ros2
+	url = https://github.com/CollaborativeRoboticsLab/tmr_ros2.git
