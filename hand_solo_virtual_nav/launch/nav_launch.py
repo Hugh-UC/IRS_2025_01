@@ -178,6 +178,15 @@ def generate_launch_description():
             ]}
         ]
     )
+    
+    # Waypoint Follower - New Node
+    hs_waypoint_follower = Node(
+        package='hand_solo_virtual_nav',
+        executable='hs_waypoint_follower', # The entry point name from setup.py
+        name='hs_waypoint_follower',
+        output='screen',
+        emulate_tty=True
+    )
 
     # RViz2
     rviz = Node(
@@ -209,6 +218,7 @@ def generate_launch_description():
         waypoint_follower,
         velocity_smoother,
         lifecycle_manager_navigation,
+        hs_waypoint_follower,
         
         # Visualization
         rviz
