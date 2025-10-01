@@ -1,0 +1,18 @@
+{
+  "package_name": "tm_msgs",
+  "non_idl_tuples": [
+    "/root/irslab_ws/src/tmr_ros2/tm_msgs:msg/FeedbackState.msg",
+    "/root/irslab_ws/src/tmr_ros2/tm_msgs:msg/SvrResponse.msg",
+    "/root/irslab_ws/src/tmr_ros2/tm_msgs:msg/SctResponse.msg",
+    "/root/irslab_ws/src/tmr_ros2/tm_msgs:msg/StaResponse.msg",
+    "/root/irslab_ws/src/tmr_ros2/tm_msgs:srv/ConnectTM.srv",
+    "/root/irslab_ws/src/tmr_ros2/tm_msgs:srv/WriteItem.srv",
+    "/root/irslab_ws/src/tmr_ros2/tm_msgs:srv/AskItem.srv",
+    "/root/irslab_ws/src/tmr_ros2/tm_msgs:srv/SendScript.srv",
+    "/root/irslab_ws/src/tmr_ros2/tm_msgs:srv/SetEvent.srv",
+    "/root/irslab_ws/src/tmr_ros2/tm_msgs:srv/SetIO.srv",
+    "/root/irslab_ws/src/tmr_ros2/tm_msgs:srv/SetPositions.srv",
+    "/root/irslab_ws/src/tmr_ros2/tm_msgs:srv/AskSta.srv",
+    "/root/irslab_ws/src/tmr_ros2/tm_msgs:srv/RobotCommand.srv"
+  ]
+}

@@ -1,0 +1,3 @@
+source;share/tm_test/environment/ament_prefix_path.sh
+source;share/tm_test/environment/path.sh
+source;share/tm_test/environment/pythonpath.sh
