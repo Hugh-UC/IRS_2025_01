@@ -1,0 +1,56 @@
+[0.000000] (-) TimerEvent: {}
+[0.013301] (-) JobUnselected: {'identifier': 'hand_solo_arm'}
+[0.013433] (-) JobUnselected: {'identifier': 'pa_warehouse_status'}
+[0.013481] (-) JobUnselected: {'identifier': 'pick_nav_place'}
+[0.013522] (-) JobUnselected: {'identifier': 'tm12_moveit_config'}
+[0.013578] (-) JobUnselected: {'identifier': 'tm12x_moveit_config'}
+[0.013624] (-) JobUnselected: {'identifier': 'tm14_moveit_config'}
+[0.013654] (-) JobUnselected: {'identifier': 'tm14x_moveit_config'}
+[0.013683] (-) JobUnselected: {'identifier': 'tm16_moveit_config'}
+[0.013718] (-) JobUnselected: {'identifier': 'tm20_moveit_config'}
+[0.013762] (-) JobUnselected: {'identifier': 'tm5-700_moveit_config'}
+[0.013788] (-) JobUnselected: {'identifier': 'tm5-900_moveit_config'}
+[0.013872] (-) JobUnselected: {'identifier': 'tm5x-700_moveit_config'}
+[0.013906] (-) JobUnselected: {'identifier': 'tm5x-900_moveit_config'}
+[0.013930] (-) JobUnselected: {'identifier': 'tm_description'}
+[0.014006] (-) JobUnselected: {'identifier': 'tm_driver'}
+[0.014025] (-) JobUnselected: {'identifier': 'tm_inspect'}
+[0.014041] (-) JobUnselected: {'identifier': 'tm_mod_urdf'}
+[0.014058] (-) JobUnselected: {'identifier': 'tm_msgs'}
+[0.014087] (-) JobUnselected: {'identifier': 'tm_test'}
+[0.014110] (hand_solo_virtual_nav) JobQueued: {'identifier': 'hand_solo_virtual_nav', 'dependencies': OrderedDict()}
+[0.014162] (hand_solo_virtual_nav) JobStarted: {'identifier': 'hand_solo_virtual_nav'}
+[0.099746] (-) TimerEvent: {}
+[0.200094] (-) TimerEvent: {}
+[0.300506] (-) TimerEvent: {}
+[0.400862] (-) TimerEvent: {}
+[0.466909] (hand_solo_virtual_nav) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/hand_solo_virtual_nav', 'build', '--build-base', '/root/irslab_ws/build/hand_solo_virtual_nav/build', 'install', '--record', '/root/irslab_ws/build/hand_solo_virtual_nav/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/root/irslab_ws/src/hand_solo_virtual_nav', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'HOSTNAME': 'hugh-Zenbook-UX3404VC', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/root/irslab_ws/install/tm_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/root', 'OLDPWD': '/', 'PYTHONUNBUFFERED': '1', 'ROS_PYTHON_VERSION': '3', 'COLCON_PREFIX_PATH': '/root/irslab_ws/install', 'ROS_DISTRO': 'humble', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'NVIDIA_DRIVER_CAPABILITIES': 'all', 'TERM': 'xterm', 'ROS_LOCALHOST_ONLY': '0', 'QT_X11_NO_MITSHM': '1', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin', 'DISPLAY': ':1', 'LANG': 'C.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_cyclonedds_cpp', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'ROS_DOMAIN_ID': '0', 'AMENT_PREFIX_PATH': '/root/irslab_ws/install/tm_test:/root/irslab_ws/install/tm_inspect:/root/irslab_ws/install/tm_driver:/root/irslab_ws/install/tm_msgs:/root/irslab_ws/install/tm_mod_urdf:/root/irslab_ws/install/tm5x-900_moveit_config:/root/irslab_ws/install/tm5x-700_moveit_config:/root/irslab_ws/install/tm5-900_moveit_config:/root/irslab_ws/install/tm5-700_moveit_config:/root/irslab_ws/install/tm20_moveit_config:/root/irslab_ws/install/tm16_moveit_config:/root/irslab_ws/install/tm14x_moveit_config:/root/irslab_ws/install/tm14_moveit_config:/root/irslab_ws/install/tm12x_moveit_config:/root/irslab_ws/install/tm12_moveit_config:/root/irslab_ws/install/tm_description:/root/irslab_ws/install/pick_nav_place:/root/irslab_ws/install/pa_warehouse_status:/root/irslab_ws/install/hand_solo_virtual_nav:/root/irslab_ws/install/hand_solo_arm:/opt/ros/humble', 'DEBIAN_FRONTEND': 'noninteractive', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'PWD': '/root/irslab_ws/build/hand_solo_virtual_nav', 'LC_ALL': 'C.UTF-8', 'PYTHONPATH': '/root/irslab_ws/build/hand_solo_virtual_nav/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/irslab_ws/install/hand_solo_virtual_nav/lib/python3.10/site-packages:/root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages:/root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages:/root/irslab_ws/install/tm_mod_urdf/lib/python3.10/site-packages:/root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages:/root/irslab_ws/install/pa_warehouse_status/lib/python3.10/site-packages:/root/irslab_ws/install/hand_solo_virtual_nav/lib/python3.10/site-packages:/root/irslab_ws/install/hand_solo_arm/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'NVIDIA_VISIBLE_DEVICES': 'all', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/root/irslab_ws/install/tm_test:/root/irslab_ws/install/tm_inspect:/root/irslab_ws/install/tm_driver:/root/irslab_ws/install/tm_msgs:/root/irslab_ws/install/tm5x-900_moveit_config:/root/irslab_ws/install/tm5x-700_moveit_config:/root/irslab_ws/install/tm5-900_moveit_config:/root/irslab_ws/install/tm5-700_moveit_config:/root/irslab_ws/install/tm20_moveit_config:/root/irslab_ws/install/tm16_moveit_config:/root/irslab_ws/install/tm14x_moveit_config:/root/irslab_ws/install/tm14_moveit_config:/root/irslab_ws/install/tm12x_moveit_config:/root/irslab_ws/install/tm12_moveit_config:/root/irslab_ws/install/tm_description'}, 'shell': False}
+[0.501006] (-) TimerEvent: {}
+[0.601333] (-) TimerEvent: {}
+[0.626750] (hand_solo_virtual_nav) StdoutLine: {'line': b'running egg_info\n'}
+[0.628032] (hand_solo_virtual_nav) StdoutLine: {'line': b'writing ../../build/hand_solo_virtual_nav/hand_solo_virtual_nav.egg-info/PKG-INFO\n'}
+[0.628375] (hand_solo_virtual_nav) StdoutLine: {'line': b'writing dependency_links to ../../build/hand_solo_virtual_nav/hand_solo_virtual_nav.egg-info/dependency_links.txt\n'}
+[0.628545] (hand_solo_virtual_nav) StdoutLine: {'line': b'writing entry points to ../../build/hand_solo_virtual_nav/hand_solo_virtual_nav.egg-info/entry_points.txt\n'}
+[0.628686] (hand_solo_virtual_nav) StdoutLine: {'line': b'writing requirements to ../../build/hand_solo_virtual_nav/hand_solo_virtual_nav.egg-info/requires.txt\n'}
+[0.628798] (hand_solo_virtual_nav) StdoutLine: {'line': b'writing top-level names to ../../build/hand_solo_virtual_nav/hand_solo_virtual_nav.egg-info/top_level.txt\n'}
+[0.631006] (hand_solo_virtual_nav) StdoutLine: {'line': b"reading manifest file '../../build/hand_solo_virtual_nav/hand_solo_virtual_nav.egg-info/SOURCES.txt'\n"}
+[0.631280] (hand_solo_virtual_nav) StdoutLine: {'line': b"adding license file 'LICENSE'\n"}
+[0.631887] (hand_solo_virtual_nav) StdoutLine: {'line': b"writing manifest file '../../build/hand_solo_virtual_nav/hand_solo_virtual_nav.egg-info/SOURCES.txt'\n"}
+[0.632001] (hand_solo_virtual_nav) StdoutLine: {'line': b'running build\n'}
+[0.632039] (hand_solo_virtual_nav) StdoutLine: {'line': b'running build_py\n'}
+[0.632104] (hand_solo_virtual_nav) StdoutLine: {'line': b'copying hand_solo_virtual_nav/hs_waypoint_follower.py -> /root/irslab_ws/build/hand_solo_virtual_nav/build/lib/hand_solo_virtual_nav\n'}
+[0.632297] (hand_solo_virtual_nav) StdoutLine: {'line': b'running install\n'}
+[0.632519] (hand_solo_virtual_nav) StdoutLine: {'line': b'running install_lib\n'}
+[0.633182] (hand_solo_virtual_nav) StdoutLine: {'line': b'copying /root/irslab_ws/build/hand_solo_virtual_nav/build/lib/hand_solo_virtual_nav/hs_waypoint_follower.py -> /root/irslab_ws/install/hand_solo_virtual_nav/lib/python3.10/site-packages/hand_solo_virtual_nav\n'}
+[0.633535] (hand_solo_virtual_nav) StdoutLine: {'line': b'byte-compiling /root/irslab_ws/install/hand_solo_virtual_nav/lib/python3.10/site-packages/hand_solo_virtual_nav/hs_waypoint_follower.py to hs_waypoint_follower.cpython-310.pyc\n'}
+[0.634233] (hand_solo_virtual_nav) StdoutLine: {'line': b'running install_data\n'}
+[0.634292] (hand_solo_virtual_nav) StdoutLine: {'line': b'copying config/pa_nav2_params.yaml -> /root/irslab_ws/install/hand_solo_virtual_nav/share/hand_solo_virtual_nav/config\n'}
+[0.634431] (hand_solo_virtual_nav) StdoutLine: {'line': b'running install_egg_info\n'}
+[0.635867] (hand_solo_virtual_nav) StdoutLine: {'line': b"removing '/root/irslab_ws/install/hand_solo_virtual_nav/lib/python3.10/site-packages/hand_solo_virtual_nav-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[0.636165] (hand_solo_virtual_nav) StdoutLine: {'line': b'Copying ../../build/hand_solo_virtual_nav/hand_solo_virtual_nav.egg-info to /root/irslab_ws/install/hand_solo_virtual_nav/lib/python3.10/site-packages/hand_solo_virtual_nav-0.0.0-py3.10.egg-info\n'}
+[0.637162] (hand_solo_virtual_nav) StdoutLine: {'line': b'running install_scripts\n'}
+[0.654685] (hand_solo_virtual_nav) StdoutLine: {'line': b'Installing hs_waypoint_follower script to /root/irslab_ws/install/hand_solo_virtual_nav/lib/hand_solo_virtual_nav\n'}
+[0.654950] (hand_solo_virtual_nav) StdoutLine: {'line': b"writing list of installed files to '/root/irslab_ws/build/hand_solo_virtual_nav/install.log'\n"}
+[0.679273] (hand_solo_virtual_nav) CommandEnded: {'returncode': 0}
+[0.686179] (hand_solo_virtual_nav) JobEnded: {'identifier': 'hand_solo_virtual_nav', 'rc': 0}
+[0.686716] (-) EventReactorShutdown: {}

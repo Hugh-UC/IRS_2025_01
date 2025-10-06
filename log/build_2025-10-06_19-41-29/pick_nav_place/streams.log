@@ -1,0 +1,32 @@
+[1.747s] Invoking command in '/root/irslab_ws/src/pick_nav_place': PYTHONPATH=/root/irslab_ws/build/pick_nav_place/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/pick_nav_place build --build-base /root/irslab_ws/build/pick_nav_place/build install --record /root/irslab_ws/build/pick_nav_place/install.log --single-version-externally-managed install_data
+[1.975s] running egg_info
+[1.976s] writing ../../build/pick_nav_place/pick_nav_place.egg-info/PKG-INFO
+[1.976s] writing dependency_links to ../../build/pick_nav_place/pick_nav_place.egg-info/dependency_links.txt
+[1.976s] writing entry points to ../../build/pick_nav_place/pick_nav_place.egg-info/entry_points.txt
+[1.976s] writing requirements to ../../build/pick_nav_place/pick_nav_place.egg-info/requires.txt
+[1.976s] writing top-level names to ../../build/pick_nav_place/pick_nav_place.egg-info/top_level.txt
+[1.978s] reading manifest file '../../build/pick_nav_place/pick_nav_place.egg-info/SOURCES.txt'
+[1.978s] adding license file 'LICENSE'
+[1.979s] writing manifest file '../../build/pick_nav_place/pick_nav_place.egg-info/SOURCES.txt'
+[1.979s] running build
+[1.980s] running build_py
+[1.980s] copying pick_nav_place/hs_waypoint_follower.py -> /root/irslab_ws/build/pick_nav_place/build/lib/pick_nav_place
+[1.980s] copying pick_nav_place/hs_pick_place.py -> /root/irslab_ws/build/pick_nav_place/build/lib/pick_nav_place
+[1.980s] running install
+[1.980s] running install_lib
+[1.981s] copying /root/irslab_ws/build/pick_nav_place/build/lib/pick_nav_place/hs_waypoint_follower.py -> /root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place
+[1.981s] copying /root/irslab_ws/build/pick_nav_place/build/lib/pick_nav_place/hs_pick_place.py -> /root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place
+[1.982s] byte-compiling /root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place/hs_waypoint_follower.py to hs_waypoint_follower.cpython-310.pyc
+[1.984s] byte-compiling /root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place/hs_pick_place.py to hs_pick_place.cpython-310.pyc
+[1.985s] running install_data
+[1.985s] copying config/pa_nav2_params.yaml -> /root/irslab_ws/install/pick_nav_place/share/pick_nav_place/config
+[1.986s] running install_egg_info
+[1.988s] removing '/root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place-0.0.0-py3.10.egg-info' (and everything under it)
+[1.988s] Copying ../../build/pick_nav_place/pick_nav_place.egg-info to /root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place-0.0.0-py3.10.egg-info
+[1.989s] running install_scripts
+[2.013s] Installing hs_pick_place script to /root/irslab_ws/install/pick_nav_place/lib/pick_nav_place
+[2.013s] Installing hs_waypoint_follower script to /root/irslab_ws/install/pick_nav_place/lib/pick_nav_place
+[2.014s] Installing plc_hmi_listener script to /root/irslab_ws/install/pick_nav_place/lib/pick_nav_place
+[2.014s] Installing warehouse_coordinator script to /root/irslab_ws/install/pick_nav_place/lib/pick_nav_place
+[2.014s] writing list of installed files to '/root/irslab_ws/build/pick_nav_place/install.log'
+[2.053s] Invoked command in '/root/irslab_ws/src/pick_nav_place' returned '0': PYTHONPATH=/root/irslab_ws/build/pick_nav_place/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/pick_nav_place build --build-base /root/irslab_ws/build/pick_nav_place/build install --record /root/irslab_ws/build/pick_nav_place/install.log --single-version-externally-managed install_data

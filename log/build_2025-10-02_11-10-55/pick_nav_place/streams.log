@@ -1,0 +1,54 @@
+[0.482s] Invoking command in '/root/irslab_ws/src/pick_nav_place': PYTHONPATH=/root/irslab_ws/build/pick_nav_place/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/pick_nav_place build --build-base /root/irslab_ws/build/pick_nav_place/build install --record /root/irslab_ws/build/pick_nav_place/install.log --single-version-externally-managed install_data
+[0.649s] running egg_info
+[0.650s] creating ../../build/pick_nav_place/pick_nav_place.egg-info
+[0.650s] writing ../../build/pick_nav_place/pick_nav_place.egg-info/PKG-INFO
+[0.650s] writing dependency_links to ../../build/pick_nav_place/pick_nav_place.egg-info/dependency_links.txt
+[0.650s] writing entry points to ../../build/pick_nav_place/pick_nav_place.egg-info/entry_points.txt
+[0.650s] writing requirements to ../../build/pick_nav_place/pick_nav_place.egg-info/requires.txt
+[0.650s] writing top-level names to ../../build/pick_nav_place/pick_nav_place.egg-info/top_level.txt
+[0.651s] writing manifest file '../../build/pick_nav_place/pick_nav_place.egg-info/SOURCES.txt'
+[0.651s] reading manifest file '../../build/pick_nav_place/pick_nav_place.egg-info/SOURCES.txt'
+[0.652s] adding license file 'LICENSE'
+[0.652s] writing manifest file '../../build/pick_nav_place/pick_nav_place.egg-info/SOURCES.txt'
+[0.652s] running build
+[0.652s] running build_py
+[0.652s] creating /root/irslab_ws/build/pick_nav_place/build
+[0.653s] creating /root/irslab_ws/build/pick_nav_place/build/lib
+[0.653s] creating /root/irslab_ws/build/pick_nav_place/build/lib/pick_nav_place
+[0.653s] copying pick_nav_place/hs_waypoint_follower.py -> /root/irslab_ws/build/pick_nav_place/build/lib/pick_nav_place
+[0.653s] copying pick_nav_place/__init__.py -> /root/irslab_ws/build/pick_nav_place/build/lib/pick_nav_place
+[0.653s] copying pick_nav_place/hs_pick_place.py -> /root/irslab_ws/build/pick_nav_place/build/lib/pick_nav_place
+[0.653s] running install
+[0.653s] running install_lib
+[0.653s] creating /root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place
+[0.653s] copying /root/irslab_ws/build/pick_nav_place/build/lib/pick_nav_place/hs_waypoint_follower.py -> /root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place
+[0.654s] copying /root/irslab_ws/build/pick_nav_place/build/lib/pick_nav_place/__init__.py -> /root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place
+[0.654s] copying /root/irslab_ws/build/pick_nav_place/build/lib/pick_nav_place/hs_pick_place.py -> /root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place
+[0.654s] byte-compiling /root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place/hs_waypoint_follower.py to hs_waypoint_follower.cpython-310.pyc
+[0.655s] byte-compiling /root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place/__init__.py to __init__.cpython-310.pyc
+[0.655s] byte-compiling /root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place/hs_pick_place.py to hs_pick_place.cpython-310.pyc
+[0.656s] running install_data
+[0.656s] creating /root/irslab_ws/install/pick_nav_place/share/ament_index
+[0.656s] creating /root/irslab_ws/install/pick_nav_place/share/ament_index/resource_index
+[0.656s] creating /root/irslab_ws/install/pick_nav_place/share/ament_index/resource_index/packages
+[0.657s] copying resource/pick_nav_place -> /root/irslab_ws/install/pick_nav_place/share/ament_index/resource_index/packages
+[0.657s] copying package.xml -> /root/irslab_ws/install/pick_nav_place/share/pick_nav_place
+[0.657s] creating /root/irslab_ws/install/pick_nav_place/share/pick_nav_place/launch
+[0.657s] copying launch/mapping_launch.py -> /root/irslab_ws/install/pick_nav_place/share/pick_nav_place/launch
+[0.657s] copying launch/nav_launch.py -> /root/irslab_ws/install/pick_nav_place/share/pick_nav_place/launch
+[0.657s] creating /root/irslab_ws/install/pick_nav_place/share/pick_nav_place/config
+[0.657s] copying config/pa_slam_params.yaml -> /root/irslab_ws/install/pick_nav_place/share/pick_nav_place/config
+[0.657s] copying config/pa_nav2_params.yaml -> /root/irslab_ws/install/pick_nav_place/share/pick_nav_place/config
+[0.657s] creating /root/irslab_ws/install/pick_nav_place/share/pick_nav_place/rviz
+[0.657s] copying rviz/pa_rviz_mapping.rviz -> /root/irslab_ws/install/pick_nav_place/share/pick_nav_place/rviz
+[0.657s] copying rviz/pa_rviz_nav2.rviz -> /root/irslab_ws/install/pick_nav_place/share/pick_nav_place/rviz
+[0.657s] creating /root/irslab_ws/install/pick_nav_place/share/pick_nav_place/map
+[0.657s] copying map/pa_warehouse_map_01.yaml -> /root/irslab_ws/install/pick_nav_place/share/pick_nav_place/map
+[0.658s] copying map/pa_warehouse_map_01.pgm -> /root/irslab_ws/install/pick_nav_place/share/pick_nav_place/map
+[0.658s] running install_egg_info
+[0.658s] Copying ../../build/pick_nav_place/pick_nav_place.egg-info to /root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place-0.0.0-py3.10.egg-info
+[0.659s] running install_scripts
+[0.678s] Installing hs_pick_place script to /root/irslab_ws/install/pick_nav_place/lib/pick_nav_place
+[0.678s] Installing hs_waypoint_follower script to /root/irslab_ws/install/pick_nav_place/lib/pick_nav_place
+[0.678s] writing list of installed files to '/root/irslab_ws/build/pick_nav_place/install.log'
+[0.703s] Invoked command in '/root/irslab_ws/src/pick_nav_place' returned '0': PYTHONPATH=/root/irslab_ws/build/pick_nav_place/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/pick_nav_place build --build-base /root/irslab_ws/build/pick_nav_place/build install --record /root/irslab_ws/build/pick_nav_place/install.log --single-version-externally-managed install_data

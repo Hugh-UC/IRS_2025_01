@@ -6,6 +6,7 @@ import rclpy
 from rclpy.action import ActionClient
 from geometry_msgs.msg import PoseStamped
 from nav2_msgs.action import NavigateToPose
+from std_msgs.msg import String
 
 
 # --- Helper function to build a PoseStamped ---
@@ -32,11 +33,17 @@ def main():
     rclpy.init()
     node = rclpy.create_node('hs_waypoint_follower_nav2pose')
 
+    goal_checker_pub = node.create_publisher(
+        String, 
+        'current_goal_checker', # <-- Use the topic name from your BT XML
+        1
+    )
+
     # 2. Create an ActionClient for the NavigateToPose action
     client = ActionClient(node, NavigateToPose, 'navigate_to_pose')
 
     # --- Function to send a goal and wait for result ---
-    def send_and_wait(pose: PoseStamped) -> bool:
+    def send_and_wait(pose: PoseStamped, precise_check = False) -> bool:
         node.get_logger().info('Waiting for Nav2 action server...')
         client.wait_for_server()
 
@@ -46,6 +53,18 @@ def main():
         # Wrap pose in a NavigateToPose goal message
         goal = NavigateToPose.Goal()
         goal.pose = pose
+
+        # 2. Select the Goal Checker
+        msg = String()
+        if precise_check:
+            msg.data = "precise_goal_checker"
+            node.get_logger().info('Publishing PRECISE Goal Checker ID.')
+        else:
+            msg.data = "general_goal_checker"
+            node.get_logger().info('Publishing GENERAL Goal Checker ID.')
+            
+        goal_checker_pub.publish(msg)
+        time.sleep(0.1)
 
         # Simple feedback callback: prints distance left to target
         def feedback_cb(fb):
@@ -87,7 +106,7 @@ def main():
 
 
     # 3. Go to first waypoint
-    send_and_wait(wp1)
+    send_and_wait(wp1, precise_check=True)
 
     wait_seconds : int = 1
 
@@ -95,6 +114,7 @@ def main():
     node.get_logger().info(f'Waiting {wait_seconds:.0f} seconds at waypoint 1...')
     time.sleep(wait_seconds)
 
+    """
     # 5. Go to other waypoints and delays if you want
     send_and_wait(wp2)
     node.get_logger().info(f'Waiting {wait_seconds:.0f} seconds at waypoint 2...')
@@ -111,6 +131,7 @@ def main():
     send_and_wait(wp6)
     node.get_logger().info(f'Waiting {wait_seconds:.0f} seconds at waypoint 5...')
     time.sleep(wait_seconds)
+    """
 
     # 6. Shutdown node and ROS2
     node.get_logger().info('Navigation sequence complete. Shutting down.')
