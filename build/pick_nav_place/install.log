@@ -1,13 +1,13 @@
 /root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place/plc_hmi_listener.py
-/root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place/hs_waypoint_follower.py
 /root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place/__init__.py
+/root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place/robot_arm_controller.py
+/root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place/robot_waypoint_follower.py
 /root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place/warehouse_coordinator.py
-/root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place/hs_pick_place.py
 /root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place/__pycache__/plc_hmi_listener.cpython-310.pyc
-/root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place/__pycache__/hs_waypoint_follower.cpython-310.pyc
 /root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place/__pycache__/__init__.cpython-310.pyc
+/root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place/__pycache__/robot_arm_controller.cpython-310.pyc
+/root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place/__pycache__/robot_waypoint_follower.cpython-310.pyc
 /root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place/__pycache__/warehouse_coordinator.cpython-310.pyc
-/root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place/__pycache__/hs_pick_place.cpython-310.pyc
 /root/irslab_ws/install/pick_nav_place/share/ament_index/resource_index/packages/pick_nav_place
 /root/irslab_ws/install/pick_nav_place/share/pick_nav_place/package.xml
 /root/irslab_ws/install/pick_nav_place/share/pick_nav_place/launch/mapping_launch.py
@@ -26,7 +26,7 @@
 /root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place-0.0.0-py3.10.egg-info/entry_points.txt
 /root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place-0.0.0-py3.10.egg-info/zip-safe
 /root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place-0.0.0-py3.10.egg-info/dependency_links.txt
-/root/irslab_ws/install/pick_nav_place/lib/pick_nav_place/hs_pick_place
-/root/irslab_ws/install/pick_nav_place/lib/pick_nav_place/hs_waypoint_follower
 /root/irslab_ws/install/pick_nav_place/lib/pick_nav_place/plc_hmi_listener
+/root/irslab_ws/install/pick_nav_place/lib/pick_nav_place/robot_arm_controller
+/root/irslab_ws/install/pick_nav_place/lib/pick_nav_place/robot_waypoint_follower
 /root/irslab_ws/install/pick_nav_place/lib/pick_nav_place/warehouse_coordinator

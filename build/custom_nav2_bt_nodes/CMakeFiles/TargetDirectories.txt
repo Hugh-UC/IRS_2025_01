@@ -1,6 +1,6 @@
 /root/irslab_ws/build/custom_nav2_bt_nodes/CMakeFiles/uninstall.dir
 /root/irslab_ws/build/custom_nav2_bt_nodes/CMakeFiles/custom_nav2_bt_nodes_uninstall.dir
-/root/irslab_ws/build/custom_nav2_bt_nodes/CMakeFiles/check_path_alignment_plugin.dir
+/root/irslab_ws/build/custom_nav2_bt_nodes/CMakeFiles/nav2_bt_nodes_check_path_alignment.dir
 /root/irslab_ws/build/custom_nav2_bt_nodes/CMakeFiles/test.dir
 /root/irslab_ws/build/custom_nav2_bt_nodes/CMakeFiles/edit_cache.dir
 /root/irslab_ws/build/custom_nav2_bt_nodes/CMakeFiles/rebuild_cache.dir

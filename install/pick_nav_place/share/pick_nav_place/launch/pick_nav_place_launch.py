@@ -2,12 +2,16 @@ from launch import LaunchDescription
 from launch_ros.actions import Node, LifecycleNode
 from launch_ros.substitutions import FindPackageShare
 from launch.substitutions import PathJoinSubstitution
-from launch.actions import DeclareLaunchArgument, GroupAction
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, GroupAction
 from launch.substitutions import LaunchConfiguration
+from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 def generate_launch_description():
     # Package paths
     pkg_share = FindPackageShare('pick_nav_place')
+
+    # Find MoveIt! package
+    tm12x_moveit_config_pkg = FindPackageShare('tm12x_moveit_config')
     
     # File paths
     rviz_cfg = PathJoinSubstitution([pkg_share, 'rviz', 'pa_rviz_nav2.rviz'])
@@ -25,7 +29,7 @@ def generate_launch_description():
     )
 
     # Static transform publisher
-    static_tf = Node(
+    static_tf_lidar = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
         name='static_base_to_lidar',
@@ -35,6 +39,18 @@ def generate_launch_description():
             'virtual_hand_solo/base_link',
             'virtual_hand_solo/lidar_link'
         ]
+    )
+
+    # Include MoveIt! launch file
+    moveit_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            PathJoinSubstitution([
+                tm12x_moveit_config_pkg, 
+                'launch', 
+                'hand_solo_moveit.launch.py'    # the MoveIt launch file
+            ])
+        ]),
+        launch_arguments={'use_sim_time': use_sim_time}.items()
     )
 
     # Map Server - Lifecycle Node
@@ -180,19 +196,37 @@ def generate_launch_description():
     )
     
     # Waypoint Follower - New Node
-    hs_waypoint_follower = Node(
+    robot_waypoint_follower = Node(
         package='pick_nav_place',
-        executable='hs_waypoint_follower',
-        name='hs_waypoint_follower',
+        executable='robot_waypoint_follower',
+        name='robot_waypoint_follower',
         output='screen',
         emulate_tty=True
     )
 
     # Robot Arm - New Node
-    hs_pick_place = Node(
+    robot_arm_controller = Node(
         package='pick_nav_place',
-        executable='hs_pick_place',
-        name='hs_pick_place',
+        executable='robot_arm_controller',
+        name='robot_arm_controller',
+        output='screen',
+        emulate_tty=True
+    )
+
+    # HMI Listener - New Node
+    plc_hmi_listener = Node(
+        package='pick_nav_place',
+        executable='plc_hmi_listener',
+        name='plc_hmi_listener',
+        output='screen',
+        emulate_tty=True
+    )
+
+    # Warehouse Coordinator - New Node
+    warehouse_coordinator = Node(
+        package='pick_nav_place',
+        executable='warehouse_coordinator',
+        name='warehouse_coordinator',
         output='screen',
         emulate_tty=True
     )
@@ -212,7 +246,10 @@ def generate_launch_description():
         declare_use_sim_time,
         
         # TF
-        static_tf,
+        static_tf_lidar,
+
+        # Arm Control Stack
+        moveit_launch,
         
         # Localization Stack
         map_server,
@@ -227,9 +264,13 @@ def generate_launch_description():
         waypoint_follower,
         velocity_smoother,
         lifecycle_manager_navigation,
-        hs_waypoint_follower,
-        hs_pick_place,
-        
+
+        # Custom Application Nodes
+        robot_waypoint_follower,    # Navigation
+        robot_arm_controller,       # Arm Control
+        plc_hmi_listener,           # Topic Listener
+        warehouse_coordinator,      # Coordination Logic
+
         # Visualization
         rviz
     ])

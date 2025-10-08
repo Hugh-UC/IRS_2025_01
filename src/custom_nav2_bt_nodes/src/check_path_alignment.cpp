@@ -1,6 +1,7 @@
 #include "custom_nav2_bt_nodes/check_path_alignment.hpp"
 #include <memory>
 #include "nav2_behavior_tree/bt_conversions.hpp"
+#include "tf2/utils.h"
 
 namespace custom_nav2_bt_nodes
 {
@@ -52,18 +53,16 @@ BT::NodeStatus CheckPathAlignment::tick()
   double robot_yaw = tf2::getYaw(robot_transform.transform.rotation);
   
   // 4. Calculate Path Start Vector
-  // Use the vector from the first path point to the second path point
-  const auto & start_pose = path.poses[0].pose.position;
-  const auto & next_pose = path.poses[1].pose.position;
-
-  double dx = next_pose.x - start_pose.x;
-  double dy = next_pose.y - start_pose.y;
-  
   // Calculate the yaw of the path vector
-  double path_yaw = std::atan2(dy, dx);
+  double path_yaw = tf2::getYaw(path.poses[0].pose.orientation);
 
   // 5. Calculate Angular Difference
   double angle_diff = std::abs(tf2NormalizeAngle(path_yaw - robot_yaw));
+
+  // Debug Logging
+  RCLCPP_INFO(node_->get_logger(),
+    "Alignment Check: Robot Yaw (%.2f), Path Yaw (%.2f), Diff (%.2f) rad. Threshold: %.2f rad.",
+    robot_yaw, path_yaw, angle_diff, angle_threshold_);
 
   // 6. Check Condition
   if (angle_diff > angle_threshold_) {

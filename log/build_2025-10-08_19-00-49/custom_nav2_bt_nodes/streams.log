@@ -1,0 +1,30 @@
+[0.133s] Invoking command in '/root/irslab_ws/build/custom_nav2_bt_nodes': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/irslab_ws/install/tm_mod_urdf:/root/irslab_ws/install/pick_nav_place:/root/irslab_ws/install/pa_warehouse_status:/root/irslab_ws/install/hand_solo_virtual_nav:/root/irslab_ws/install/hand_solo_arm:/opt/ros/humble /usr/bin/cmake --build /root/irslab_ws/build/custom_nav2_bt_nodes -- -j20 -l20
+[1.901s] [100%] Built target custom_nav2_bt_nodes_check_path_alignment
+[2.421s] Invoked command in '/root/irslab_ws/build/custom_nav2_bt_nodes' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/irslab_ws/install/tm_mod_urdf:/root/irslab_ws/install/pick_nav_place:/root/irslab_ws/install/pa_warehouse_status:/root/irslab_ws/install/hand_solo_virtual_nav:/root/irslab_ws/install/hand_solo_arm:/opt/ros/humble /usr/bin/cmake --build /root/irslab_ws/build/custom_nav2_bt_nodes -- -j20 -l20
+[2.426s] Invoking command in '/root/irslab_ws/build/custom_nav2_bt_nodes': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/irslab_ws/install/tm_mod_urdf:/root/irslab_ws/install/pick_nav_place:/root/irslab_ws/install/pa_warehouse_status:/root/irslab_ws/install/hand_solo_virtual_nav:/root/irslab_ws/install/hand_solo_arm:/opt/ros/humble /usr/bin/cmake --install /root/irslab_ws/build/custom_nav2_bt_nodes
+[2.482s] -- Install configuration: "Release"
+[2.484s] -- Up-to-date: /root/irslab_ws/install/custom_nav2_bt_nodes/lib/libcustom_nav2_bt_nodes_check_path_alignment.so
+[2.486s] -- Up-to-date: /root/irslab_ws/install/custom_nav2_bt_nodes/share/custom_nav2_bt_nodes/environment/library_path.sh
+[2.486s] -- Up-to-date: /root/irslab_ws/install/custom_nav2_bt_nodes/share/custom_nav2_bt_nodes/environment/library_path.dsv
+[2.486s] -- Up-to-date: /root/irslab_ws/install/custom_nav2_bt_nodes/share/custom_nav2_bt_nodes/behavior_tree_plugins.xml
+[2.486s] -- Up-to-date: /root/irslab_ws/install/custom_nav2_bt_nodes/share/ament_index/resource_index/package_run_dependencies/custom_nav2_bt_nodes
+[2.489s] -- Up-to-date: /root/irslab_ws/install/custom_nav2_bt_nodes/share/ament_index/resource_index/parent_prefix_path/custom_nav2_bt_nodes
+[2.490s] -- Up-to-date: /root/irslab_ws/install/custom_nav2_bt_nodes/share/custom_nav2_bt_nodes/environment/ament_prefix_path.sh
+[2.490s] -- Up-to-date: /root/irslab_ws/install/custom_nav2_bt_nodes/share/custom_nav2_bt_nodes/environment/ament_prefix_path.dsv
+[2.490s] -- Up-to-date: /root/irslab_ws/install/custom_nav2_bt_nodes/share/custom_nav2_bt_nodes/environment/path.sh
+[2.490s] -- Up-to-date: /root/irslab_ws/install/custom_nav2_bt_nodes/share/custom_nav2_bt_nodes/environment/path.dsv
+[2.490s] -- Up-to-date: /root/irslab_ws/install/custom_nav2_bt_nodes/share/custom_nav2_bt_nodes/local_setup.bash
+[2.490s] -- Up-to-date: /root/irslab_ws/install/custom_nav2_bt_nodes/share/custom_nav2_bt_nodes/local_setup.sh
+[2.490s] -- Up-to-date: /root/irslab_ws/install/custom_nav2_bt_nodes/share/custom_nav2_bt_nodes/local_setup.zsh
+[2.490s] -- Up-to-date: /root/irslab_ws/install/custom_nav2_bt_nodes/share/custom_nav2_bt_nodes/local_setup.dsv
+[2.491s] -- Installing: /root/irslab_ws/install/custom_nav2_bt_nodes/share/custom_nav2_bt_nodes/package.dsv
+[2.502s] -- Up-to-date: /root/irslab_ws/install/custom_nav2_bt_nodes/share/ament_index/resource_index/packages/custom_nav2_bt_nodes
+[2.502s] -- Up-to-date: /root/irslab_ws/install/custom_nav2_bt_nodes/share/custom_nav2_bt_nodes/cmake/export_custom_nav2_bt_nodesExport.cmake
+[2.502s] -- Up-to-date: /root/irslab_ws/install/custom_nav2_bt_nodes/share/custom_nav2_bt_nodes/cmake/export_custom_nav2_bt_nodesExport-release.cmake
+[2.502s] -- Up-to-date: /root/irslab_ws/install/custom_nav2_bt_nodes/share/custom_nav2_bt_nodes/cmake/ament_cmake_export_targets-extras.cmake
+[2.503s] -- Up-to-date: /root/irslab_ws/install/custom_nav2_bt_nodes/share/custom_nav2_bt_nodes/cmake/ament_cmake_export_libraries-extras.cmake
+[2.503s] -- Up-to-date: /root/irslab_ws/install/custom_nav2_bt_nodes/share/custom_nav2_bt_nodes/cmake/ament_cmake_export_dependencies-extras.cmake
+[2.503s] -- Up-to-date: /root/irslab_ws/install/custom_nav2_bt_nodes/share/custom_nav2_bt_nodes/cmake/custom_nav2_bt_nodesConfig.cmake
+[2.503s] -- Up-to-date: /root/irslab_ws/install/custom_nav2_bt_nodes/share/custom_nav2_bt_nodes/cmake/custom_nav2_bt_nodesConfig-version.cmake
+[2.503s] -- Up-to-date: /root/irslab_ws/install/custom_nav2_bt_nodes/share/custom_nav2_bt_nodes/package.xml
+[2.594s] Invoked command in '/root/irslab_ws/build/custom_nav2_bt_nodes' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/irslab_ws/install/tm_mod_urdf:/root/irslab_ws/install/pick_nav_place:/root/irslab_ws/install/pa_warehouse_status:/root/irslab_ws/install/hand_solo_virtual_nav:/root/irslab_ws/install/hand_solo_arm:/opt/ros/humble /usr/bin/cmake --install /root/irslab_ws/build/custom_nav2_bt_nodes

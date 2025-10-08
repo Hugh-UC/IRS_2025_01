@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = /root/irslab_ws/build/custom_nav2_bt_nodes
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/check_path_alignment_plugin.dir/all
+all: CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -73,7 +73,7 @@ preinstall:
 # The main recursive "clean" target.
 clean: CMakeFiles/uninstall.dir/clean
 clean: CMakeFiles/custom_nav2_bt_nodes_uninstall.dir/clean
-clean: CMakeFiles/check_path_alignment_plugin.dir/clean
+clean: CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -129,30 +129,30 @@ CMakeFiles/custom_nav2_bt_nodes_uninstall.dir/clean:
 .PHONY : CMakeFiles/custom_nav2_bt_nodes_uninstall.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/check_path_alignment_plugin.dir
+# Target rules for target CMakeFiles/nav2_bt_nodes_check_path_alignment.dir
 
 # All Build rule for target.
-CMakeFiles/check_path_alignment_plugin.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/check_path_alignment_plugin.dir/build.make CMakeFiles/check_path_alignment_plugin.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/check_path_alignment_plugin.dir/build.make CMakeFiles/check_path_alignment_plugin.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/irslab_ws/build/custom_nav2_bt_nodes/CMakeFiles --progress-num=1,2 "Built target check_path_alignment_plugin"
-.PHONY : CMakeFiles/check_path_alignment_plugin.dir/all
+CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/build.make CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/build.make CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/irslab_ws/build/custom_nav2_bt_nodes/CMakeFiles --progress-num=1,2 "Built target nav2_bt_nodes_check_path_alignment"
+.PHONY : CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/check_path_alignment_plugin.dir/rule: cmake_check_build_system
+CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/irslab_ws/build/custom_nav2_bt_nodes/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/check_path_alignment_plugin.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/irslab_ws/build/custom_nav2_bt_nodes/CMakeFiles 0
-.PHONY : CMakeFiles/check_path_alignment_plugin.dir/rule
+.PHONY : CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/rule
 
 # Convenience name for target.
-check_path_alignment_plugin: CMakeFiles/check_path_alignment_plugin.dir/rule
-.PHONY : check_path_alignment_plugin
+nav2_bt_nodes_check_path_alignment: CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/rule
+.PHONY : nav2_bt_nodes_check_path_alignment
 
 # clean rule for target.
-CMakeFiles/check_path_alignment_plugin.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/check_path_alignment_plugin.dir/build.make CMakeFiles/check_path_alignment_plugin.dir/clean
-.PHONY : CMakeFiles/check_path_alignment_plugin.dir/clean
+CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/build.make CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/clean
+.PHONY : CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

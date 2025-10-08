@@ -1,0 +1,18 @@
+[35m[1mConsolidate compiler generated dependencies of target nav2_bt_nodes_check_path_alignment[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/src/check_path_alignment.cpp.o[0m
+[01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:[m[K In member function ‘[01m[Kvirtual BT::NodeStatus custom_nav2_bt_nodes::CheckPathAlignment::tick()[m[K’:
+[01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:60:37:[m[K [01;31m[Kerror: [m[K‘[01m[Ktf2NormalizeAngle[m[K’ is not a member of ‘[01m[Ktf2[m[K’; did you mean ‘[01m[Ktf2NormalizeAngle[m[K’?
+   60 |   double angle_diff = std::abs(tf2::[01;31m[Ktf2NormalizeAngle[m[K(path_yaw - robot_yaw));
+      |                                     [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/tf2/tf2/LinearMath/Vector3.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/tf2/tf2/LinearMath/Quaternion.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/tf2_geometry_msgs/tf2_geometry_msgs/tf2_geometry_msgs.hpp:57[m[K,
+                 from [01m[K/opt/ros/humble/include/nav2_util/geometry_utils.hpp:25[m[K,
+                 from [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/include/custom_nav2_bt_nodes/check_path_alignment.hpp:5[m[K,
+                 from [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:1[m[K:
+[01m[K/opt/ros/humble/include/tf2/tf2/LinearMath/Scalar.hpp:387:32:[m[K [01;36m[Knote: [m[K‘[01m[Ktf2NormalizeAngle[m[K’ declared here
+  387 | TF2SIMD_FORCE_INLINE tf2Scalar [01;36m[Ktf2NormalizeAngle[m[K(tf2Scalar angleInRadians)
+      |                                [01;36m[K^~~~~~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/build.make:76: CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/src/check_path_alignment.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

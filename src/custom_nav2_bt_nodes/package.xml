@@ -23,5 +23,9 @@
 
   <export>
     <build_type>ament_cmake</build_type>
+    <nav2_behavior_tree plugin="${prefix}/behavior_tree_plugins.xml"/>
+    <pluginlib_export>
+      <library path="behavior_tree_plugins.xml" />
+    </pluginlib_export>
   </export>
 </package>

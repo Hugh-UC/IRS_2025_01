@@ -7,7 +7,7 @@ from launch.substitutions import LaunchConfiguration
 
 def generate_launch_description():
     # Package paths
-    pkg_share = FindPackageShare('pick_nav_place')
+    pkg_share = FindPackageShare('hand_solo_virtual_nav')
     
     # File paths
     rviz_cfg = PathJoinSubstitution([pkg_share, 'rviz', 'pa_rviz_nav2.rviz'])
@@ -180,10 +180,10 @@ def generate_launch_description():
     )
     
     # Waypoint Follower - New Node
-    hs_waypoint_follower = Node(
+    robot_waypoint_follower = Node(
         package='pick_nav_place',
-        executable='hs_waypoint_follower', # The entry point name from setup.py
-        name='hs_waypoint_follower',
+        executable='robot_waypoint_follower',   # the entry point name from setup.py
+        name='robot_waypoint_follower',
         output='screen',
         emulate_tty=True
     )
@@ -218,7 +218,7 @@ def generate_launch_description():
         waypoint_follower,
         velocity_smoother,
         lifecycle_manager_navigation,
-        hs_waypoint_follower,
+        robot_waypoint_follower,
         
         # Visualization
         rviz

@@ -7,7 +7,7 @@ from std_msgs.msg import String
 import json
 from typing import Any
 
-class WarehouseHmiListener(Node):
+class PLCHmiListener(Node):
     """
     ROS 2 Node responsible for listening to the 'hmi/unified_status' topic.
     Receiving real-time status updates from the warehouse environment, including box detection data and cumulative counts.
@@ -22,7 +22,7 @@ class WarehouseHmiListener(Node):
         Initializes internal attributes to store the latest parsed data 
         and creates a subscription to the 'hmi/unified_status' topic.
         """
-        super().__init__('warehouse_hmi_listener')
+        super().__init__('plc_hmi_listener')
 
         self._stamp : dict[str, int] | None         = None
         self._box_data : dict[str, Any] | None      = None
@@ -255,16 +255,17 @@ class WarehouseHmiListener(Node):
 
 def main(args=None) -> None:
     """
-    Initializes the ROS 2 node and spins the WarehouseHmiListener.
+    Initializes the ROS 2 node and spins the PLCHmiListener.
     """
     rclpy.init(args=args)
-    warehouse_hmi_listener = WarehouseHmiListener()
+    node = PLCHmiListener()
+
     try:
-        rclpy.spin(warehouse_hmi_listener)
+        rclpy.spin(node)
     except KeyboardInterrupt:
-        warehouse_hmi_listener.get_logger().info('HMI Listener stopped by user.')
+        node.get_logger().info('HMI Listener stopped by user.')
     finally:
-        warehouse_hmi_listener.destroy_node()
+        node.destroy_node()
         rclpy.shutdown()
 
 

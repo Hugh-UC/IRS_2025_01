@@ -1039,5 +1039,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/uninstall.dir/DependInfo.cmake"
   "CMakeFiles/custom_nav2_bt_nodes_uninstall.dir/DependInfo.cmake"
-  "CMakeFiles/check_path_alignment_plugin.dir/DependInfo.cmake"
+  "CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/DependInfo.cmake"
   )

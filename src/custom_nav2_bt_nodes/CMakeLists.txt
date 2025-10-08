@@ -21,14 +21,14 @@ find_package(pluginlib REQUIRED)
 include_directories(include)
 
 add_library(
-  check_path_alignment_plugin
+  nav2_bt_nodes_check_path_alignment
   SHARED
   src/check_path_alignment.cpp
 )
 
-target_compile_features(check_path_alignment_plugin PUBLIC cxx_std_17)
+target_compile_features(nav2_bt_nodes_check_path_alignment PUBLIC cxx_std_17)
 ament_target_dependencies(
-  check_path_alignment_plugin
+  nav2_bt_nodes_check_path_alignment
   rclcpp
   nav2_behavior_tree
   nav2_util
@@ -41,7 +41,7 @@ ament_target_dependencies(
 )
 
 install(
-  TARGETS check_path_alignment_plugin
+  TARGETS nav2_bt_nodes_check_path_alignment
   EXPORT export_${PROJECT_NAME}
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
@@ -49,12 +49,12 @@ install(
 )
 
 ament_export_targets(export_${PROJECT_NAME} HAS_LIBRARY_TARGET)
-ament_export_libraries(check_path_alignment_plugin)
+ament_export_libraries(nav2_bt_nodes_check_path_alignment)
 ament_export_dependencies(rclcpp nav2_behavior_tree nav2_util nav_msgs geometry_msgs tf2_ros tf2 behaviortree_cpp_v3)
 
 # install the XML definition file for the BT factory
 install(
-  FILES plugin_description.xml
+  FILES behavior_tree_plugins.xml
   DESTINATION share/${PROJECT_NAME}
 )
 

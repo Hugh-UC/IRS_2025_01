@@ -1,0 +1,28 @@
+[2.431s] Invoking command in '/root/irslab_ws/src/pick_nav_place': PYTHONPATH=/root/irslab_ws/build/pick_nav_place/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/pick_nav_place build --build-base /root/irslab_ws/build/pick_nav_place/build install --record /root/irslab_ws/build/pick_nav_place/install.log --single-version-externally-managed install_data
+[2.742s] running egg_info
+[2.743s] writing ../../build/pick_nav_place/pick_nav_place.egg-info/PKG-INFO
+[2.744s] writing dependency_links to ../../build/pick_nav_place/pick_nav_place.egg-info/dependency_links.txt
+[2.744s] writing entry points to ../../build/pick_nav_place/pick_nav_place.egg-info/entry_points.txt
+[2.744s] writing requirements to ../../build/pick_nav_place/pick_nav_place.egg-info/requires.txt
+[2.744s] writing top-level names to ../../build/pick_nav_place/pick_nav_place.egg-info/top_level.txt
+[2.747s] reading manifest file '../../build/pick_nav_place/pick_nav_place.egg-info/SOURCES.txt'
+[2.747s] adding license file 'LICENSE'
+[2.748s] writing manifest file '../../build/pick_nav_place/pick_nav_place.egg-info/SOURCES.txt'
+[2.748s] running build
+[2.748s] running build_py
+[2.748s] copying pick_nav_place/warehouse_coordinator.py -> /root/irslab_ws/build/pick_nav_place/build/lib/pick_nav_place
+[2.749s] running install
+[2.749s] running install_lib
+[2.750s] copying /root/irslab_ws/build/pick_nav_place/build/lib/pick_nav_place/warehouse_coordinator.py -> /root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place
+[2.751s] byte-compiling /root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place/warehouse_coordinator.py to warehouse_coordinator.cpython-310.pyc
+[2.752s] running install_data
+[2.755s] running install_egg_info
+[2.758s] removing '/root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place-0.0.0-py3.10.egg-info' (and everything under it)
+[2.759s] Copying ../../build/pick_nav_place/pick_nav_place.egg-info to /root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages/pick_nav_place-0.0.0-py3.10.egg-info
+[2.759s] running install_scripts
+[2.784s] Installing hs_pick_place script to /root/irslab_ws/install/pick_nav_place/lib/pick_nav_place
+[2.785s] Installing hs_waypoint_follower script to /root/irslab_ws/install/pick_nav_place/lib/pick_nav_place
+[2.785s] Installing plc_hmi_listener script to /root/irslab_ws/install/pick_nav_place/lib/pick_nav_place
+[2.785s] Installing warehouse_coordinator script to /root/irslab_ws/install/pick_nav_place/lib/pick_nav_place
+[2.786s] writing list of installed files to '/root/irslab_ws/build/pick_nav_place/install.log'
+[2.820s] Invoked command in '/root/irslab_ws/src/pick_nav_place' returned '0': PYTHONPATH=/root/irslab_ws/build/pick_nav_place/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/irslab_ws/install/pick_nav_place/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/pick_nav_place build --build-base /root/irslab_ws/build/pick_nav_place/build install --record /root/irslab_ws/build/pick_nav_place/install.log --single-version-externally-managed install_data

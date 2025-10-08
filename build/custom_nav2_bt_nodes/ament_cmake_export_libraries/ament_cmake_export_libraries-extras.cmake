@@ -1,6 +1,6 @@
 # generated from ament_cmake_export_libraries/cmake/template/ament_cmake_export_libraries.cmake.in
 
-set(_exported_libraries "check_path_alignment_plugin")
+set(_exported_libraries "nav2_bt_nodes_check_path_alignment")
 set(_exported_library_names "")
 
 # populate custom_nav2_bt_nodes_LIBRARIES

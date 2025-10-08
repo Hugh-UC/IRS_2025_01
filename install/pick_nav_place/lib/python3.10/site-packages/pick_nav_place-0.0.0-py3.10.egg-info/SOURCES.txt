@@ -17,9 +17,9 @@ launch/pick_nav_place_launch.py
 map/pa_warehouse_map_01.pgm
 map/pa_warehouse_map_01.yaml
 pick_nav_place/__init__.py
-pick_nav_place/hs_pick_place.py
-pick_nav_place/hs_waypoint_follower.py
 pick_nav_place/plc_hmi_listener.py
+pick_nav_place/robot_arm_controller.py
+pick_nav_place/robot_waypoint_follower.py
 pick_nav_place/warehouse_coordinator.py
 resource/pick_nav_place
 rviz/pa_rviz_mapping.rviz

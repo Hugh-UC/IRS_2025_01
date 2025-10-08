@@ -1,7 +1,7 @@
-/root/irslab_ws/install/custom_nav2_bt_nodes/lib/libcheck_path_alignment_plugin.so
+/root/irslab_ws/install/custom_nav2_bt_nodes/lib/libnav2_bt_nodes_check_path_alignment.so
 /root/irslab_ws/install/custom_nav2_bt_nodes/share/custom_nav2_bt_nodes/environment/library_path.sh
 /root/irslab_ws/install/custom_nav2_bt_nodes/share/custom_nav2_bt_nodes/environment/library_path.dsv
-/root/irslab_ws/install/custom_nav2_bt_nodes/share/custom_nav2_bt_nodes/plugin_description.xml
+/root/irslab_ws/install/custom_nav2_bt_nodes/share/custom_nav2_bt_nodes/behavior_tree_plugins.xml
 /root/irslab_ws/install/custom_nav2_bt_nodes/share/ament_index/resource_index/package_run_dependencies/custom_nav2_bt_nodes
 /root/irslab_ws/install/custom_nav2_bt_nodes/share/ament_index/resource_index/parent_prefix_path/custom_nav2_bt_nodes
 /root/irslab_ws/install/custom_nav2_bt_nodes/share/custom_nav2_bt_nodes/environment/ament_prefix_path.sh

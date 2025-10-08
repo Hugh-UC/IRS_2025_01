@@ -26,8 +26,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'hs_waypoint_follower = pick_nav_place.hs_waypoint_follower:main',
-            'hs_pick_place = pick_nav_place.hs_pick_place:main',
+            'robot_waypoint_follower = pick_nav_place.robot_waypoint_follower:main',
+            'robot_arm_controller = pick_nav_place.robot_arm_controller:main',
             'plc_hmi_listener = pick_nav_place.plc_hmi_listener:main',
             'warehouse_coordinator = pick_nav_place.warehouse_coordinator:main',
         ],
