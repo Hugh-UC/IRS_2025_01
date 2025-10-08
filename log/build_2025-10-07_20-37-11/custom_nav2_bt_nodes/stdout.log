@@ -1,0 +1,10 @@
+[35m[1mConsolidate compiler generated dependencies of target check_path_alignment_plugin[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/check_path_alignment_plugin.dir/src/check_path_alignment.cpp.o[0m
+[100%] [32m[1mLinking CXX shared library libcheck_path_alignment_plugin.so[0m
+[100%] Built target check_path_alignment_plugin
+-- Install configuration: "Release"
+-- Installing: /root/irslab_ws/install/custom_nav2_bt_nodes/lib/libcheck_path_alignment_plugin.so
+-- Set runtime path of "/root/irslab_ws/install/custom_nav2_bt_nodes/lib/libcheck_path_alignment_plugin.so" to ""
+-- Installing: /root/irslab_ws/install/custom_nav2_bt_nodes/share/custom_nav2_bt_nodes/environment/library_path.sh
+-- Installing: /root/irslab_ws/install/custom_nav2_bt_nodes/share/custom_nav2_bt_nodes/environment/library_path.dsv
+-- Installing: /root/irslab_ws/install/custom_nav2_bt_nodes/share/custom_nav2_bt_nodes/plugin_description.xml

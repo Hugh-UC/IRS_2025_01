@@ -1,0 +1,119 @@
+[0.000000] (-) TimerEvent: {}
+[0.000124] (custom_nav2_bt_nodes) JobQueued: {'identifier': 'custom_nav2_bt_nodes', 'dependencies': OrderedDict()}
+[0.000164] (hand_solo_arm) JobQueued: {'identifier': 'hand_solo_arm', 'dependencies': OrderedDict()}
+[0.000188] (hand_solo_virtual_nav) JobQueued: {'identifier': 'hand_solo_virtual_nav', 'dependencies': OrderedDict()}
+[0.000269] (pa_warehouse_status) JobQueued: {'identifier': 'pa_warehouse_status', 'dependencies': OrderedDict()}
+[0.000300] (pick_nav_place) JobQueued: {'identifier': 'pick_nav_place', 'dependencies': OrderedDict()}
+[0.000326] (tm_description) JobQueued: {'identifier': 'tm_description', 'dependencies': OrderedDict()}
+[0.000355] (tm_mod_urdf) JobQueued: {'identifier': 'tm_mod_urdf', 'dependencies': OrderedDict()}
+[0.000386] (tm_msgs) JobQueued: {'identifier': 'tm_msgs', 'dependencies': OrderedDict()}
+[0.000457] (tm12_moveit_config) JobQueued: {'identifier': 'tm12_moveit_config', 'dependencies': OrderedDict([('tm_description', '/root/irslab_ws/install/tm_description')])}
+[0.000482] (tm12x_moveit_config) JobQueued: {'identifier': 'tm12x_moveit_config', 'dependencies': OrderedDict([('tm_description', '/root/irslab_ws/install/tm_description')])}
+[0.000501] (tm14_moveit_config) JobQueued: {'identifier': 'tm14_moveit_config', 'dependencies': OrderedDict([('tm_description', '/root/irslab_ws/install/tm_description')])}
+[0.000520] (tm14x_moveit_config) JobQueued: {'identifier': 'tm14x_moveit_config', 'dependencies': OrderedDict([('tm_description', '/root/irslab_ws/install/tm_description')])}
+[0.000545] (tm16_moveit_config) JobQueued: {'identifier': 'tm16_moveit_config', 'dependencies': OrderedDict([('tm_description', '/root/irslab_ws/install/tm_description')])}
+[0.000576] (tm20_moveit_config) JobQueued: {'identifier': 'tm20_moveit_config', 'dependencies': OrderedDict([('tm_description', '/root/irslab_ws/install/tm_description')])}
+[0.000621] (tm5-700_moveit_config) JobQueued: {'identifier': 'tm5-700_moveit_config', 'dependencies': OrderedDict([('tm_description', '/root/irslab_ws/install/tm_description')])}
+[0.000642] (tm5-900_moveit_config) JobQueued: {'identifier': 'tm5-900_moveit_config', 'dependencies': OrderedDict([('tm_description', '/root/irslab_ws/install/tm_description')])}
+[0.000695] (tm5x-700_moveit_config) JobQueued: {'identifier': 'tm5x-700_moveit_config', 'dependencies': OrderedDict([('tm_description', '/root/irslab_ws/install/tm_description')])}
+[0.000715] (tm5x-900_moveit_config) JobQueued: {'identifier': 'tm5x-900_moveit_config', 'dependencies': OrderedDict([('tm_description', '/root/irslab_ws/install/tm_description')])}
+[0.000733] (tm_driver) JobQueued: {'identifier': 'tm_driver', 'dependencies': OrderedDict([('tm_msgs', '/root/irslab_ws/install/tm_msgs')])}
+[0.000755] (tm_inspect) JobQueued: {'identifier': 'tm_inspect', 'dependencies': OrderedDict([('tm_msgs', '/root/irslab_ws/install/tm_msgs')])}
+[0.000782] (tm_test) JobQueued: {'identifier': 'tm_test', 'dependencies': OrderedDict([('tm_msgs', '/root/irslab_ws/install/tm_msgs')])}
+[0.000822] (tm_description) JobStarted: {'identifier': 'tm_description'}
+[0.004779] (tm_msgs) JobStarted: {'identifier': 'tm_msgs'}
+[0.007166] (custom_nav2_bt_nodes) JobStarted: {'identifier': 'custom_nav2_bt_nodes'}
+[0.009222] (hand_solo_arm) JobStarted: {'identifier': 'hand_solo_arm'}
+[0.012088] (hand_solo_virtual_nav) JobStarted: {'identifier': 'hand_solo_virtual_nav'}
+[0.014831] (pa_warehouse_status) JobStarted: {'identifier': 'pa_warehouse_status'}
+[0.017703] (pick_nav_place) JobStarted: {'identifier': 'pick_nav_place'}
+[0.021903] (tm_mod_urdf) JobStarted: {'identifier': 'tm_mod_urdf'}
+[0.026164] (tm_description) JobProgress: {'identifier': 'tm_description', 'progress': 'cmake'}
+[0.026479] (tm_description) JobProgress: {'identifier': 'tm_description', 'progress': 'build'}
+[0.026978] (tm_description) Command: {'cmd': ['/usr/bin/cmake', '--build', '/root/irslab_ws/build/tm_description', '--', '-j20', '-l20'], 'cwd': '/root/irslab_ws/build/tm_description', 'env': OrderedDict([('HOSTNAME', 'hugh-Zenbook-UX3404VC'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/'), ('PYTHONUNBUFFERED', '1'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/root/irslab_ws/build/tm_description'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.028625] (tm_msgs) JobProgress: {'identifier': 'tm_msgs', 'progress': 'cmake'}
+[0.028941] (tm_msgs) JobProgress: {'identifier': 'tm_msgs', 'progress': 'build'}
+[0.029413] (tm_msgs) Command: {'cmd': ['/usr/bin/cmake', '--build', '/root/irslab_ws/build/tm_msgs', '--', '-j20', '-l20'], 'cwd': '/root/irslab_ws/build/tm_msgs', 'env': OrderedDict([('HOSTNAME', 'hugh-Zenbook-UX3404VC'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/'), ('PYTHONUNBUFFERED', '1'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/root/irslab_ws/build/tm_msgs'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.030355] (custom_nav2_bt_nodes) JobProgress: {'identifier': 'custom_nav2_bt_nodes', 'progress': 'cmake'}
+[0.030495] (custom_nav2_bt_nodes) JobProgress: {'identifier': 'custom_nav2_bt_nodes', 'progress': 'build'}
+[0.031170] (custom_nav2_bt_nodes) Command: {'cmd': ['/usr/bin/cmake', '--build', '/root/irslab_ws/build/custom_nav2_bt_nodes', '--', '-j20', '-l20'], 'cwd': '/root/irslab_ws/build/custom_nav2_bt_nodes', 'env': OrderedDict([('HOSTNAME', 'hugh-Zenbook-UX3404VC'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/'), ('PYTHONUNBUFFERED', '1'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/root/irslab_ws/build/custom_nav2_bt_nodes'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.099528] (-) TimerEvent: {}
+[0.199774] (-) TimerEvent: {}
+[0.300110] (-) TimerEvent: {}
+[0.400426] (-) TimerEvent: {}
+[0.500753] (-) TimerEvent: {}
+[0.525130] (tm_msgs) StdoutLine: {'line': b'[  0%] Built target tm_msgs__cpp\n'}
+[0.525681] (tm_msgs) StdoutLine: {'line': b'[ 12%] Built target tm_msgs__rosidl_generator_c\n'}
+[0.526315] (tm_msgs) StdoutLine: {'line': b'[ 12%] Built target ament_cmake_python_copy_tm_msgs\n'}
+[0.526582] (tm_msgs) StdoutLine: {'line': b'[ 24%] Built target tm_msgs__rosidl_typesupport_c\n'}
+[0.526625] (tm_msgs) StdoutLine: {'line': b'[ 36%] Built target tm_msgs__rosidl_typesupport_introspection_cpp\n'}
+[0.526671] (tm_msgs) StdoutLine: {'line': b'[ 48%] Built target tm_msgs__rosidl_typesupport_fastrtps_c\n'}
+[0.526793] (tm_msgs) StdoutLine: {'line': b'[ 60%] Built target tm_msgs__rosidl_typesupport_introspection_c\n'}
+[0.527310] (tm_msgs) StdoutLine: {'line': b'[ 72%] Built target tm_msgs__rosidl_typesupport_fastrtps_cpp\n'}
+[0.527434] (tm_msgs) StdoutLine: {'line': b'[ 84%] Built target tm_msgs__rosidl_typesupport_cpp\n'}
+[0.527528] (tm_msgs) StdoutLine: {'line': b'[ 84%] Built target tm_msgs\n'}
+[0.527616] (tm_msgs) StdoutLine: {'line': b'[ 85%] Built target tm_msgs__py\n'}
+[0.527702] (tm_msgs) StdoutLine: {'line': b'[ 96%] Built target tm_msgs__rosidl_generator_py\n'}
+[0.527787] (tm_msgs) StdoutLine: {'line': b'[100%] Built target tm_msgs__rosidl_typesupport_c__pyext\n'}
+[0.527869] (tm_msgs) StdoutLine: {'line': b'[100%] Built target tm_msgs__rosidl_typesupport_introspection_c__pyext\n'}
+[0.527955] (tm_msgs) StdoutLine: {'line': b'[100%] Built target tm_msgs__rosidl_typesupport_fastrtps_c__pyext\n'}
+[0.528046] (tm_msgs) StdoutLine: {'line': b'running egg_info\n'}
+[0.528134] (tm_msgs) StdoutLine: {'line': b'writing tm_msgs.egg-info/PKG-INFO\n'}
+[0.528220] (tm_msgs) StdoutLine: {'line': b'writing dependency_links to tm_msgs.egg-info/dependency_links.txt\n'}
+[0.528309] (tm_msgs) StdoutLine: {'line': b'writing top-level names to tm_msgs.egg-info/top_level.txt\n'}
+[0.528406] (tm_msgs) StdoutLine: {'line': b"reading manifest file 'tm_msgs.egg-info/SOURCES.txt'\n"}
+[0.528492] (tm_msgs) StdoutLine: {'line': b"writing manifest file 'tm_msgs.egg-info/SOURCES.txt'\n"}
+[0.528577] (tm_msgs) StdoutLine: {'line': b'[100%] Built target ament_cmake_python_build_tm_msgs_egg\n'}
+[0.528665] (custom_nav2_bt_nodes) StderrLine: {'line': b'\x1b[31mCMake Error at /opt/ros/humble/share/ament_cmake_core/cmake/core/assert_file_exists.cmake:20 (message):\n'}
+[0.528793] (custom_nav2_bt_nodes) StderrLine: {'line': b"  ament_package() called with extra file 'install/local_setup.bash' which\n"}
+[0.528886] (custom_nav2_bt_nodes) StderrLine: {'line': b'  does not exist\n'}
+[0.528973] (custom_nav2_bt_nodes) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[0.529058] (custom_nav2_bt_nodes) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/core/ament_package.cmake:98 (assert_file_exists)\n'}
+[0.529145] (custom_nav2_bt_nodes) StderrLine: {'line': b'  /opt/ros/humble/share/ament_cmake_core/cmake/core/ament_package.cmake:68 (_ament_package)\n'}
+[0.529227] (custom_nav2_bt_nodes) StderrLine: {'line': b'  CMakeLists.txt:62 (ament_package)\n'}
+[0.529312] (custom_nav2_bt_nodes) StderrLine: {'line': b'\n'}
+[0.529414] (custom_nav2_bt_nodes) StderrLine: {'line': b'\x1b[0m\n'}
+[0.529497] (custom_nav2_bt_nodes) StderrLine: {'line': b'gmake: *** [Makefile:267: cmake_check_build_system] Error 1\n'}
+[0.529585] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.529699] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.529794] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.529885] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.529974] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.530067] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.530161] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.530255] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.530350] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)\n'}
+[0.530438] (custom_nav2_bt_nodes) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_cyclonedds_cpp' as default\n"}
+[0.530532] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Found nav2_behavior_tree: 1.1.18 (/opt/ros/humble/share/nav2_behavior_tree/cmake)\n'}
+[0.530673] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)\n'}
+[0.530740] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[0.530781] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Found pluginlib: 5.1.0 (/opt/ros/humble/share/pluginlib/cmake)\n'}
+[0.530818] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[0.530857] (custom_nav2_bt_nodes) StdoutLine: {'line': b'See also "/root/irslab_ws/build/custom_nav2_bt_nodes/CMakeFiles/CMakeOutput.log".\n'}
+[0.600949] (-) TimerEvent: {}
+[0.636155] (custom_nav2_bt_nodes) CommandEnded: {'returncode': 2}
+[0.642213] (custom_nav2_bt_nodes) JobEnded: {'identifier': 'custom_nav2_bt_nodes', 'rc': 2}
+[0.642969] (tm_msgs) CommandEnded: {'returncode': 0}
+[0.643109] (tm_msgs) JobProgress: {'identifier': 'tm_msgs', 'progress': 'install'}
+[0.652026] (tm_msgs) Command: {'cmd': ['/usr/bin/cmake', '--install', '/root/irslab_ws/build/tm_msgs'], 'cwd': '/root/irslab_ws/build/tm_msgs', 'env': OrderedDict([('HOSTNAME', 'hugh-Zenbook-UX3404VC'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/'), ('PYTHONUNBUFFERED', '1'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/root/irslab_ws/build/tm_msgs'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.652732] (tm_mod_urdf) JobEnded: {'identifier': 'tm_mod_urdf', 'rc': 'SIGINT'}
+[0.653268] (hand_solo_arm) JobEnded: {'identifier': 'hand_solo_arm', 'rc': 'SIGINT'}
+[0.653439] (hand_solo_virtual_nav) JobEnded: {'identifier': 'hand_solo_virtual_nav', 'rc': 'SIGINT'}
+[0.653544] (pa_warehouse_status) JobEnded: {'identifier': 'pa_warehouse_status', 'rc': 'SIGINT'}
+[0.653634] (pick_nav_place) JobEnded: {'identifier': 'pick_nav_place', 'rc': 'SIGINT'}
+[0.653748] (tm_description) JobEnded: {'identifier': 'tm_description', 'rc': 'SIGINT'}
+[0.653877] (tm_msgs) JobEnded: {'identifier': 'tm_msgs', 'rc': 'SIGINT'}
+[0.663910] (tm12_moveit_config) JobSkipped: {'identifier': 'tm12_moveit_config'}
+[0.663983] (tm12x_moveit_config) JobSkipped: {'identifier': 'tm12x_moveit_config'}
+[0.663999] (tm14_moveit_config) JobSkipped: {'identifier': 'tm14_moveit_config'}
+[0.664011] (tm14x_moveit_config) JobSkipped: {'identifier': 'tm14x_moveit_config'}
+[0.664022] (tm16_moveit_config) JobSkipped: {'identifier': 'tm16_moveit_config'}
+[0.664032] (tm20_moveit_config) JobSkipped: {'identifier': 'tm20_moveit_config'}
+[0.664045] (tm5-700_moveit_config) JobSkipped: {'identifier': 'tm5-700_moveit_config'}
+[0.664076] (tm5-900_moveit_config) JobSkipped: {'identifier': 'tm5-900_moveit_config'}
+[0.664090] (tm5x-700_moveit_config) JobSkipped: {'identifier': 'tm5x-700_moveit_config'}
+[0.664101] (tm5x-900_moveit_config) JobSkipped: {'identifier': 'tm5x-900_moveit_config'}
+[0.664112] (tm_driver) JobSkipped: {'identifier': 'tm_driver'}
+[0.664122] (tm_inspect) JobSkipped: {'identifier': 'tm_inspect'}
+[0.664131] (tm_test) JobSkipped: {'identifier': 'tm_test'}
+[0.664142] (-) EventReactorShutdown: {}

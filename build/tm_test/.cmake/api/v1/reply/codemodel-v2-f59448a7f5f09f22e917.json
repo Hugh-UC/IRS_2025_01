@@ -1,0 +1,232 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Release-63cbbb2441954b41ce01.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "tm_test",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18,
+						19
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_tm_test_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_tm_test_egg-Release-4d9958b1f36afd7e302f.json",
+					"name" : "ament_cmake_python_build_tm_test_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_tm_test::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_tm_test-Release-6a121e04acc507f307e8.json",
+					"name" : "ament_cmake_python_copy_tm_test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "demo_ask_item::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-demo_ask_item-Release-7a86eb9f4620a4072274.json",
+					"name" : "demo_ask_item",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "demo_ask_sta::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-demo_ask_sta-Release-085e8bba0f4b9845fd4f.json",
+					"name" : "demo_ask_sta",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "demo_connect_tm::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-demo_connect_tm-Release-336e0db7b433471ffa70.json",
+					"name" : "demo_connect_tm",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "demo_get_feedback::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-demo_get_feedback-Release-5e4edf75c9df14298ce1.json",
+					"name" : "demo_get_feedback",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "demo_get_sct_response::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-demo_get_sct_response-Release-d05a1c34bf612f81470e.json",
+					"name" : "demo_get_sct_response",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "demo_get_sta_response::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-demo_get_sta_response-Release-b12e09689b2ab2b44abf.json",
+					"name" : "demo_get_sta_response",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "demo_get_svr_response::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-demo_get_svr_response-Release-1246656d6165b2f95244.json",
+					"name" : "demo_get_svr_response",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "demo_get_torque_feedback::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-demo_get_torque_feedback-Release-0f16b699cf01004a90cc.json",
+					"name" : "demo_get_torque_feedback",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "demo_leave_listen_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-demo_leave_listen_node-Release-4f90a9d8586a638547c0.json",
+					"name" : "demo_leave_listen_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "demo_send_script::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-demo_send_script-Release-ffa48470fd7ceba13e5b.json",
+					"name" : "demo_send_script",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "demo_set_event::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-demo_set_event-Release-2e713f5401f06b78dbfa.json",
+					"name" : "demo_set_event",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "demo_set_io::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-demo_set_io-Release-b621e5c8f59d5dc936fe.json",
+					"name" : "demo_set_io",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "demo_set_positions::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-demo_set_positions-Release-fe20c2ff8d2f0f3dec84.json",
+					"name" : "demo_set_positions",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "demo_write_item::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-demo_write_item-Release-59ca8fe6501134e9beb5.json",
+					"name" : "demo_write_item",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "sub_img::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-sub_img-Release-63a49bd42c93af3122a8.json",
+					"name" : "sub_img",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "tm_send_command::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tm_send_command-Release-7993f0fedf4f8ef5137e.json",
+					"name" : "tm_send_command",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "tm_test_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tm_test_uninstall-Release-0b83eaa55be9e20e7d28.json",
+					"name" : "tm_test_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-Release-6a8d40e59ded2ed87fad.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/root/irslab_ws/build/tm_test",
+		"source" : "/root/irslab_ws/src/tmr_ros2/tm_test"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

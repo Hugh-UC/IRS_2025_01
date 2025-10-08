@@ -1,0 +1,14 @@
+In file included from [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:1[m[K:
+[01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/include/custom_nav2_bt_nodes/check_path_alignment.hpp:[m[K In constructor ‘[01m[Kcustom_nav2_bt_nodes::CheckPathAlignment::CheckPathAlignment()[m[K’:
+[01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/include/custom_nav2_bt_nodes/check_path_alignment.hpp:24:24:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[KBT::ConditionNode::ConditionNode()[m[K’
+   24 |   CheckPathAlignment() [01;31m[K{[m[K}
+      |                        [01;31m[K^[m[K
+In file included from [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/include/custom_nav2_bt_nodes/check_path_alignment.hpp:3[m[K,
+                 from [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:1[m[K:
+[01m[K/opt/ros/humble/include/behaviortree_cpp_v3/condition_node.h:24:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[KBT::ConditionNode::ConditionNode(const string&, const BT::NodeConfiguration&)[m[K’
+   24 |   [01;36m[KConditionNode[m[K(const std::string& name, const NodeConfiguration& config);
+      |   [01;36m[K^~~~~~~~~~~~~[m[K
+[01m[K/opt/ros/humble/include/behaviortree_cpp_v3/condition_node.h:24:3:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 0 provided
+gmake[2]: *** [CMakeFiles/check_path_alignment_plugin.dir/build.make:76: CMakeFiles/check_path_alignment_plugin.dir/src/check_path_alignment.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/check_path_alignment_plugin.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

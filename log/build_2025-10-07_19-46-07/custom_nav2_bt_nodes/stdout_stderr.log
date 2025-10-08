@@ -1,0 +1,6 @@
+[35m[1mConsolidate compiler generated dependencies of target check_path_alignment_plugin[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/check_path_alignment_plugin.dir/src/check_path_alignment.cpp.o[0m
+[01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:[m[K In member function ‘[01m[Kvirtual BT::NodeStatus custom_nav2_bt_nodes::CheckPathAlignment::tick()[m[K’:
+[01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:65:59:[m[K [01;31m[Kerror: [m[K‘[01m[Knormalize_angle[m[K’ is not a member of ‘[01m[Knav2_util::geometry_utils[m[K’
+   65 |   double angle_diff = std::abs(nav2_util::geometry_utils::[01;31m[Knormalize_angle[m[K(path_yaw - robot_yaw));
+      |                                                           [01;31m[K^~~~~~~~~~~~~~~[m[K

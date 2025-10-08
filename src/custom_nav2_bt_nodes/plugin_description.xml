@@ -1,0 +1,8 @@
+<library path="check_path_alignment_plugin">
+  <class name="CheckPathAlignment" type="custom_nav2_bt_nodes::CheckPathAlignment" base_class_type="BT::ConditionNode">
+    <description>
+      Checks if the robot is aligned with the start of the path beyond a given angle threshold.
+      Fails if alignment is poor, allowing recovery.
+    </description>
+  </class>
+</library>

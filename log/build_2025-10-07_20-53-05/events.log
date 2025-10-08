@@ -1,0 +1,287 @@
+[0.000000] (-) TimerEvent: {}
+[0.000101] (custom_nav2_bt_nodes) JobQueued: {'identifier': 'custom_nav2_bt_nodes', 'dependencies': OrderedDict()}
+[0.000142] (hand_solo_arm) JobQueued: {'identifier': 'hand_solo_arm', 'dependencies': OrderedDict()}
+[0.000173] (hand_solo_virtual_nav) JobQueued: {'identifier': 'hand_solo_virtual_nav', 'dependencies': OrderedDict()}
+[0.000199] (pa_warehouse_status) JobQueued: {'identifier': 'pa_warehouse_status', 'dependencies': OrderedDict()}
+[0.000250] (pick_nav_place) JobQueued: {'identifier': 'pick_nav_place', 'dependencies': OrderedDict()}
+[0.000279] (tm_description) JobQueued: {'identifier': 'tm_description', 'dependencies': OrderedDict()}
+[0.000299] (tm_mod_urdf) JobQueued: {'identifier': 'tm_mod_urdf', 'dependencies': OrderedDict()}
+[0.000316] (tm_msgs) JobQueued: {'identifier': 'tm_msgs', 'dependencies': OrderedDict()}
+[0.000373] (tm12_moveit_config) JobQueued: {'identifier': 'tm12_moveit_config', 'dependencies': OrderedDict([('tm_description', '/root/irslab_ws/install/tm_description')])}
+[0.000394] (tm12x_moveit_config) JobQueued: {'identifier': 'tm12x_moveit_config', 'dependencies': OrderedDict([('tm_description', '/root/irslab_ws/install/tm_description')])}
+[0.000414] (tm14_moveit_config) JobQueued: {'identifier': 'tm14_moveit_config', 'dependencies': OrderedDict([('tm_description', '/root/irslab_ws/install/tm_description')])}
+[0.000436] (tm14x_moveit_config) JobQueued: {'identifier': 'tm14x_moveit_config', 'dependencies': OrderedDict([('tm_description', '/root/irslab_ws/install/tm_description')])}
+[0.000487] (tm16_moveit_config) JobQueued: {'identifier': 'tm16_moveit_config', 'dependencies': OrderedDict([('tm_description', '/root/irslab_ws/install/tm_description')])}
+[0.000510] (tm20_moveit_config) JobQueued: {'identifier': 'tm20_moveit_config', 'dependencies': OrderedDict([('tm_description', '/root/irslab_ws/install/tm_description')])}
+[0.000519] (tm5-700_moveit_config) JobQueued: {'identifier': 'tm5-700_moveit_config', 'dependencies': OrderedDict([('tm_description', '/root/irslab_ws/install/tm_description')])}
+[0.000528] (tm5-900_moveit_config) JobQueued: {'identifier': 'tm5-900_moveit_config', 'dependencies': OrderedDict([('tm_description', '/root/irslab_ws/install/tm_description')])}
+[0.000536] (tm5x-700_moveit_config) JobQueued: {'identifier': 'tm5x-700_moveit_config', 'dependencies': OrderedDict([('tm_description', '/root/irslab_ws/install/tm_description')])}
+[0.000544] (tm5x-900_moveit_config) JobQueued: {'identifier': 'tm5x-900_moveit_config', 'dependencies': OrderedDict([('tm_description', '/root/irslab_ws/install/tm_description')])}
+[0.000552] (tm_driver) JobQueued: {'identifier': 'tm_driver', 'dependencies': OrderedDict([('tm_msgs', '/root/irslab_ws/install/tm_msgs')])}
+[0.000563] (tm_inspect) JobQueued: {'identifier': 'tm_inspect', 'dependencies': OrderedDict([('tm_msgs', '/root/irslab_ws/install/tm_msgs')])}
+[0.000571] (tm_test) JobQueued: {'identifier': 'tm_test', 'dependencies': OrderedDict([('tm_msgs', '/root/irslab_ws/install/tm_msgs')])}
+[0.000579] (tm_description) JobStarted: {'identifier': 'tm_description'}
+[0.004481] (tm_msgs) JobStarted: {'identifier': 'tm_msgs'}
+[0.006304] (custom_nav2_bt_nodes) JobStarted: {'identifier': 'custom_nav2_bt_nodes'}
+[0.008931] (hand_solo_arm) JobStarted: {'identifier': 'hand_solo_arm'}
+[0.012538] (hand_solo_virtual_nav) JobStarted: {'identifier': 'hand_solo_virtual_nav'}
+[0.016131] (pa_warehouse_status) JobStarted: {'identifier': 'pa_warehouse_status'}
+[0.018633] (pick_nav_place) JobStarted: {'identifier': 'pick_nav_place'}
+[0.021390] (tm_mod_urdf) JobStarted: {'identifier': 'tm_mod_urdf'}
+[0.025692] (tm_description) JobProgress: {'identifier': 'tm_description', 'progress': 'cmake'}
+[0.026046] (tm_description) JobProgress: {'identifier': 'tm_description', 'progress': 'build'}
+[0.026401] (tm_description) Command: {'cmd': ['/usr/bin/cmake', '--build', '/root/irslab_ws/build/tm_description', '--', '-j20', '-l20'], 'cwd': '/root/irslab_ws/build/tm_description', 'env': OrderedDict([('HOSTNAME', 'hugh-Zenbook-UX3404VC'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/'), ('PYTHONUNBUFFERED', '1'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/root/irslab_ws/build/tm_description'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.027910] (tm_msgs) JobProgress: {'identifier': 'tm_msgs', 'progress': 'cmake'}
+[0.028230] (tm_msgs) JobProgress: {'identifier': 'tm_msgs', 'progress': 'build'}
+[0.028435] (tm_msgs) Command: {'cmd': ['/usr/bin/cmake', '--build', '/root/irslab_ws/build/tm_msgs', '--', '-j20', '-l20'], 'cwd': '/root/irslab_ws/build/tm_msgs', 'env': OrderedDict([('HOSTNAME', 'hugh-Zenbook-UX3404VC'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/'), ('PYTHONUNBUFFERED', '1'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/root/irslab_ws/build/tm_msgs'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.029155] (custom_nav2_bt_nodes) JobProgress: {'identifier': 'custom_nav2_bt_nodes', 'progress': 'cmake'}
+[0.029467] (custom_nav2_bt_nodes) JobProgress: {'identifier': 'custom_nav2_bt_nodes', 'progress': 'build'}
+[0.029687] (custom_nav2_bt_nodes) Command: {'cmd': ['/usr/bin/cmake', '--build', '/root/irslab_ws/build/custom_nav2_bt_nodes', '--', '-j20', '-l20'], 'cwd': '/root/irslab_ws/build/custom_nav2_bt_nodes', 'env': OrderedDict([('HOSTNAME', 'hugh-Zenbook-UX3404VC'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/'), ('PYTHONUNBUFFERED', '1'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/root/irslab_ws/build/custom_nav2_bt_nodes'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.099489] (-) TimerEvent: {}
+[0.199775] (-) TimerEvent: {}
+[0.300018] (-) TimerEvent: {}
+[0.400220] (-) TimerEvent: {}
+[0.500508] (-) TimerEvent: {}
+[0.512450] (tm_msgs) StdoutLine: {'line': b'[  0%] Built target tm_msgs__cpp\n'}
+[0.512921] (tm_msgs) StdoutLine: {'line': b'[ 12%] Built target tm_msgs__rosidl_generator_c\n'}
+[0.513024] (tm_msgs) StdoutLine: {'line': b'[ 12%] Built target ament_cmake_python_copy_tm_msgs\n'}
+[0.513065] (tm_msgs) StdoutLine: {'line': b'[ 24%] Built target tm_msgs__rosidl_typesupport_cpp\n'}
+[0.513105] (tm_msgs) StdoutLine: {'line': b'[ 36%] Built target tm_msgs__rosidl_typesupport_c\n'}
+[0.513186] (tm_msgs) StdoutLine: {'line': b'[ 48%] Built target tm_msgs__rosidl_typesupport_introspection_c\n'}
+[0.513278] (tm_msgs) StdoutLine: {'line': b'[ 60%] Built target tm_msgs__rosidl_typesupport_introspection_cpp\n'}
+[0.513324] (tm_msgs) StdoutLine: {'line': b'[ 72%] Built target tm_msgs__rosidl_typesupport_fastrtps_cpp\n'}
+[0.513375] (tm_msgs) StdoutLine: {'line': b'[ 84%] Built target tm_msgs__rosidl_typesupport_fastrtps_c\n'}
+[0.514760] (tm_msgs) StdoutLine: {'line': b'[ 84%] Built target tm_msgs\n'}
+[0.515174] (tm_msgs) StdoutLine: {'line': b'[ 85%] Built target tm_msgs__py\n'}
+[0.515255] (tm_msgs) StdoutLine: {'line': b'[ 96%] Built target tm_msgs__rosidl_generator_py\n'}
+[0.515355] (tm_msgs) StdoutLine: {'line': b'[ 98%] Built target tm_msgs__rosidl_typesupport_introspection_c__pyext\n'}
+[0.515731] (tm_msgs) StdoutLine: {'line': b'[100%] Built target tm_msgs__rosidl_typesupport_fastrtps_c__pyext\n'}
+[0.515827] (tm_msgs) StdoutLine: {'line': b'[100%] Built target tm_msgs__rosidl_typesupport_c__pyext\n'}
+[0.515868] (tm_msgs) StdoutLine: {'line': b'running egg_info\n'}
+[0.515903] (tm_msgs) StdoutLine: {'line': b'writing tm_msgs.egg-info/PKG-INFO\n'}
+[0.515940] (tm_msgs) StdoutLine: {'line': b'writing dependency_links to tm_msgs.egg-info/dependency_links.txt\n'}
+[0.515975] (tm_msgs) StdoutLine: {'line': b'writing top-level names to tm_msgs.egg-info/top_level.txt\n'}
+[0.516009] (tm_msgs) StdoutLine: {'line': b"reading manifest file 'tm_msgs.egg-info/SOURCES.txt'\n"}
+[0.516044] (tm_msgs) StdoutLine: {'line': b"writing manifest file 'tm_msgs.egg-info/SOURCES.txt'\n"}
+[0.516079] (tm_msgs) StdoutLine: {'line': b'[100%] Built target ament_cmake_python_build_tm_msgs_egg\n'}
+[0.516115] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.516166] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.516202] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.516236] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.516269] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.516303] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.516335] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.516368] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.516399] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)\n'}
+[0.516438] (custom_nav2_bt_nodes) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_cyclonedds_cpp' as default\n"}
+[0.516470] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Found nav2_behavior_tree: 1.1.18 (/opt/ros/humble/share/nav2_behavior_tree/cmake)\n'}
+[0.516501] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)\n'}
+[0.516534] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[0.516566] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Found pluginlib: 5.1.0 (/opt/ros/humble/share/pluginlib/cmake)\n'}
+[0.516600] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[0.516630] (custom_nav2_bt_nodes) StdoutLine: {'line': b'See also "/root/irslab_ws/build/custom_nav2_bt_nodes/CMakeFiles/CMakeOutput.log".\n'}
+[0.516661] (custom_nav2_bt_nodes) StderrLine: {'line': b'\x1b[31mCMake Error at CMakeLists.txt:62 (ament_export_package):\n'}
+[0.516704] (custom_nav2_bt_nodes) StderrLine: {'line': b'  Unknown CMake command "ament_export_package".\n'}
+[0.516738] (custom_nav2_bt_nodes) StderrLine: {'line': b'\n'}
+[0.516775] (custom_nav2_bt_nodes) StderrLine: {'line': b'\x1b[0m\n'}
+[0.516807] (custom_nav2_bt_nodes) StderrLine: {'line': b'gmake: *** [Makefile:267: cmake_check_build_system] Error 1\n'}
+[0.516841] (tm_description) CommandEnded: {'returncode': 0}
+[0.516993] (tm_description) JobProgress: {'identifier': 'tm_description', 'progress': 'install'}
+[0.521578] (tm_description) Command: {'cmd': ['/usr/bin/cmake', '--install', '/root/irslab_ws/build/tm_description'], 'cwd': '/root/irslab_ws/build/tm_description', 'env': OrderedDict([('HOSTNAME', 'hugh-Zenbook-UX3404VC'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/'), ('PYTHONUNBUFFERED', '1'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/root/irslab_ws/build/tm_description'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.600636] (-) TimerEvent: {}
+[0.630363] (tm_description) StdoutLine: {'line': b'-- Install configuration: "Release"\n'}
+[0.630739] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/ament_index/resource_index/package_run_dependencies/tm_description\n'}
+[0.630954] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/ament_index/resource_index/parent_prefix_path/tm_description\n'}
+[0.630991] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/environment/ament_prefix_path.sh\n'}
+[0.631028] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/environment/ament_prefix_path.dsv\n'}
+[0.631066] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/environment/path.sh\n'}
+[0.631104] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/environment/path.dsv\n'}
+[0.631248] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/local_setup.bash\n'}
+[0.631404] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/local_setup.sh\n'}
+[0.631534] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/local_setup.zsh\n'}
+[0.631576] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/local_setup.dsv\n'}
+[0.631614] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/package.dsv\n'}
+[0.631669] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/ament_index/resource_index/packages/tm_description\n'}
+[0.631741] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/cmake/tm_descriptionConfig.cmake\n'}
+[0.631778] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/cmake/tm_descriptionConfig-version.cmake\n'}
+[0.631813] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/package.xml\n'}
+[0.631849] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes\n'}
+[0.631938] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-700\n'}
+[0.631980] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-700/visual\n'}
+[0.632021] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-700/visual/tm5-700_arm1.stl\n'}
+[0.632057] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-700/visual/tm5-700_arm2.obj\n'}
+[0.632102] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-700/visual/tm5-700_arm2.mtl\n'}
+[0.632145] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-700/visual/tm5-700_arm2.stl\n'}
+[0.632190] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-700/visual/tm5-700_arm1.obj\n'}
+[0.633299] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-700/visual/tm5-700_arm1.mtl\n'}
+[0.633498] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-700/collision\n'}
+[0.633552] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-700/collision/tm5-700_arm1_c.stl\n'}
+[0.633592] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-700/collision/tm5-700_arm2_c.stl\n'}
+[0.633706] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900\n'}
+[0.633762] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual\n'}
+[0.633800] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tmr_100w_01.mtl\n'}
+[0.633837] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tm5-base.obj\n'}
+[0.633873] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tm5-base.mtl\n'}
+[0.633922] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tmr_400w_01.obj\n'}
+[0.633960] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tmr_ee.obj\n'}
+[0.633995] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tmr_400w_01.stl\n'}
+[0.634389] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tmr_100w_02.mtl\n'}
+[0.634612] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tmr_ee.mtl\n'}
+[0.634694] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tmr_100w_02.stl\n'}
+[0.634809] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tm5-900_arm1.obj\n'}
+[0.634857] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tmr_100w_01.stl\n'}
+[0.634908] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tmr_iox.obj\n'}
+[0.634946] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tm5_base_moma.stl\n'}
+[0.634986] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tmr_100w_02.obj\n'}
+[0.635089] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tm5-900_arm1.mtl\n'}
+[0.635147] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tmr_400w_01.mtl\n'}
+[0.635296] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tm5-900_arm2.stl\n'}
+[0.635338] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tm5-900_arm2.obj\n'}
+[0.635378] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tmr_100w_01.obj\n'}
+[0.635418] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tmr_ee.stl\n'}
+[0.635460] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tm5-900_arm1.stl\n'}
+[0.635519] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tm5_base_moma.mtl\n'}
+[0.635562] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tm5-900_arm2.mtl\n'}
+[0.635613] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tm5_base_moma.obj\n'}
+[0.635661] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tmr_iox.mtl\n'}
+[0.635710] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tmr_iox.stl\n'}
+[0.635761] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tm5-base.stl\n'}
+[0.635811] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/collision\n'}
+[0.635873] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/collision/tmr_ee_c.stl\n'}
+[0.635927] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/collision/tm5_base_c.stl\n'}
+[0.635981] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/collision/tmr_iox_c.stl\n'}
+[0.636033] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/collision/tmr_400w_01_c.stl\n'}
+[0.636084] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/collision/tm5-900_arm1_c.stl\n'}
+[0.636336] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/collision/tmr_100w_01_c.stl\n'}
+[0.636391] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/collision/tmr_100w_02_c.stl\n'}
+[0.636476] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/collision/tm5-base_c.stl\n'}
+[0.636540] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/collision/tm5-900_arm2_c.stl\n'}
+[0.636590] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20\n'}
+[0.636873] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual\n'}
+[0.636940] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual/tm20-j6.obj\n'}
+[0.637152] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual/tm20-j1.mtl\n'}
+[0.637777] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual/tm20-j5.obj\n'}
+[0.637975] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual/tm20-j1.stl\n'}
+[0.638273] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual/tm20-arm2.stl\n'}
+[0.638566] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual/tm20-arm1.obj\n'}
+[0.639288] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual/tm20-j1.obj\n'}
+[0.639360] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual/tm20-j5.mtl\n'}
+[0.639522] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual/tm20-arm1.stl\n'}
+[0.639788] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual/tm20-j5.stl\n'}
+[0.640056] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual/tm20-arm2.obj\n'}
+[0.640124] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual/tm20-j6.mtl\n'}
+[0.640209] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual/tm20-arm1.mtl\n'}
+[0.641314] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual/tm20-j6.stl\n'}
+[0.641709] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual/tm20-arm2.mtl\n'}
+[0.642267] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/collision\n'}
+[0.642467] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/collision/tm20-arm2_c.stl\n'}
+[0.642529] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/collision/tm20-j1_c.stl\n'}
+[0.642570] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/collision/tm20-j5_c.stl\n'}
+[0.642618] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/collision/tm20-j6_c.stl\n'}
+[0.642793] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/collision/tm20-arm1_c.stl\n'}
+[0.643038] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12\n'}
+[0.643461] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/visual\n'}
+[0.643719] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/visual/tm12-base.stl\n'}
+[0.643996] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/visual/tmr_750w_01.obj\n'}
+[0.644139] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/visual/tm12-base.mtl\n'}
+[0.644297] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/visual/tm12-base.obj\n'}
+[0.644442] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/visual/tm12-arm2.obj\n'}
+[0.644602] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/visual/tm12-arm2.mtl\n'}
+[0.644912] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/visual/tm12-arm1.mtl\n'}
+[0.645062] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/visual/tmr_750w_01.mtl\n'}
+[0.645235] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/visual/tm12-arm2.stl\n'}
+[0.645656] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/visual/tm12-arm1.stl\n'}
+[0.645914] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/visual/tmr_750w_01.stl\n'}
+[0.646079] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/visual/tm12-arm1.obj\n'}
+[0.646259] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/collision\n'}
+[0.646368] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/collision/tmr_750w_01_c.stl\n'}
+[0.646473] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/collision/tm12-arm2_c.stl\n'}
+[0.646605] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/collision/tm12-arm1_c.stl\n'}
+[0.647080] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/collision/tm12-base_c.stl\n'}
+[0.647590] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm14\n'}
+[0.647978] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm14/visual\n'}
+[0.648187] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm14/visual/tm14_arm2.mtl\n'}
+[0.648492] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm14/visual/tm14_arm2.obj\n'}
+[0.649203] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm14/visual/tm14_arm1.stl\n'}
+[0.649725] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm14/visual/tm14_arm1.obj\n'}
+[0.649937] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm14/visual/tm14_arm2.stl\n'}
+[0.650310] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm14/visual/tm14_arm1.mtl\n'}
+[0.650827] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm14/collision\n'}
+[0.650959] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm14/collision/tm14_arm1_c.stl\n'}
+[0.651225] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm14/collision/tm14_arm2_c.stl\n'}
+[0.651352] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm16\n'}
+[0.652127] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm16/visual\n'}
+[0.652281] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm16/visual/tm16-arm1.mtl\n'}
+[0.652596] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm16/visual/tm16-arm1.obj\n'}
+[0.652792] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm16/visual/tm16-arm2.obj\n'}
+[0.653658] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm16/visual/tm16-arm2.mtl\n'}
+[0.653820] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm16/visual/tm16-arm1.stl\n'}
+[0.654155] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm16/visual/tm16-arm2.stl\n'}
+[0.654326] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm16/collision\n'}
+[0.654695] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm16/collision/tm16-arm2_c.stl\n'}
+[0.654821] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm16/collision/tm16-arm1_c.stl\n'}
+[0.654967] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/urdf\n'}
+[0.655085] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/urdf/tm16-nominal.urdf\n'}
+[0.655247] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/urdf/tm5x-700-nominal.urdf\n'}
+[0.655352] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/urdf/tm20-nominal.urdf\n'}
+[0.655603] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/urdf/tm14x-nominal.urdf\n'}
+[0.655736] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/urdf/tm5-900-nominal.urdf\n'}
+[0.656905] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/urdf/tm5x-900-nominal.urdf\n'}
+[0.657227] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/urdf/tm12-nominal.urdf\n'}
+[0.658257] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/urdf/tm5-700-nominal.urdf\n'}
+[0.658772] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/urdf/tm5-900.urdf\n'}
+[0.659393] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/urdf/tm12x-nominal.urdf\n'}
+[0.659484] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/urdf/tm14-nominal.urdf\n'}
+[0.659570] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro\n'}
+[0.659653] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/macro.materials.xacro\n'}
+[0.659735] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/tm20.urdf.xacro\n'}
+[0.659813] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/macro.gazebo.xacro\n'}
+[0.659885] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/macro.handsolo.urdf.xacro\n'}
+[0.659955] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/tm5x-900.urdf.xacro\n'}
+[0.660027] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/macro.tm12-nominal.urdf.xacro\n'}
+[0.660096] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/macro.inertial.xacro\n'}
+[0.660184] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/tm16.urdf.xacro\n'}
+[0.660275] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/tm5x-700.urdf.xacro\n'}
+[0.660375] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/macro.tm5x-900-nominal.urdf.xacro\n'}
+[0.660484] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/tm5-700.urdf.xacro\n'}
+[0.660585] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/tm5-900.urdf.xacro\n'}
+[0.660722] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/macro.tm14x-nominal.urdf.xacro\n'}
+[0.660834] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/tm12x.urdf.xacro\n'}
+[0.660946] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/handsolo.urdf.xacro\n'}
+[0.661058] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/macro.tm5-700-nominal.urdf.xacro\n'}
+[0.661170] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/tm12.urdf.xacro\n'}
+[0.661279] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/tm14x.urdf.xacro\n'}
+[0.661391] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/tm14.urdf.xacro\n'}
+[0.661515] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/macro.tm14-nominal.urdf.xacro\n'}
+[0.661628] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/macro.transmission.xacro\n'}
+[0.661741] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/macro.tm20-nominal.urdf.xacro\n'}
+[0.661861] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/macro.tm12x-nominal.urdf.xacro\n'}
+[0.661943] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/macro.tm5x-700-nominal.urdf.xacro\n'}
+[0.662026] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/macro.tm16-nominal.urdf.xacro\n'}
+[0.662108] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/macro.tm5-900-nominal.urdf.xacro\n'}
+[0.662191] (custom_nav2_bt_nodes) CommandEnded: {'returncode': 2}
+[0.662442] (custom_nav2_bt_nodes) JobEnded: {'identifier': 'custom_nav2_bt_nodes', 'rc': 2}
+[0.662836] (tm_msgs) CommandEnded: {'returncode': 0}
+[0.663056] (tm_msgs) JobProgress: {'identifier': 'tm_msgs', 'progress': 'install'}
+[0.663086] (tm_msgs) Command: {'cmd': ['/usr/bin/cmake', '--install', '/root/irslab_ws/build/tm_msgs'], 'cwd': '/root/irslab_ws/build/tm_msgs', 'env': OrderedDict([('HOSTNAME', 'hugh-Zenbook-UX3404VC'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/'), ('PYTHONUNBUFFERED', '1'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/root/irslab_ws/build/tm_msgs'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.663294] (tm_mod_urdf) JobEnded: {'identifier': 'tm_mod_urdf', 'rc': 'SIGINT'}
+[0.663574] (tm_description) JobEnded: {'identifier': 'tm_description', 'rc': 'SIGINT'}
+[0.663903] (tm_msgs) JobEnded: {'identifier': 'tm_msgs', 'rc': 'SIGINT'}
+[0.664268] (hand_solo_arm) JobEnded: {'identifier': 'hand_solo_arm', 'rc': 'SIGINT'}
+[0.664661] (hand_solo_virtual_nav) JobEnded: {'identifier': 'hand_solo_virtual_nav', 'rc': 'SIGINT'}
+[0.665019] (pa_warehouse_status) JobEnded: {'identifier': 'pa_warehouse_status', 'rc': 'SIGINT'}
+[0.665343] (pick_nav_place) JobEnded: {'identifier': 'pick_nav_place', 'rc': 'SIGINT'}
+[0.670091] (tm12_moveit_config) JobSkipped: {'identifier': 'tm12_moveit_config'}
+[0.670174] (tm12x_moveit_config) JobSkipped: {'identifier': 'tm12x_moveit_config'}
+[0.670233] (tm14_moveit_config) JobSkipped: {'identifier': 'tm14_moveit_config'}
+[0.670263] (tm14x_moveit_config) JobSkipped: {'identifier': 'tm14x_moveit_config'}
+[0.670283] (tm16_moveit_config) JobSkipped: {'identifier': 'tm16_moveit_config'}
+[0.670304] (tm20_moveit_config) JobSkipped: {'identifier': 'tm20_moveit_config'}
+[0.670324] (tm5-700_moveit_config) JobSkipped: {'identifier': 'tm5-700_moveit_config'}
+[0.670344] (tm5-900_moveit_config) JobSkipped: {'identifier': 'tm5-900_moveit_config'}
+[0.670364] (tm5x-700_moveit_config) JobSkipped: {'identifier': 'tm5x-700_moveit_config'}
+[0.670383] (tm5x-900_moveit_config) JobSkipped: {'identifier': 'tm5x-900_moveit_config'}
+[0.670403] (tm_driver) JobSkipped: {'identifier': 'tm_driver'}
+[0.670427] (tm_inspect) JobSkipped: {'identifier': 'tm_inspect'}
+[0.670461] (tm_test) JobSkipped: {'identifier': 'tm_test'}
+[0.670486] (-) EventReactorShutdown: {}

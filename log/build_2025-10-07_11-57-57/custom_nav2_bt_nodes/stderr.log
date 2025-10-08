@@ -1,0 +1,17 @@
+[31mCMake Error at CMakeLists.txt:17 (find_package):
+  By not providing "FindBehaviors_cpp_v3.cmake" in CMAKE_MODULE_PATH this
+  project has asked CMake to find a package configuration file provided by
+  "Behaviors_cpp_v3", but CMake did not find one.
+
+  Could not find a package configuration file provided by "Behaviors_cpp_v3"
+  with any of the following names:
+
+    Behaviors_cpp_v3Config.cmake
+    behaviors_cpp_v3-config.cmake
+
+  Add the installation prefix of "Behaviors_cpp_v3" to CMAKE_PREFIX_PATH or
+  set "Behaviors_cpp_v3_DIR" to a directory containing one of the above
+  files.  If "Behaviors_cpp_v3" provides a separate development package or
+  SDK, be sure it has been installed.
+
+[0m

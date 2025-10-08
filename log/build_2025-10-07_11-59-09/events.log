@@ -1,0 +1,693 @@
+[0.000000] (-) TimerEvent: {}
+[0.000266] (custom_nav2_bt_nodes) JobQueued: {'identifier': 'custom_nav2_bt_nodes', 'dependencies': OrderedDict()}
+[0.000581] (hand_solo_arm) JobQueued: {'identifier': 'hand_solo_arm', 'dependencies': OrderedDict()}
+[0.000775] (hand_solo_virtual_nav) JobQueued: {'identifier': 'hand_solo_virtual_nav', 'dependencies': OrderedDict()}
+[0.000826] (pa_warehouse_status) JobQueued: {'identifier': 'pa_warehouse_status', 'dependencies': OrderedDict()}
+[0.000864] (pick_nav_place) JobQueued: {'identifier': 'pick_nav_place', 'dependencies': OrderedDict()}
+[0.000922] (tm_description) JobQueued: {'identifier': 'tm_description', 'dependencies': OrderedDict()}
+[0.000963] (tm_mod_urdf) JobQueued: {'identifier': 'tm_mod_urdf', 'dependencies': OrderedDict()}
+[0.001009] (tm_msgs) JobQueued: {'identifier': 'tm_msgs', 'dependencies': OrderedDict()}
+[0.001097] (tm12_moveit_config) JobQueued: {'identifier': 'tm12_moveit_config', 'dependencies': OrderedDict([('tm_description', '/root/irslab_ws/install/tm_description')])}
+[0.001127] (tm12x_moveit_config) JobQueued: {'identifier': 'tm12x_moveit_config', 'dependencies': OrderedDict([('tm_description', '/root/irslab_ws/install/tm_description')])}
+[0.001164] (tm14_moveit_config) JobQueued: {'identifier': 'tm14_moveit_config', 'dependencies': OrderedDict([('tm_description', '/root/irslab_ws/install/tm_description')])}
+[0.001198] (tm14x_moveit_config) JobQueued: {'identifier': 'tm14x_moveit_config', 'dependencies': OrderedDict([('tm_description', '/root/irslab_ws/install/tm_description')])}
+[0.001277] (tm16_moveit_config) JobQueued: {'identifier': 'tm16_moveit_config', 'dependencies': OrderedDict([('tm_description', '/root/irslab_ws/install/tm_description')])}
+[0.001303] (tm20_moveit_config) JobQueued: {'identifier': 'tm20_moveit_config', 'dependencies': OrderedDict([('tm_description', '/root/irslab_ws/install/tm_description')])}
+[0.001327] (tm5-700_moveit_config) JobQueued: {'identifier': 'tm5-700_moveit_config', 'dependencies': OrderedDict([('tm_description', '/root/irslab_ws/install/tm_description')])}
+[0.001351] (tm5-900_moveit_config) JobQueued: {'identifier': 'tm5-900_moveit_config', 'dependencies': OrderedDict([('tm_description', '/root/irslab_ws/install/tm_description')])}
+[0.001386] (tm5x-700_moveit_config) JobQueued: {'identifier': 'tm5x-700_moveit_config', 'dependencies': OrderedDict([('tm_description', '/root/irslab_ws/install/tm_description')])}
+[0.001432] (tm5x-900_moveit_config) JobQueued: {'identifier': 'tm5x-900_moveit_config', 'dependencies': OrderedDict([('tm_description', '/root/irslab_ws/install/tm_description')])}
+[0.001497] (tm_driver) JobQueued: {'identifier': 'tm_driver', 'dependencies': OrderedDict([('tm_msgs', '/root/irslab_ws/install/tm_msgs')])}
+[0.001538] (tm_inspect) JobQueued: {'identifier': 'tm_inspect', 'dependencies': OrderedDict([('tm_msgs', '/root/irslab_ws/install/tm_msgs')])}
+[0.001564] (tm_test) JobQueued: {'identifier': 'tm_test', 'dependencies': OrderedDict([('tm_msgs', '/root/irslab_ws/install/tm_msgs')])}
+[0.001629] (tm_description) JobStarted: {'identifier': 'tm_description'}
+[0.006094] (tm_msgs) JobStarted: {'identifier': 'tm_msgs'}
+[0.008069] (custom_nav2_bt_nodes) JobStarted: {'identifier': 'custom_nav2_bt_nodes'}
+[0.009616] (hand_solo_arm) JobStarted: {'identifier': 'hand_solo_arm'}
+[0.012752] (hand_solo_virtual_nav) JobStarted: {'identifier': 'hand_solo_virtual_nav'}
+[0.015354] (pa_warehouse_status) JobStarted: {'identifier': 'pa_warehouse_status'}
+[0.017293] (pick_nav_place) JobStarted: {'identifier': 'pick_nav_place'}
+[0.019374] (tm_mod_urdf) JobStarted: {'identifier': 'tm_mod_urdf'}
+[0.023160] (tm_description) JobProgress: {'identifier': 'tm_description', 'progress': 'cmake'}
+[0.023485] (tm_description) JobProgress: {'identifier': 'tm_description', 'progress': 'build'}
+[0.023865] (tm_description) Command: {'cmd': ['/usr/bin/cmake', '--build', '/root/irslab_ws/build/tm_description', '--', '-j20', '-l20'], 'cwd': '/root/irslab_ws/build/tm_description', 'env': OrderedDict([('HOSTNAME', 'hugh-Zenbook-UX3404VC'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/'), ('PYTHONUNBUFFERED', '1'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/root/irslab_ws/build/tm_description'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.025301] (tm_msgs) JobProgress: {'identifier': 'tm_msgs', 'progress': 'cmake'}
+[0.025598] (tm_msgs) JobProgress: {'identifier': 'tm_msgs', 'progress': 'build'}
+[0.025779] (tm_msgs) Command: {'cmd': ['/usr/bin/cmake', '--build', '/root/irslab_ws/build/tm_msgs', '--', '-j20', '-l20'], 'cwd': '/root/irslab_ws/build/tm_msgs', 'env': OrderedDict([('HOSTNAME', 'hugh-Zenbook-UX3404VC'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/'), ('PYTHONUNBUFFERED', '1'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/root/irslab_ws/build/tm_msgs'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.026397] (custom_nav2_bt_nodes) JobProgress: {'identifier': 'custom_nav2_bt_nodes', 'progress': 'cmake'}
+[0.026717] (custom_nav2_bt_nodes) Command: {'cmd': ['/usr/bin/cmake', '/root/irslab_ws/src/custom_nav2_bt_nodes', '-DCMAKE_BUILD_TYPE=Release', '-DCMAKE_INSTALL_PREFIX=/root/irslab_ws/install/custom_nav2_bt_nodes'], 'cwd': '/root/irslab_ws/build/custom_nav2_bt_nodes', 'env': OrderedDict([('HOSTNAME', 'hugh-Zenbook-UX3404VC'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/'), ('PYTHONUNBUFFERED', '1'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/root/irslab_ws/build/custom_nav2_bt_nodes'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.099742] (-) TimerEvent: {}
+[0.200084] (-) TimerEvent: {}
+[0.300314] (-) TimerEvent: {}
+[0.400531] (-) TimerEvent: {}
+[0.500789] (-) TimerEvent: {}
+[0.541995] (tm_msgs) StdoutLine: {'line': b'[  0%] Built target tm_msgs__cpp\n'}
+[0.542335] (tm_msgs) StdoutLine: {'line': b'[ 12%] Built target tm_msgs__rosidl_generator_c\n'}
+[0.542384] (tm_msgs) StdoutLine: {'line': b'[ 12%] Built target ament_cmake_python_copy_tm_msgs\n'}
+[0.542452] (tm_msgs) StdoutLine: {'line': b'[ 24%] Built target tm_msgs__rosidl_typesupport_introspection_c\n'}
+[0.542989] (tm_msgs) StdoutLine: {'line': b'[ 36%] Built target tm_msgs__rosidl_typesupport_fastrtps_cpp\n'}
+[0.543277] (tm_msgs) StdoutLine: {'line': b'[ 48%] Built target tm_msgs__rosidl_typesupport_cpp\n'}
+[0.543517] (tm_msgs) StdoutLine: {'line': b'[ 60%] Built target tm_msgs__rosidl_typesupport_fastrtps_c\n'}
+[0.543625] (tm_msgs) StdoutLine: {'line': b'[ 79%] Built target tm_msgs__rosidl_typesupport_c\n'}
+[0.543982] (tm_msgs) StdoutLine: {'line': b'[ 84%] Built target tm_msgs__rosidl_typesupport_introspection_cpp\n'}
+[0.544056] (tm_msgs) StdoutLine: {'line': b'[ 84%] Built target tm_msgs\n'}
+[0.544125] (tm_msgs) StdoutLine: {'line': b'[ 85%] Built target tm_msgs__py\n'}
+[0.544198] (tm_msgs) StdoutLine: {'line': b'[ 96%] Built target tm_msgs__rosidl_generator_py\n'}
+[0.544269] (tm_msgs) StdoutLine: {'line': b'[ 99%] Built target tm_msgs__rosidl_typesupport_introspection_c__pyext\n'}
+[0.544341] (tm_msgs) StdoutLine: {'line': b'[ 99%] Built target tm_msgs__rosidl_typesupport_c__pyext\n'}
+[0.544414] (tm_msgs) StdoutLine: {'line': b'[100%] Built target tm_msgs__rosidl_typesupport_fastrtps_c__pyext\n'}
+[0.544484] (tm_msgs) StdoutLine: {'line': b'running egg_info\n'}
+[0.544553] (tm_msgs) StdoutLine: {'line': b'writing tm_msgs.egg-info/PKG-INFO\n'}
+[0.544622] (tm_msgs) StdoutLine: {'line': b'writing dependency_links to tm_msgs.egg-info/dependency_links.txt\n'}
+[0.544685] (tm_msgs) StdoutLine: {'line': b'writing top-level names to tm_msgs.egg-info/top_level.txt\n'}
+[0.544747] (tm_msgs) StdoutLine: {'line': b"reading manifest file 'tm_msgs.egg-info/SOURCES.txt'\n"}
+[0.544810] (tm_msgs) StdoutLine: {'line': b"writing manifest file 'tm_msgs.egg-info/SOURCES.txt'\n"}
+[0.544873] (tm_msgs) StdoutLine: {'line': b'[100%] Built target ament_cmake_python_build_tm_msgs_egg\n'}
+[0.544937] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.545024] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.545095] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.545161] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.545226] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.545294] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.545359] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.545424] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.545488] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)\n'}
+[0.545548] (custom_nav2_bt_nodes) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_cyclonedds_cpp' as default\n"}
+[0.545613] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Found nav2_behavior_tree: 1.1.18 (/opt/ros/humble/share/nav2_behavior_tree/cmake)\n'}
+[0.545675] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)\n'}
+[0.545739] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[0.545812] (custom_nav2_bt_nodes) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[0.545883] (custom_nav2_bt_nodes) StdoutLine: {'line': b'See also "/root/irslab_ws/build/custom_nav2_bt_nodes/CMakeFiles/CMakeOutput.log".\n'}
+[0.545965] (custom_nav2_bt_nodes) StderrLine: {'line': b'\x1b[31mCMake Error at CMakeLists.txt:17 (find_package):\n'}
+[0.546078] (custom_nav2_bt_nodes) StderrLine: {'line': b'  By not providing "FindBehaviors_cpp_v3.cmake" in CMAKE_MODULE_PATH this\n'}
+[0.546161] (custom_nav2_bt_nodes) StderrLine: {'line': b'  project has asked CMake to find a package configuration file provided by\n'}
+[0.546199] (custom_nav2_bt_nodes) StderrLine: {'line': b'  "Behaviors_cpp_v3", but CMake did not find one.\n'}
+[0.546233] (custom_nav2_bt_nodes) StderrLine: {'line': b'\n'}
+[0.546264] (custom_nav2_bt_nodes) StderrLine: {'line': b'  Could not find a package configuration file provided by "Behaviors_cpp_v3"\n'}
+[0.546293] (custom_nav2_bt_nodes) StderrLine: {'line': b'  with any of the following names:\n'}
+[0.546322] (custom_nav2_bt_nodes) StderrLine: {'line': b'\n'}
+[0.546349] (custom_nav2_bt_nodes) StderrLine: {'line': b'    Behaviors_cpp_v3Config.cmake\n'}
+[0.546377] (custom_nav2_bt_nodes) StderrLine: {'line': b'    behaviors_cpp_v3-config.cmake\n'}
+[0.546406] (custom_nav2_bt_nodes) StderrLine: {'line': b'\n'}
+[0.546433] (custom_nav2_bt_nodes) StderrLine: {'line': b'  Add the installation prefix of "Behaviors_cpp_v3" to CMAKE_PREFIX_PATH or\n'}
+[0.546459] (custom_nav2_bt_nodes) StderrLine: {'line': b'  set "Behaviors_cpp_v3_DIR" to a directory containing one of the above\n'}
+[0.546487] (custom_nav2_bt_nodes) StderrLine: {'line': b'  files.  If "Behaviors_cpp_v3" provides a separate development package or\n'}
+[0.546515] (custom_nav2_bt_nodes) StderrLine: {'line': b'  SDK, be sure it has been installed.\n'}
+[0.546545] (custom_nav2_bt_nodes) StderrLine: {'line': b'\n'}
+[0.546574] (custom_nav2_bt_nodes) StderrLine: {'line': b'\x1b[0m\n'}
+[0.600903] (-) TimerEvent: {}
+[0.660798] (tm_description) CommandEnded: {'returncode': 0}
+[0.661078] (tm_description) JobProgress: {'identifier': 'tm_description', 'progress': 'install'}
+[0.667891] (tm_description) Command: {'cmd': ['/usr/bin/cmake', '--install', '/root/irslab_ws/build/tm_description'], 'cwd': '/root/irslab_ws/build/tm_description', 'env': OrderedDict([('HOSTNAME', 'hugh-Zenbook-UX3404VC'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/'), ('PYTHONUNBUFFERED', '1'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/root/irslab_ws/build/tm_description'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.668634] (tm_msgs) CommandEnded: {'returncode': 0}
+[0.668920] (tm_msgs) JobProgress: {'identifier': 'tm_msgs', 'progress': 'install'}
+[0.669124] (tm_msgs) Command: {'cmd': ['/usr/bin/cmake', '--install', '/root/irslab_ws/build/tm_msgs'], 'cwd': '/root/irslab_ws/build/tm_msgs', 'env': OrderedDict([('HOSTNAME', 'hugh-Zenbook-UX3404VC'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/root'), ('OLDPWD', '/'), ('PYTHONUNBUFFERED', '1'), ('ROS_PYTHON_VERSION', '3'), ('ROS_DISTRO', 'humble'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('NVIDIA_DRIVER_CAPABILITIES', 'all'), ('TERM', 'xterm'), ('ROS_LOCALHOST_ONLY', '0'), ('QT_X11_NO_MITSHM', '1'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'), ('DISPLAY', ':1'), ('LANG', 'C.UTF-8'), ('RMW_IMPLEMENTATION', 'rmw_cyclonedds_cpp'), ('ROS_DOMAIN_ID', '0'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('DEBIAN_FRONTEND', 'noninteractive'), ('PWD', '/root/irslab_ws/build/tm_msgs'), ('LC_ALL', 'C.UTF-8'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('NVIDIA_VISIBLE_DEVICES', 'all'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.669667] (custom_nav2_bt_nodes) CommandEnded: {'returncode': 1}
+[0.673544] (tm_description) StdoutLine: {'line': b'-- Install configuration: "Release"\n'}
+[0.673736] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/ament_index/resource_index/package_run_dependencies/tm_description\n'}
+[0.673783] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/ament_index/resource_index/parent_prefix_path/tm_description\n'}
+[0.673817] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/environment/ament_prefix_path.sh\n'}
+[0.673845] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/environment/ament_prefix_path.dsv\n'}
+[0.673880] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/environment/path.sh\n'}
+[0.673911] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/environment/path.dsv\n'}
+[0.673950] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/local_setup.bash\n'}
+[0.675695] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/local_setup.sh\n'}
+[0.676230] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/local_setup.zsh\n'}
+[0.676296] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/local_setup.dsv\n'}
+[0.676347] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/package.dsv\n'}
+[0.676381] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/ament_index/resource_index/packages/tm_description\n'}
+[0.676518] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/cmake/tm_descriptionConfig.cmake\n'}
+[0.676663] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/cmake/tm_descriptionConfig-version.cmake\n'}
+[0.677380] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/package.xml\n'}
+[0.677542] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes\n'}
+[0.677681] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-700\n'}
+[0.677783] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-700/visual\n'}
+[0.678216] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-700/visual/tm5-700_arm1.stl\n'}
+[0.678805] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-700/visual/tm5-700_arm2.obj\n'}
+[0.679046] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-700/visual/tm5-700_arm2.mtl\n'}
+[0.679319] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-700/visual/tm5-700_arm2.stl\n'}
+[0.679582] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-700/visual/tm5-700_arm1.obj\n'}
+[0.679688] (tm_msgs) StdoutLine: {'line': b'-- Install configuration: "Release"\n'}
+[0.679801] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/ament_index/resource_index/rosidl_interfaces/tm_msgs\n'}
+[0.680160] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs\n'}
+[0.680711] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv\n'}
+[0.680796] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/set_positions.h\n'}
+[0.680887] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/connect_tm.h\n'}
+[0.681180] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/set_io.h\n'}
+[0.681388] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/write_item.h\n'}
+[0.681655] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/ask_item.h\n'}
+[0.682198] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/ask_sta.h\n'}
+[0.682543] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/robot_command.h\n'}
+[0.683078] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/send_script.h\n'}
+[0.683314] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail\n'}
+[0.683427] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-700/visual/tm5-700_arm1.mtl\n'}
+[0.683657] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-700/collision\n'}
+[0.683796] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-700/collision/tm5-700_arm1_c.stl\n'}
+[0.684128] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-700/collision/tm5-700_arm2_c.stl\n'}
+[0.684680] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900\n'}
+[0.685711] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual\n'}
+[0.685880] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tmr_100w_01.mtl\n'}
+[0.686052] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tm5-base.obj\n'}
+[0.686213] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tm5-base.mtl\n'}
+[0.686428] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tmr_400w_01.obj\n'}
+[0.686546] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tmr_ee.obj\n'}
+[0.686725] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tmr_400w_01.stl\n'}
+[0.687015] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tmr_100w_02.mtl\n'}
+[0.687282] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tmr_ee.mtl\n'}
+[0.687686] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tmr_100w_02.stl\n'}
+[0.687831] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tm5-900_arm1.obj\n'}
+[0.688043] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tmr_100w_01.stl\n'}
+[0.688192] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tmr_iox.obj\n'}
+[0.688344] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tm5_base_moma.stl\n'}
+[0.688616] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tmr_100w_02.obj\n'}
+[0.688758] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tm5-900_arm1.mtl\n'}
+[0.688914] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tmr_400w_01.mtl\n'}
+[0.689108] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tm5-900_arm2.stl\n'}
+[0.689617] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tm5-900_arm2.obj\n'}
+[0.689736] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tmr_100w_01.obj\n'}
+[0.689842] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tmr_ee.stl\n'}
+[0.690154] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tm5-900_arm1.stl\n'}
+[0.690283] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tm5_base_moma.mtl\n'}
+[0.690372] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tm5-900_arm2.mtl\n'}
+[0.690498] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tm5_base_moma.obj\n'}
+[0.690596] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tmr_iox.mtl\n'}
+[0.690691] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tmr_iox.stl\n'}
+[0.690770] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/visual/tm5-base.stl\n'}
+[0.690871] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/collision\n'}
+[0.690968] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/collision/tmr_ee_c.stl\n'}
+[0.691282] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/collision/tm5_base_c.stl\n'}
+[0.691469] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/collision/tmr_iox_c.stl\n'}
+[0.691635] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/collision/tmr_400w_01_c.stl\n'}
+[0.691722] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/collision/tm5-900_arm1_c.stl\n'}
+[0.692265] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/collision/tmr_100w_01_c.stl\n'}
+[0.692322] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/collision/tmr_100w_02_c.stl\n'}
+[0.692745] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/collision/tm5-base_c.stl\n'}
+[0.692794] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm5-900/collision/tm5-900_arm2_c.stl\n'}
+[0.692859] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20\n'}
+[0.692899] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual\n'}
+[0.692934] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual/tm20-j6.obj\n'}
+[0.692985] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual/tm20-j1.mtl\n'}
+[0.693328] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual/tm20-j5.obj\n'}
+[0.693376] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual/tm20-j1.stl\n'}
+[0.693454] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual/tm20-arm2.stl\n'}
+[0.693650] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/write_item__struct.h\n'}
+[0.694007] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual/tm20-arm1.obj\n'}
+[0.694324] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual/tm20-j1.obj\n'}
+[0.694747] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual/tm20-j5.mtl\n'}
+[0.694958] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual/tm20-arm1.stl\n'}
+[0.695621] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual/tm20-j5.stl\n'}
+[0.695688] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual/tm20-arm2.obj\n'}
+[0.695745] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual/tm20-j6.mtl\n'}
+[0.695803] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual/tm20-arm1.mtl\n'}
+[0.695897] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual/tm20-j6.stl\n'}
+[0.695945] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/visual/tm20-arm2.mtl\n'}
+[0.695997] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/collision\n'}
+[0.696033] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/collision/tm20-arm2_c.stl\n'}
+[0.696158] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/collision/tm20-j1_c.stl\n'}
+[0.696260] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/collision/tm20-j5_c.stl\n'}
+[0.696297] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/collision/tm20-j6_c.stl\n'}
+[0.696349] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm20/collision/tm20-arm1_c.stl\n'}
+[0.696398] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12\n'}
+[0.696432] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/visual\n'}
+[0.696477] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/visual/tm12-base.stl\n'}
+[0.696528] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/visual/tmr_750w_01.obj\n'}
+[0.696919] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/visual/tm12-base.mtl\n'}
+[0.697735] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/visual/tm12-base.obj\n'}
+[0.697915] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/visual/tm12-arm2.obj\n'}
+[0.698127] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/visual/tm12-arm2.mtl\n'}
+[0.698331] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/visual/tm12-arm1.mtl\n'}
+[0.698472] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/visual/tmr_750w_01.mtl\n'}
+[0.698593] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/visual/tm12-arm2.stl\n'}
+[0.698713] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/visual/tm12-arm1.stl\n'}
+[0.698831] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/visual/tmr_750w_01.stl\n'}
+[0.698950] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/visual/tm12-arm1.obj\n'}
+[0.699022] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/collision\n'}
+[0.699178] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/collision/tmr_750w_01_c.stl\n'}
+[0.699317] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/collision/tm12-arm2_c.stl\n'}
+[0.699462] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/collision/tm12-arm1_c.stl\n'}
+[0.699608] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm12/collision/tm12-base_c.stl\n'}
+[0.699694] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/send_script__functions.c\n'}
+[0.699763] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/ask_sta__functions.h\n'}
+[0.699822] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/connect_tm__functions.c\n'}
+[0.699897] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_io__functions.h\n'}
+[0.699938] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/send_script__struct.h\n'}
+[0.699996] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/ask_item__struct.h\n'}
+[0.700072] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/send_script__functions.h\n'}
+[0.700135] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_io__functions.c\n'}
+[0.700236] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/ask_sta__type_support.h\n'}
+[0.700310] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/connect_tm__struct.h\n'}
+[0.700347] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/connect_tm__functions.h\n'}
+[0.700393] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_event__type_support.h\n'}
+[0.700467] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_event__functions.c\n'}
+[0.700520] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/write_item__functions.c\n'}
+[0.700572] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/send_script__type_support.h\n'}
+[0.700630] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm14\n'}
+[0.700702] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_io__struct.h\n'}
+[0.700758] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/ask_sta__functions.c\n'}
+[0.700810] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/robot_command__type_support.h\n'}
+[0.700879] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/robot_command__functions.c\n'}
+[0.700944] (-) TimerEvent: {}
+[0.701026] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/robot_command__functions.h\n'}
+[0.701095] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_event__functions.h\n'}
+[0.701142] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/ask_sta__struct.h\n'}
+[0.701196] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/write_item__type_support.h\n'}
+[0.701249] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_positions__type_support.h\n'}
+[0.701309] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/ask_item__type_support.h\n'}
+[0.701360] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/ask_item__functions.h\n'}
+[0.701417] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/write_item__functions.h\n'}
+[0.701455] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_positions__functions.h\n'}
+[0.701512] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/robot_command__struct.h\n'}
+[0.701569] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_positions__functions.c\n'}
+[0.701619] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/connect_tm__type_support.h\n'}
+[0.701654] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_io__type_support.h\n'}
+[0.701691] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/ask_item__functions.c\n'}
+[0.701758] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_positions__struct.h\n'}
+[0.701808] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_event__struct.h\n'}
+[0.701852] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/set_event.h\n'}
+[0.701886] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg\n'}
+[0.701928] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/svr_response.h\n'}
+[0.701961] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/sct_response.h\n'}
+[0.702001] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/rosidl_generator_c__visibility_control.h\n'}
+[0.702075] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/feedback_state.h\n'}
+[0.702130] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail\n'}
+[0.702174] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/feedback_state__type_support.h\n'}
+[0.702225] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/svr_response__functions.h\n'}
+[0.702283] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/sct_response__type_support.h\n'}
+[0.702333] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/svr_response__struct.h\n'}
+[0.702389] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/sct_response__struct.h\n'}
+[0.702438] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/sta_response__type_support.h\n'}
+[0.702488] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/svr_response__type_support.h\n'}
+[0.702536] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/sta_response__struct.h\n'}
+[0.702575] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/feedback_state__struct.h\n'}
+[0.702613] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/sct_response__functions.h\n'}
+[0.702647] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/feedback_state__functions.c\n'}
+[0.702701] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/sta_response__functions.h\n'}
+[0.702772] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/sct_response__functions.c\n'}
+[0.702832] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/feedback_state__functions.h\n'}
+[0.702890] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/svr_response__functions.c\n'}
+[0.702958] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/sta_response__functions.c\n'}
+[0.702996] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/sta_response.h\n'}
+[0.703055] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/environment/library_path.sh\n'}
+[0.703174] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/environment/library_path.dsv\n'}
+[0.703270] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm14/visual\n'}
+[0.703313] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm14/visual/tm14_arm2.mtl\n'}
+[0.703345] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm14/visual/tm14_arm2.obj\n'}
+[0.703375] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm14/visual/tm14_arm1.stl\n'}
+[0.703406] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm14/visual/tm14_arm1.obj\n'}
+[0.703444] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm14/visual/tm14_arm2.stl\n'}
+[0.703472] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm14/visual/tm14_arm1.mtl\n'}
+[0.703523] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm14/collision\n'}
+[0.703566] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm14/collision/tm14_arm1_c.stl\n'}
+[0.703601] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm14/collision/tm14_arm2_c.stl\n'}
+[0.703641] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm16\n'}
+[0.703672] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm16/visual\n'}
+[0.703717] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm16/visual/tm16-arm1.mtl\n'}
+[0.703761] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm16/visual/tm16-arm1.obj\n'}
+[0.703798] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm16/visual/tm16-arm2.obj\n'}
+[0.703835] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm16/visual/tm16-arm2.mtl\n'}
+[0.703873] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm16/visual/tm16-arm1.stl\n'}
+[0.703981] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm16/visual/tm16-arm2.stl\n'}
+[0.704239] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm16/collision\n'}
+[0.704338] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm16/collision/tm16-arm2_c.stl\n'}
+[0.704410] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/lib/libtm_msgs__rosidl_generator_c.so\n'}
+[0.704577] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/meshes/tm16/collision/tm16-arm1_c.stl\n'}
+[0.704613] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/urdf\n'}
+[0.704645] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/urdf/tm16-nominal.urdf\n'}
+[0.704687] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/urdf/tm5x-700-nominal.urdf\n'}
+[0.704767] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/urdf/tm20-nominal.urdf\n'}
+[0.704842] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/urdf/tm14x-nominal.urdf\n'}
+[0.704911] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/urdf/tm5-900-nominal.urdf\n'}
+[0.704954] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/urdf/tm5x-900-nominal.urdf\n'}
+[0.705159] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/urdf/tm12-nominal.urdf\n'}
+[0.705455] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/urdf/tm5-700-nominal.urdf\n'}
+[0.705556] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/urdf/tm5-900.urdf\n'}
+[0.705651] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/urdf/tm12x-nominal.urdf\n'}
+[0.705691] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/urdf/tm14-nominal.urdf\n'}
+[0.705757] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro\n'}
+[0.705807] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/macro.materials.xacro\n'}
+[0.705854] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/tm20.urdf.xacro\n'}
+[0.705892] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/macro.gazebo.xacro\n'}
+[0.705932] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/macro.handsolo.urdf.xacro\n'}
+[0.705966] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/tm5x-900.urdf.xacro\n'}
+[0.706200] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/macro.tm12-nominal.urdf.xacro\n'}
+[0.706267] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/macro.inertial.xacro\n'}
+[0.706377] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/tm16.urdf.xacro\n'}
+[0.707395] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/tm5x-700.urdf.xacro\n'}
+[0.707736] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/macro.tm5x-900-nominal.urdf.xacro\n'}
+[0.708005] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/tm5-700.urdf.xacro\n'}
+[0.708335] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/tm5-900.urdf.xacro\n'}
+[0.708729] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/macro.tm14x-nominal.urdf.xacro\n'}
+[0.708919] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/tm12x.urdf.xacro\n'}
+[0.708983] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/handsolo.urdf.xacro\n'}
+[0.709061] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/macro.tm5-700-nominal.urdf.xacro\n'}
+[0.709110] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/tm12.urdf.xacro\n'}
+[0.709152] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/tm14x.urdf.xacro\n'}
+[0.709399] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/tm14.urdf.xacro\n'}
+[0.709441] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/macro.tm14-nominal.urdf.xacro\n'}
+[0.709479] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/macro.transmission.xacro\n'}
+[0.709650] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/macro.tm20-nominal.urdf.xacro\n'}
+[0.709698] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/macro.tm12x-nominal.urdf.xacro\n'}
+[0.709926] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/macro.tm5x-700-nominal.urdf.xacro\n'}
+[0.709995] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/macro.tm16-nominal.urdf.xacro\n'}
+[0.710041] (tm_description) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_description/share/tm_description/xacro/macro.tm5-900-nominal.urdf.xacro\n'}
+[0.710090] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs\n'}
+[0.710142] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv\n'}
+[0.710264] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail\n'}
+[0.710310] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/ask_sta__rosidl_typesupport_fastrtps_c.h\n'}
+[0.710416] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/robot_command__rosidl_typesupport_fastrtps_c.h\n'}
+[0.710456] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/ask_item__rosidl_typesupport_fastrtps_c.h\n'}
+[0.710496] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/send_script__rosidl_typesupport_fastrtps_c.h\n'}
+[0.710535] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_io__rosidl_typesupport_fastrtps_c.h\n'}
+[0.710613] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_positions__rosidl_typesupport_fastrtps_c.h\n'}
+[0.710679] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/connect_tm__rosidl_typesupport_fastrtps_c.h\n'}
+[0.710901] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_event__rosidl_typesupport_fastrtps_c.h\n'}
+[0.710950] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/write_item__rosidl_typesupport_fastrtps_c.h\n'}
+[0.711098] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg\n'}
+[0.711180] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[0.711282] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail\n'}
+[0.711324] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/feedback_state__rosidl_typesupport_fastrtps_c.h\n'}
+[0.711373] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/svr_response__rosidl_typesupport_fastrtps_c.h\n'}
+[0.711458] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/sta_response__rosidl_typesupport_fastrtps_c.h\n'}
+[0.711642] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/sct_response__rosidl_typesupport_fastrtps_c.h\n'}
+[0.711711] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/lib/libtm_msgs__rosidl_typesupport_fastrtps_c.so\n'}
+[0.711757] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs\n'}
+[0.711817] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv\n'}
+[0.711901] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail\n'}
+[0.711952] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_positions__type_support.c\n'}
+[0.711995] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/send_script__type_support.c\n'}
+[0.712049] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/connect_tm__type_support.c\n'}
+[0.712095] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/ask_sta__type_support.c\n'}
+[0.712135] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/connect_tm__rosidl_typesupport_introspection_c.h\n'}
+[0.712211] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/robot_command__rosidl_typesupport_introspection_c.h\n'}
+[0.712260] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_event__rosidl_typesupport_introspection_c.h\n'}
+[0.712321] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/send_script__rosidl_typesupport_introspection_c.h\n'}
+[0.712359] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/write_item__type_support.c\n'}
+[0.712401] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/write_item__rosidl_typesupport_introspection_c.h\n'}
+[0.712490] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/ask_item__type_support.c\n'}
+[0.712528] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_event__type_support.c\n'}
+[0.712578] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/robot_command__type_support.c\n'}
+[0.712616] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_io__type_support.c\n'}
+[0.712656] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/ask_item__rosidl_typesupport_introspection_c.h\n'}
+[0.712927] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/ask_sta__rosidl_typesupport_introspection_c.h\n'}
+[0.713321] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_io__rosidl_typesupport_introspection_c.h\n'}
+[0.713580] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_positions__rosidl_typesupport_introspection_c.h\n'}
+[0.713647] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg\n'}
+[0.713702] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[0.713754] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail\n'}
+[0.713806] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/feedback_state__rosidl_typesupport_introspection_c.h\n'}
+[0.713862] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/feedback_state__type_support.c\n'}
+[0.713912] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/sct_response__type_support.c\n'}
+[0.713959] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/svr_response__rosidl_typesupport_introspection_c.h\n'}
+[0.714006] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/sct_response__rosidl_typesupport_introspection_c.h\n'}
+[0.714060] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/sta_response__rosidl_typesupport_introspection_c.h\n'}
+[0.714098] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/svr_response__type_support.c\n'}
+[0.714145] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/sta_response__type_support.c\n'}
+[0.714205] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/lib/libtm_msgs__rosidl_typesupport_introspection_c.so\n'}
+[0.714264] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/lib/libtm_msgs__rosidl_typesupport_c.so\n'}
+[0.714316] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs\n'}
+[0.714369] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv\n'}
+[0.714420] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/set_event.hpp\n'}
+[0.714470] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/set_io.hpp\n'}
+[0.714521] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/ask_sta.hpp\n'}
+[0.714571] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/write_item.hpp\n'}
+[0.714621] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/ask_item.hpp\n'}
+[0.714671] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/send_script.hpp\n'}
+[0.714718] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/connect_tm.hpp\n'}
+[0.714766] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/robot_command.hpp\n'}
+[0.714830] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/set_positions.hpp\n'}
+[0.714878] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail\n'}
+[0.714928] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/ask_sta__builder.hpp\n'}
+[0.714987] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/robot_command__builder.hpp\n'}
+[0.715043] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/write_item__type_support.hpp\n'}
+[0.715102] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_event__type_support.hpp\n'}
+[0.715153] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_event__traits.hpp\n'}
+[0.715219] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_io__struct.hpp\n'}
+[0.715267] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/connect_tm__builder.hpp\n'}
+[0.715317] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/ask_sta__type_support.hpp\n'}
+[0.715350] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/robot_command__traits.hpp\n'}
+[0.715390] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_positions__traits.hpp\n'}
+[0.715427] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/write_item__struct.hpp\n'}
+[0.715462] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/robot_command__type_support.hpp\n'}
+[0.715514] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_io__builder.hpp\n'}
+[0.715566] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_io__type_support.hpp\n'}
+[0.715716] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/send_script__type_support.hpp\n'}
+[0.715772] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_event__struct.hpp\n'}
+[0.715813] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_positions__type_support.hpp\n'}
+[0.715857] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/send_script__traits.hpp\n'}
+[0.715905] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/ask_item__traits.hpp\n'}
+[0.715950] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/connect_tm__traits.hpp\n'}
+[0.715988] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/ask_sta__traits.hpp\n'}
+[0.716038] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/write_item__traits.hpp\n'}
+[0.716080] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/ask_item__type_support.hpp\n'}
+[0.716141] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_event__builder.hpp\n'}
+[0.716200] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/send_script__builder.hpp\n'}
+[0.716249] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_positions__struct.hpp\n'}
+[0.716302] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_positions__builder.hpp\n'}
+[0.716344] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/ask_item__struct.hpp\n'}
+[0.716381] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/robot_command__struct.hpp\n'}
+[0.716433] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/write_item__builder.hpp\n'}
+[0.716480] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/ask_sta__struct.hpp\n'}
+[0.716525] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_io__traits.hpp\n'}
+[0.716564] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/ask_item__builder.hpp\n'}
+[0.716635] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/connect_tm__type_support.hpp\n'}
+[0.716700] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/connect_tm__struct.hpp\n'}
+[0.716737] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/send_script__struct.hpp\n'}
+[0.716795] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg\n'}
+[0.716848] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/sct_response.hpp\n'}
+[0.716896] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/svr_response.hpp\n'}
+[0.716948] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[0.717007] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/feedback_state.hpp\n'}
+[0.717066] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/sta_response.hpp\n'}
+[0.717137] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail\n'}
+[0.717187] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/svr_response__struct.hpp\n'}
+[0.717226] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/svr_response__traits.hpp\n'}
+[0.717269] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/sta_response__type_support.hpp\n'}
+[0.717304] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/sta_response__traits.hpp\n'}
+[0.717356] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/svr_response__type_support.hpp\n'}
+[0.717399] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/feedback_state__traits.hpp\n'}
+[0.717448] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/sct_response__struct.hpp\n'}
+[0.717495] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/feedback_state__struct.hpp\n'}
+[0.717546] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/sta_response__builder.hpp\n'}
+[0.717596] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/sct_response__type_support.hpp\n'}
+[0.717642] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/sta_response__struct.hpp\n'}
+[0.717697] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/feedback_state__type_support.hpp\n'}
+[0.717772] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/feedback_state__builder.hpp\n'}
+[0.717817] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/sct_response__traits.hpp\n'}
+[0.717866] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/svr_response__builder.hpp\n'}
+[0.717911] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/sct_response__builder.hpp\n'}
+[0.717967] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs\n'}
+[0.718015] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv\n'}
+[0.718082] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail\n'}
+[0.718133] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/ask_sta__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.718170] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/robot_command__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.718205] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/connect_tm__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.718237] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/ask_item__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.718269] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/write_item__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.718301] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_io__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.718373] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/send_script__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.718414] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_event__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.718448] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/dds_fastrtps\n'}
+[0.718483] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_positions__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.718528] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg\n'}
+[0.718580] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[0.718618] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail\n'}
+[0.718674] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/feedback_state__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.718719] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/svr_response__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.718775] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/sta_response__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.718835] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/sct_response__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.718868] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/dds_fastrtps\n'}
+[0.718917] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/lib/libtm_msgs__rosidl_typesupport_fastrtps_cpp.so\n'}
+[0.718963] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs\n'}
+[0.719009] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv\n'}
+[0.719082] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail\n'}
+[0.719119] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/send_script__type_support.cpp\n'}
+[0.719159] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/ask_item__type_support.cpp\n'}
+[0.719208] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_event__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.719245] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/ask_item__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.719279] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/send_script__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.719320] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/ask_sta__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.719364] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/ask_sta__type_support.cpp\n'}
+[0.719402] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_event__type_support.cpp\n'}
+[0.719452] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_positions__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.719497] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/write_item__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.719535] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/robot_command__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.719569] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/write_item__type_support.cpp\n'}
+[0.719607] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/connect_tm__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.719641] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_io__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.719682] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/connect_tm__type_support.cpp\n'}
+[0.719733] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/robot_command__type_support.cpp\n'}
+[0.719769] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_positions__type_support.cpp\n'}
+[0.719804] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/srv/detail/set_io__type_support.cpp\n'}
+[0.719839] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg\n'}
+[0.719903] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail\n'}
+[0.719941] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/sta_response__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.719975] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/svr_response__type_support.cpp\n'}
+[0.720011] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/feedback_state__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.720050] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/feedback_state__type_support.cpp\n'}
+[0.720095] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/sct_response__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.720137] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/sta_response__type_support.cpp\n'}
+[0.720171] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/sct_response__type_support.cpp\n'}
+[0.720239] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/include/tm_msgs/tm_msgs/msg/detail/svr_response__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.720277] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/lib/libtm_msgs__rosidl_typesupport_introspection_cpp.so\n'}
+[0.720346] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/lib/libtm_msgs__rosidl_typesupport_cpp.so\n'}
+[0.720390] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/environment/pythonpath.sh\n'}
+[0.720430] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/environment/pythonpath.dsv\n'}
+[0.720467] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs-1.1.2-py3.10.egg-info\n'}
+[0.720509] (tm_msgs) StdoutLine: {'line': b'-- Installing: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs-1.1.2-py3.10.egg-info/top_level.txt\n'}
+[0.720561] (tm_msgs) StdoutLine: {'line': b'-- Installing: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs-1.1.2-py3.10.egg-info/SOURCES.txt\n'}
+[0.720598] (tm_msgs) StdoutLine: {'line': b'-- Installing: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs-1.1.2-py3.10.egg-info/PKG-INFO\n'}
+[0.720639] (tm_msgs) StdoutLine: {'line': b'-- Installing: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs-1.1.2-py3.10.egg-info/dependency_links.txt\n'}
+[0.720676] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs\n'}
+[0.720715] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/__init__.py\n'}
+[0.720763] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/_tm_msgs_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[0.720809] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/tm_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.720845] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/libtm_msgs__rosidl_generator_py.so\n'}
+[0.720882] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/srv\n'}
+[0.720938] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/srv/_send_script.py\n'}
+[0.720984] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/srv/_ask_item.py\n'}
+[0.721022] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/srv/_ask_sta_s.c\n'}
+[0.721066] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/srv/__init__.py\n'}
+[0.721104] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/srv/_ask_item_s.c\n'}
+[0.721154] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/srv/_robot_command_s.c\n'}
+[0.721198] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/srv/_robot_command.py\n'}
+[0.721236] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/srv/_write_item_s.c\n'}
+[0.721272] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/srv/_set_io.py\n'}
+[0.721308] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/srv/_send_script_s.c\n'}
+[0.721347] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/srv/_write_item.py\n'}
+[0.721387] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/srv/_ask_sta.py\n'}
+[0.721432] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/srv/_set_event.py\n'}
+[0.721469] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/srv/_connect_tm_s.c\n'}
+[0.721507] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/srv/_connect_tm.py\n'}
+[0.721543] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/srv/_set_positions.py\n'}
+[0.721580] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/srv/_set_io_s.c\n'}
+[0.721618] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/srv/_set_positions_s.c\n'}
+[0.721675] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/srv/_set_event_s.c\n'}
+[0.721725] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/_tm_msgs_s.ep.rosidl_typesupport_c.c\n'}
+[0.721762] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/_tm_msgs_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[0.721802] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/tm_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.721846] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/tm_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.721883] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/msg\n'}
+[0.721917] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/msg/__init__.py\n'}
+[0.721952] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/msg/_feedback_state_s.c\n'}
+[0.722007] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/msg/_sct_response_s.c\n'}
+[0.722047] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/msg/_feedback_state.py\n'}
+[0.722095] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/msg/_svr_response_s.c\n'}
+[0.722131] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/msg/_sta_response_s.c\n'}
+[0.722168] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/msg/_sct_response.py\n'}
+[0.722209] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/msg/_sta_response.py\n'}
+[0.722255] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/msg/_svr_response.py\n'}
+[0.722292] (custom_nav2_bt_nodes) JobEnded: {'identifier': 'custom_nav2_bt_nodes', 'rc': 1}
+[0.723031] (tm_description) CommandEnded: {'returncode': 0}
+[0.723229] (tm_msgs) StdoutLine: {'line': b"Listing '/root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs'...\n"}
+[0.723361] (tm_msgs) StdoutLine: {'line': b"Listing '/root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/msg'...\n"}
+[0.723456] (tm_msgs) StdoutLine: {'line': b"Listing '/root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/srv'...\n"}
+[0.723502] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/tm_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.723553] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/tm_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.723596] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages/tm_msgs/tm_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.723815] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/lib/libtm_msgs__rosidl_generator_py.so\n'}
+[0.723861] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/msg/FeedbackState.idl\n'}
+[0.723907] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/msg/SvrResponse.idl\n'}
+[0.723957] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/msg/SctResponse.idl\n'}
+[0.724009] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/msg/StaResponse.idl\n'}
+[0.724052] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/ConnectTM.idl\n'}
+[0.724134] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/WriteItem.idl\n'}
+[0.724177] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/AskItem.idl\n'}
+[0.724223] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/SendScript.idl\n'}
+[0.724266] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/SetEvent.idl\n'}
+[0.724305] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/SetIO.idl\n'}
+[0.724344] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/SetPositions.idl\n'}
+[0.724380] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/AskSta.idl\n'}
+[0.724414] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/RobotCommand.idl\n'}
+[0.724526] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/msg/FeedbackState.msg\n'}
+[0.724629] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/msg/SvrResponse.msg\n'}
+[0.724704] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/msg/SctResponse.msg\n'}
+[0.724931] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/msg/StaResponse.msg\n'}
+[0.724982] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/ConnectTM.srv\n'}
+[0.725028] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/ConnectTM_Request.msg\n'}
+[0.725281] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/ConnectTM_Response.msg\n'}
+[0.725345] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/WriteItem.srv\n'}
+[0.725396] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/WriteItem_Request.msg\n'}
+[0.725449] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/WriteItem_Response.msg\n'}
+[0.725575] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/AskItem.srv\n'}
+[0.725620] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/AskItem_Request.msg\n'}
+[0.725688] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/AskItem_Response.msg\n'}
+[0.725843] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/SendScript.srv\n'}
+[0.725899] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/SendScript_Request.msg\n'}
+[0.725941] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/SendScript_Response.msg\n'}
+[0.726979] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/SetEvent.srv\n'}
+[0.727445] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/SetEvent_Request.msg\n'}
+[0.727612] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/SetEvent_Response.msg\n'}
+[0.727815] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/SetIO.srv\n'}
+[0.727916] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/SetIO_Request.msg\n'}
+[0.728047] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/SetIO_Response.msg\n'}
+[0.728133] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/SetPositions.srv\n'}
+[0.728169] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/SetPositions_Request.msg\n'}
+[0.728219] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/SetPositions_Response.msg\n'}
+[0.728256] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/AskSta.srv\n'}
+[0.728290] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/AskSta_Request.msg\n'}
+[0.728590] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/AskSta_Response.msg\n'}
+[0.728642] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/RobotCommand.srv\n'}
+[0.728682] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/RobotCommand_Request.msg\n'}
+[0.728723] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/srv/RobotCommand_Response.msg\n'}
+[0.728764] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/ament_index/resource_index/package_run_dependencies/tm_msgs\n'}
+[0.728799] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/ament_index/resource_index/parent_prefix_path/tm_msgs\n'}
+[0.728835] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/environment/ament_prefix_path.sh\n'}
+[0.728867] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/environment/ament_prefix_path.dsv\n'}
+[0.728895] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/environment/path.sh\n'}
+[0.728923] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/environment/path.dsv\n'}
+[0.728952] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/local_setup.bash\n'}
+[0.728979] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/local_setup.sh\n'}
+[0.729007] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/local_setup.zsh\n'}
+[0.729037] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/local_setup.dsv\n'}
+[0.729070] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/package.dsv\n'}
+[0.729102] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/ament_index/resource_index/packages/tm_msgs\n'}
+[0.729132] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/cmake/export_tm_msgs__rosidl_generator_cExport.cmake\n'}
+[0.729168] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/cmake/export_tm_msgs__rosidl_generator_cExport-release.cmake\n'}
+[0.729204] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/cmake/export_tm_msgs__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[0.729361] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/cmake/export_tm_msgs__rosidl_typesupport_fastrtps_cExport-release.cmake\n'}
+[0.729547] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/cmake/tm_msgs__rosidl_typesupport_introspection_cExport.cmake\n'}
+[0.729870] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/cmake/tm_msgs__rosidl_typesupport_introspection_cExport-release.cmake\n'}
+[0.730012] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/cmake/tm_msgs__rosidl_typesupport_cExport.cmake\n'}
+[0.730473] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/cmake/tm_msgs__rosidl_typesupport_cExport-release.cmake\n'}
+[0.730646] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/cmake/export_tm_msgs__rosidl_generator_cppExport.cmake\n'}
+[0.730919] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/cmake/export_tm_msgs__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[0.731361] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/cmake/export_tm_msgs__rosidl_typesupport_fastrtps_cppExport-release.cmake\n'}
+[0.731773] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/cmake/tm_msgs__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[0.731983] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/cmake/tm_msgs__rosidl_typesupport_introspection_cppExport-release.cmake\n'}
+[0.732148] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/cmake/tm_msgs__rosidl_typesupport_cppExport.cmake\n'}
+[0.732410] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/cmake/tm_msgs__rosidl_typesupport_cppExport-release.cmake\n'}
+[0.732644] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/cmake/export_tm_msgs__rosidl_generator_pyExport.cmake\n'}
+[0.732846] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/cmake/export_tm_msgs__rosidl_generator_pyExport-release.cmake\n'}
+[0.732899] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/cmake/rosidl_cmake-extras.cmake\n'}
+[0.732934] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[0.732965] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[0.732996] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[0.733026] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[0.733064] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[0.733094] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[0.733124] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/cmake/tm_msgsConfig.cmake\n'}
+[0.733153] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/cmake/tm_msgsConfig-version.cmake\n'}
+[0.733182] (tm_msgs) StdoutLine: {'line': b'-- Up-to-date: /root/irslab_ws/install/tm_msgs/share/tm_msgs/package.xml\n'}
+[0.733212] (tm_description) JobEnded: {'identifier': 'tm_description', 'rc': 0}
+[0.733443] (tm_msgs) JobEnded: {'identifier': 'tm_msgs', 'rc': 'SIGINT'}
+[0.733609] (tm_mod_urdf) JobEnded: {'identifier': 'tm_mod_urdf', 'rc': 'SIGINT'}
+[0.801096] (-) TimerEvent: {}
+[0.880565] (hand_solo_arm) JobEnded: {'identifier': 'hand_solo_arm', 'rc': 'SIGINT'}
+[0.900665] (hand_solo_virtual_nav) JobEnded: {'identifier': 'hand_solo_virtual_nav', 'rc': 'SIGINT'}
+[0.901455] (-) TimerEvent: {}
+[0.902093] (pick_nav_place) JobEnded: {'identifier': 'pick_nav_place', 'rc': 'SIGINT'}
+[0.910842] (pa_warehouse_status) JobEnded: {'identifier': 'pa_warehouse_status', 'rc': 'SIGINT'}
+[0.921389] (tm12_moveit_config) JobSkipped: {'identifier': 'tm12_moveit_config'}
+[0.921478] (tm12x_moveit_config) JobSkipped: {'identifier': 'tm12x_moveit_config'}
+[0.921491] (tm14_moveit_config) JobSkipped: {'identifier': 'tm14_moveit_config'}
+[0.921500] (tm14x_moveit_config) JobSkipped: {'identifier': 'tm14x_moveit_config'}
+[0.921508] (tm16_moveit_config) JobSkipped: {'identifier': 'tm16_moveit_config'}
+[0.921515] (tm20_moveit_config) JobSkipped: {'identifier': 'tm20_moveit_config'}
+[0.921522] (tm5-700_moveit_config) JobSkipped: {'identifier': 'tm5-700_moveit_config'}
+[0.921529] (tm5-900_moveit_config) JobSkipped: {'identifier': 'tm5-900_moveit_config'}
+[0.921537] (tm5x-700_moveit_config) JobSkipped: {'identifier': 'tm5x-700_moveit_config'}
+[0.921544] (tm5x-900_moveit_config) JobSkipped: {'identifier': 'tm5x-900_moveit_config'}
+[0.921551] (tm_driver) JobSkipped: {'identifier': 'tm_driver'}
+[0.921558] (tm_inspect) JobSkipped: {'identifier': 'tm_inspect'}
+[0.921565] (tm_test) JobSkipped: {'identifier': 'tm_test'}
+[0.921573] (-) EventReactorShutdown: {}

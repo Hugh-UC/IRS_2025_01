@@ -1,0 +1,1 @@
+[0.063s] Invoking command in '/root/irslab_ws/build/tm5x-900_moveit_config': AMENT_PREFIX_PATH=/root/irslab_ws/install/tm_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/irslab_ws/install/tm_description:/opt/ros/humble /usr/bin/cmake --build /root/irslab_ws/build/tm5x-900_moveit_config -- -j20 -l20

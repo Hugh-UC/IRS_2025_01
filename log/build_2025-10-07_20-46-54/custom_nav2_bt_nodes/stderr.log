@@ -1,0 +1,10 @@
+[31mCMake Error at /opt/ros/humble/share/ament_cmake_core/cmake/core/assert_file_exists.cmake:20 (message):
+  ament_package() called with extra file 'install/local_setup.bash' which
+  does not exist
+Call Stack (most recent call first):
+  /opt/ros/humble/share/ament_cmake_core/cmake/core/ament_package.cmake:98 (assert_file_exists)
+  /opt/ros/humble/share/ament_cmake_core/cmake/core/ament_package.cmake:68 (_ament_package)
+  CMakeLists.txt:62 (ament_package)
+
+[0m
+gmake: *** [Makefile:267: cmake_check_build_system] Error 1
