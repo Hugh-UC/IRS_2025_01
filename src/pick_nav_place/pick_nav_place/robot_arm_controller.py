@@ -29,7 +29,7 @@ class RobotArmController(Node):
 
     JOINT_POSITIONS : dict[str, list[float]] = {        # target joint angles dictionary, in radians
         "default": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-        "home": [],
+        "home": [0.0, -0.7854, 1.7453, 0.7854, 0.0, 0.0],
         "moving": [0.0, -1.5708, 2.2689, 1.0123, 0.0, 0.0],
         "carry_box": [-0.6981, -1.5708, 2.2689, 1.0123, 0.0, 0.0],
         "place_box": [0.0, 0.5236, 1.2217, 1.2217, 0.0, 0.0],

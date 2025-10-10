@@ -75,6 +75,7 @@ class WarehouseCoordinator(Node):
     def _execute_coordinator(self) -> bool:
         self.get_logger().info("--- Starting Coordination Sequence...")
         self.arm_controller.set_wait_seconds(4.0)
+        self.nav_controller.set_wait_seconds(2.0)
 
         # -- move to conveyor --
         if not self.arm_controller.arm_move("moving"):
