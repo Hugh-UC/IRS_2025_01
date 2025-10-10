@@ -18,17 +18,12 @@
 
         <RecoveryNode number_of_retries="1" name="FollowPath">
           <ReactiveFallback name="ProactiveAlignmentCheck">
-            <Inverter>
-              <CheckPathAlignment path="{path}" angle_threshold="2.094"/>
-            </Inverter>
+            
             <Sequence>
               <GoalCheckerSelector selected_goal_checker="{selected_goal_checker}" default_goal_checker="general_goal_checker" topic_name="/pnp/current_goal_checker"/>
               <FollowPath path="{path}" controller_id="FollowPath" goal_checker_id="{selected_goal_checker}"/>
             </Sequence>
-            <Sequence name="InitialSpinRecovery">
-              <Spin spin_dist="1.57"/>
-              <ClearEntireCostmap name="ClearGlobalCostmap-Spin" service_name="global_costmap/clear_entirely_global_costmap"/>
-            </Sequence>
+            
           </ReactiveFallback>
             <ClearEntireCostmap name="ClearLocalCostmap-Context" service_name="local_costmap/clear_entirely_local_costmap"/>
         </RecoveryNode>

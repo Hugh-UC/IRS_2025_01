@@ -29,10 +29,19 @@ class PLCHmiListener(Node):
         self._box_counts : dict[str, int] | None    = None
         self._raw_data : dict[str, Any] | None      = None
 
+        self._previous_data : tuple[str | None, str | None, int] = (self.get_box_location(), self.get_box_weight(), self.get_total_count())
+
         self.subscription = self.create_subscription(
             String,
             'hmi/unified_status', # listening to the ros2 PLC topic
             self._listener_callback,
+            10
+        )
+
+        # initialise waypoint status publisher
+        self.hmi_status_pub = self.create_publisher(
+            String, 
+            '/pnp/hmi_status',  # dedicated topic name
             10
         )
         
@@ -47,6 +56,7 @@ class PLCHmiListener(Node):
             msg (str): incoming message containing the JSON data string.
         """
         try:
+            # load json data
             data = json.loads(msg.data)
 
             self._stamp = data.get("stamp", None)
@@ -54,10 +64,55 @@ class PLCHmiListener(Node):
             self._box_counts = data.get("counts", None)
             self._raw_data = data
 
+            # log data
             self._log_data()
-        
+
+            # signal to send topic message
+            self.topic_signal : bool = False
+
+            if self._detect_box_update() and not self.topic_signal:
+                status_msg = String()
+                status_msg.data = json.dumps({
+                    "signal_new_box": True,
+                })
+                self.hmi_status_pub.publish(status_msg)
+                
+                self.topic_signal = True
+                self.get_logger().info(f"Published new PLC Status to {self.hmi_status_pub.topic_name}. New task ready!")
+            elif self.topic_signal:
+                status_msg = String()
+                status_msg.data = json.dumps({
+                    "signal_new_box": False,
+                })
+                self.hmi_status_pub.publish(status_msg)
+                self.topic_signal = False
+            
         except Exception as e:
             self.get_logger().error(f"Failed to parse JSON: {e}\nRaw msg={msg.data}")
+
+
+    def _detect_box_update(self) -> bool:
+        # get current data
+        current_location: str | None = self.get_box_location()
+        current_weight: str | None = self.get_box_weight()
+        current_total_count: int | None = self.get_total_count()
+
+        # get previous data
+        previous_location, previous_weight, previous_total_count = self._previous_data
+
+        if not current_weight:
+            self.get_logger().debug("Incomplete or null total box weight received, ignoring update.")
+            return False
+
+        # compare and return result
+        if current_weight != previous_weight:
+            self.get_logger().info(f"Current Weight = {current_weight}, Previous_Weight = {previous_weight}")
+            self._previous_data = (current_location, current_weight, current_total_count)
+            self.get_logger().info(f"New Task Detected: Location/Weight change (L:{current_location}, W:{current_weight}).")
+            return True
+        
+        return False
+
 
 
     def _log_data(self) -> None:
@@ -67,7 +122,7 @@ class PLCHmiListener(Node):
         self.get_logger().debug("📥📥 Received PLC status:")
         self.get_logger().debug(f" ⏱⏱ Time: {self.get_pretty_time()}")
         self.get_logger().debug(f" 📦📦 Box weight raw = {self.get_box_weight()}")
-        self.get_logger().debug(f" 📍📍 Location: {self.get_location()}")
+        self.get_logger().debug(f" 📍📍 Location: {self.get_box_location()}")
         self.get_logger().debug(f" 🔢🔢 Counts: big={self.get_big_count()}, medium={self.get_medium_count()}, "
                                 f"small={self.get_small_count()}, total={self.get_total_count()} \n")
 
@@ -156,8 +211,15 @@ class PLCHmiListener(Node):
             str | None: weight string (e.g., '6 kg', '14 kg'), or None.
         """
         if self._box_data:
-            weight = self._box_data.get('weight_raw')
-            return str(weight) if weight is not None else None
+
+            weight : str | None = self._box_data.get('weight_raw')
+
+            if not weight or weight == "":
+                return None
+
+            weight = weight.replace("\n", "").replace(": ", "").strip()
+
+            return str(weight)
         
         return None
 
@@ -228,7 +290,7 @@ class PLCHmiListener(Node):
         return None
 
 
-    def get_location(self) -> str | None:
+    def get_box_location(self) -> str | None:
         """
         Retrieves the detected box location as a string.
 
@@ -236,8 +298,14 @@ class PLCHmiListener(Node):
             str | None: location string (e.g., 'A', 'B', or 'C'), or None.
         """
         if self._box_data:
-            location = self._box_data.get('location')
-            return str(location) if location is not None else None
+            location : str | None = self._box_data.get('location')
+
+            if not location or location == "":
+                return None
+            
+            location = location.replace("\n", "").replace(": ", "").strip()
+
+            return str(location)
 
         return None
 

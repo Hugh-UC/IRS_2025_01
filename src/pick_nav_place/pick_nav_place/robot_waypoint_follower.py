@@ -23,6 +23,13 @@ class RobotWaypointFollower(Node):
         Node (rclpy.node): node class from ROS 2 client library,
                            core node functionality is inherited from class.
     """
+    POSITION_LENGTH : int = 3
+    WAYPOINT_POSITIONS : dict[str, tuple[float, float, float]] = {
+        "home": (0.0, 0.0, 0.0),
+        "conveyor": (2.7, -0.65, 0.0),
+        "drop-off": (31.0, -4.25, 4.712),
+    }
+
     def __init__(self):
         """
 
@@ -31,6 +38,7 @@ class RobotWaypointFollower(Node):
 
         self.client : ActionClient = ActionClient(self, NavigateToPose, 'navigate_to_pose')
         self.waypoint_name : str = "Unknown"
+        self._waypoint : tuple[float, float, float] = self.WAYPOINT_POSITIONS.get("home", (0.0, 0.0, 0.0))
         self.wait_seconds : float = 0.5
 
         # initialise ros2 topic publisher
@@ -119,6 +127,25 @@ class RobotWaypointFollower(Node):
         time.sleep(0.1)         # give a moment for message to be processed by GoalCheckerSelector
 
 
+    def _get_waypoint(self, key : str) -> bool:
+        """
+        [PROTECTED HELPER] Retrieves a waypoint position from the dictionary and updates the internal '_waypoint' attribute.
+
+        Args:
+            key (str): key (name) of the joint position to load.
+
+        Returns:
+            bool: True if the key exists and was loaded, False otherwise.
+        """
+        if key not in self.WAYPOINT_POSITIONS:
+            self.get_logger().error(f"Unknown Waypoint Name: {key}")
+            return False
+        
+        self._waypoint = self.WAYPOINT_POSITIONS[key]
+
+        return True
+    
+
     # --- Helper method to build a PoseStamped ---
     def _make_pose(self, x : float, y : float, yaw : float) -> PoseStamped:
         """
@@ -145,33 +172,27 @@ class RobotWaypointFollower(Node):
 
 
     # --- Waypoint methods ---
-    def go_home(self) -> bool:
+    def go_to_waypoint(self, pos : str) -> bool:
         """
-        Navigates the robot to Home position (0.0, 0.0, 0.0).
+        Navigates the robot to specified waypoint position.
+
+        Args:
+            pos (str): string of chosen pre-defined waypoint position in WAYPOINT_POSITIONS (e.g., 'home', 'conveyor').
 
         Returns:
             bool: True if navigation was successful, False otherwise.
         """
-        self.get_logger().info("Navigating to Home Position (0, 0, 0)")
-        self.waypoint_name : str = "Home"
-
-        wp : PoseStamped = self._make_pose(0.0, 0.0, 0.0)
-
-        return self._send_and_wait(wp)
-    
-
-    def go_to_conveyor(self) -> bool:
-        """
-        Navigates the robot to Conveyor pickup position ().
-
-        Returns:
-            bool: True if navigation was successful, False otherwise.
-        """
-        self.get_logger().info("Navigating to Conveyor Position")
-        self.waypoint_name : str = "Conveyor"
-
-        wp : PoseStamped = self._make_pose(2.7, -0.596, 0.0)
+        pos = pos.lower()
+        if not self._get_waypoint(pos):
+            # _get_waypoint handles error logging
+            return False
         
+        self.waypoint_name : str = pos
+
+        self.get_logger().info(f"Navigating to {pos.upper()} position...")
+
+        wp : PoseStamped = self._make_pose(*self._waypoint)
+
         return self._send_and_wait(wp)
 
 
@@ -220,19 +241,32 @@ class RobotWaypointFollower(Node):
         return True
     
 
-    def wait_at_waypoint(self) -> None:
+    def wait_at_waypoint(self, wait_seconds : float | None = None) -> None:
         """
         Pauses execution for a specified duration at the current location.
 
         Returns:
             None: sleep only method.
         """
-        self.get_logger().info(f'Waiting {self.wait_seconds:.1f} seconds at waypoint {self.waypoint_name}...')
-        time.sleep(self.wait_seconds)
+        if not wait_seconds:
+            wait_seconds = self.wait_seconds
+
+        self.get_logger().info(f'Waiting {wait_seconds:.1f} seconds at waypoint {self.waypoint_name}...')
+        time.sleep(wait_seconds)
 
 
-    # --- Getters and Setters ---
-    def get_waypoint_name(self) -> str:
+    # --- Getters ---
+    def get_waypoint_names(self) -> list[str]:
+        """
+        Retrieves the list of available joint position names (keys) stored in JOINT_POSITIONS.
+
+        Returns:
+            list[str]: list of all predefined position names.
+        """
+        return list(self.WAYPOINT_POSITIONS.keys())
+    
+
+    def get_current_waypoint_name(self) -> str:
         """
         Returns the name of the last successfully reached waypoint.
 
@@ -242,6 +276,7 @@ class RobotWaypointFollower(Node):
         return self.waypoint_name
     
 
+    # --- Setters ---
     def set_wait_seconds(self, seconds : float) -> bool:
         """
         Sets the duration (in seconds) that the robot waits after reaching a waypoint.
@@ -260,6 +295,39 @@ class RobotWaypointFollower(Node):
         return True
 
 
+    def set_waypoint_position(self, new_waypoint : tuple[float, float, float], waypoint_name : str) -> bool:
+        """
+        Adds or updates a named joint position in the JOINT_POSITIONS dictionary.
+
+        Args:
+            new_waypoint (tuple[float, float, float]):   tuple of 3 float values representing the target joint angles (in radians).
+            position_name (str):        unique or pre-existing name to assign or update this joint position.
+
+        Returns:
+            bool: True if position was successfully added/updated, False otherwise.
+        """
+        waypoint_name = waypoint_name.lower()
+
+        # new position validation checks
+        if len(new_waypoint) != self.POSITION_LENGTH:
+            self.get_logger().error(f"Waypoint tuple size invalid. Expected {self.POSITION_LENGTH} values (x, y, yaw) but got {len(new_waypoint)}.")
+            return False
+        
+        if not all(isinstance(val, (int, float)) for val in new_waypoint):
+            self.get_logger().error("Waypoint values must be floats or integers.")
+            return False
+        
+        if not isinstance(waypoint_name, str) or not waypoint_name.strip():
+            self.get_logger().error("Waypoint name must be a non-empty string.")
+            return False
+        
+        # set new joint position
+        self.WAYPOINT_POSITIONS[waypoint_name] = tuple(float(val) for val in new_waypoint)
+        self.get_logger().info(f"Updated/Added new waypoint position: '{waypoint_name}'!")
+
+        return True
+
+
 
 def main(args=None):
     """
@@ -268,8 +336,6 @@ def main(args=None):
     rclpy.init(args=args)
     
     node = RobotWaypointFollower()
-
-    # node.go_to_conveyor()
     
     try:
         # Spin the node to keep the ActionClient alive and ready for calls

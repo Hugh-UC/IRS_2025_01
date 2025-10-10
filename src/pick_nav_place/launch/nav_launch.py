@@ -7,12 +7,12 @@ from launch.substitutions import LaunchConfiguration
 
 def generate_launch_description():
     # Package paths
-    pkg_share = FindPackageShare('hand_solo_virtual_nav')
+    pkg_share = FindPackageShare('pick_nav_place')
     
     # File paths
-    rviz_cfg = PathJoinSubstitution([pkg_share, 'rviz', 'pa_rviz_nav2.rviz'])
-    map_yaml = PathJoinSubstitution([pkg_share, 'map', 'pa_warehouse_map_01.yaml'])
-    nav2_params = PathJoinSubstitution([pkg_share, 'config', 'pa_nav2_params.yaml'])
+    rviz_cfg = PathJoinSubstitution([pkg_share, 'rviz', 'pnp_rviz_nav2.rviz'])
+    map_yaml = PathJoinSubstitution([pkg_share, 'map', 'pnp_warehouse_map_01.yaml'])
+    nav2_params = PathJoinSubstitution([pkg_share, 'config', 'pnp_nav2_params.yaml'])
     
     # Launch arguments (optional - for flexibility)
     use_sim_time = LaunchConfiguration('use_sim_time', default='false')

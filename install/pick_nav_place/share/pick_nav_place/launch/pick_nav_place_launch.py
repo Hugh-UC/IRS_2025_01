@@ -14,9 +14,9 @@ def generate_launch_description():
     tm12x_moveit_config_pkg = FindPackageShare('tm12x_moveit_config')
     
     # File paths
-    rviz_cfg = PathJoinSubstitution([pkg_share, 'rviz', 'pa_rviz_nav2.rviz'])
-    map_yaml = PathJoinSubstitution([pkg_share, 'map', 'pa_warehouse_map_01.yaml'])
-    nav2_params = PathJoinSubstitution([pkg_share, 'config', 'pa_nav2_params.yaml'])
+    rviz_cfg = PathJoinSubstitution([pkg_share, 'rviz', 'pnp_rviz_nav2.rviz'])
+    map_yaml = PathJoinSubstitution([pkg_share, 'map', 'pnp_warehouse_map_01.yaml'])
+    nav2_params = PathJoinSubstitution([pkg_share, 'config', 'pnp_nav2_params.yaml'])
     
     # Launch arguments (optional - for flexibility)
     use_sim_time = LaunchConfiguration('use_sim_time', default='false')
@@ -42,7 +42,7 @@ def generate_launch_description():
     )
 
     # Include MoveIt! launch file
-    moveit_launch = IncludeLaunchDescription(
+    """moveit_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
             PathJoinSubstitution([
                 tm12x_moveit_config_pkg, 
@@ -51,7 +51,7 @@ def generate_launch_description():
             ])
         ]),
         launch_arguments={'use_sim_time': use_sim_time}.items()
-    )
+    )"""
 
     # Map Server - Lifecycle Node
     map_server = LifecycleNode(
@@ -249,7 +249,7 @@ def generate_launch_description():
         static_tf_lidar,
 
         # Arm Control Stack
-        moveit_launch,
+        #moveit_launch,
         
         # Localization Stack
         map_server,

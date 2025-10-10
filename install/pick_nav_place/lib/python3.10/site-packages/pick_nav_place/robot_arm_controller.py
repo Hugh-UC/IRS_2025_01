@@ -34,8 +34,8 @@ class RobotArmController(Node):
         "carry_box": [-0.6981, -1.5708, 2.2689, 1.0123, 0.0, 0.0],
         "place_box": [0.0, 0.5236, 1.2217, 1.2217, 0.0, 0.0],
         "sm_pick_box": [0.3840, 0.1047, 1.8326, 1.2217, 0.0, 0.0],
-        "mm_pick_box": [],
-        "bg_pick_box": []
+        "mm_pick_box": [0.3840, 0.1047, 1.8326, 1.2217, 0.0, 0.0],
+        "bg_pick_box": [0.3840, 0.1047, 1.8326, 1.2217, 0.0, 0.0]
     }
     BOX_SIZES : dict[str, str] = {"small": "sm", "medium": "mm", "big": "bg"}
 
@@ -74,7 +74,7 @@ class RobotArmController(Node):
         else:
             self.get_logger().info('MoveGroup action server ready.')
 
-        goal : MoveGroup.Goal               = self._goal_from_joints()
+        goal : MoveGroup.Goal   = self._goal_from_joints()
         send_future : Future    = self._client.send_goal_async(goal)
 
         rclpy.spin_until_future_complete(self, send_future)
@@ -116,6 +116,8 @@ class RobotArmController(Node):
             return False
         
         self._joints = self.JOINT_POSITIONS[key]
+
+        self.get_logger().info(f"Selected Joints: {self._joints}")              # REMOVE!!!!!
 
         return True
 
@@ -176,6 +178,7 @@ class RobotArmController(Node):
         Returns:
             bool: True if move was successful, False otherwise.
         """
+        pos = pos.lower()
         if not self._get_joints(pos):
             # _get_joints handles error logging
             return False
@@ -273,7 +276,7 @@ class RobotArmController(Node):
             bool: True if position was successfully added/updated, False otherwise.
         """
         # new position validation checks
-        if len(new_joints) > 6:
+        if len(new_joints) != 6:
             self.get_logger().error(f"Joint list size invalid. Expected {len(self.JOINT_NAMES)} but got {len(new_joints)}.")
             return False
         

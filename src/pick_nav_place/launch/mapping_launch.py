@@ -9,11 +9,11 @@ def generate_launch_description():
     pkg_share = FindPackageShare('pick_nav_place')
 
     slam_params = PathJoinSubstitution(
-        [pkg_share, 'config', 'pa_slam_params.yaml']
+        [pkg_share, 'config', 'pnp_slam_params.yaml']
     )
     
     rviz_cfg = PathJoinSubstitution(
-        [pkg_share, 'rviz', 'pa_rviz_mapping.rviz']
+        [pkg_share, 'rviz', 'pnp_rviz_mapping.rviz']
     )
 
     return LaunchDescription([
