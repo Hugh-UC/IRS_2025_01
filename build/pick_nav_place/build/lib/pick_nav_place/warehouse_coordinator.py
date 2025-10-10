@@ -92,6 +92,9 @@ class WarehouseCoordinator(Node):
         
         # wait for box to be ready (Encapsulated Polling Logic)
         box_ready, box_size_key, box_location = self._wait_for_box_ready()
+
+        if not box_ready:
+            return False
         
         self.get_logger().info(f"Box is ready to be picked from conveyor position '{box_location}'.")
 
@@ -99,6 +102,8 @@ class WarehouseCoordinator(Node):
         if not self.arm_controller.arm_pick_box(box_size_key):
             self.get_logger().error(f"Failed to move arm for picking {box_size_key}.")
             return False
+        
+        self.arm_controller.wait_at_position()
         
         # -- carry box --
         if not self.arm_controller.arm_move("carry_box"):

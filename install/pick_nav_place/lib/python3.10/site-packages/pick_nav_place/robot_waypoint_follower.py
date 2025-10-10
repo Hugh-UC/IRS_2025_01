@@ -336,8 +336,6 @@ def main(args=None):
     rclpy.init(args=args)
     
     node = RobotWaypointFollower()
-
-    node.go_to_waypoint("conveyor")
     
     try:
         # Spin the node to keep the ActionClient alive and ready for calls

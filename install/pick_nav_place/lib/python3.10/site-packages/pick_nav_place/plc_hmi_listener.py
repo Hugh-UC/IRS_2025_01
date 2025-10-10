@@ -24,12 +24,15 @@ class PLCHmiListener(Node):
         """
         super().__init__('plc_hmi_listener')
 
+        # variables to store json data from /hmi/unified_status
         self._stamp : dict[str, int] | None         = None
         self._box_data : dict[str, Any] | None      = None
         self._box_counts : dict[str, int] | None    = None
         self._raw_data : dict[str, Any] | None      = None
-
         self._previous_data : tuple[str | None, str | None, int] = (self.get_box_location(), self.get_box_weight(), self.get_total_count())
+
+        # signal to send topic message
+        self._topic_signal : bool = False
 
         self.subscription = self.create_subscription(
             String,
@@ -67,25 +70,21 @@ class PLCHmiListener(Node):
             # log data
             self._log_data()
 
-            # signal to send topic message
-            self.topic_signal : bool = False
-
-            if self._detect_box_update() and not self.topic_signal:
+            if self._detect_box_update() and not self._topic_signal:
+                self._topic_signal = True
                 status_msg = String()
                 status_msg.data = json.dumps({
                     "signal_new_box": True,
                 })
                 self.hmi_status_pub.publish(status_msg)
-                
-                self.topic_signal = True
                 self.get_logger().info(f"Published new PLC Status to {self.hmi_status_pub.topic_name}. New task ready!")
-            elif self.topic_signal:
+            elif self._topic_signal:
+                self._topic_signal = False
                 status_msg = String()
                 status_msg.data = json.dumps({
                     "signal_new_box": False,
                 })
                 self.hmi_status_pub.publish(status_msg)
-                self.topic_signal = False
             
         except Exception as e:
             self.get_logger().error(f"Failed to parse JSON: {e}\nRaw msg={msg.data}")

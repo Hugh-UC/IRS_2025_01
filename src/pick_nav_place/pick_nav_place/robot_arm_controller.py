@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import time
+import json
 
 import rclpy
 from rclpy.node import Node
@@ -33,9 +34,9 @@ class RobotArmController(Node):
         "moving": [0.0, -1.5708, 2.2689, 1.0123, 0.0, 0.0],
         "carry_box": [-0.6981, -1.5708, 2.2689, 1.0123, 0.0, 0.0],
         "place_box": [0.0, 0.5236, 1.2217, 1.2217, 0.0, 0.0],
-        "sm_pick_box": [0.3840, 0.1047, 1.8326, 1.2217, 0.0, 0.0],
-        "mm_pick_box": [0.3840, 0.1047, 1.8326, 1.2217, 0.0, 0.0],
-        "bg_pick_box": [0.3840, 0.1047, 1.8326, 1.2217, 0.0, 0.0]
+        "sm_pick_box": [0.8378, 1.0123, 0.5934, 0.0, 1.5708, 0.0],      # degrees: 48, 58, 34, 00, 90, 00
+        "mm_pick_box": [0.4538, 0.3491, 1.3963, -0.1396, 1.5708, 0.0],  # degrees: 26, 20, 80, -8, 90, 00
+        "bg_pick_box": [0.0, 0.4887, 1.1170, 0.0, 1.5708, 0.0]          # degrees: 00, 28, 64, 00, 90, 00
     }
     BOX_SIZES : dict[str, str] = {"small": "sm", "medium": "mm", "big": "bg"}
 
@@ -57,7 +58,31 @@ class RobotArmController(Node):
             10
         )
 
+        """
+        self.subscription = self.create_subscription(
+            String,
+            '/pnp/coordinator',     # listening to the ros2 Warehouse Coordinator topic
+            self._listener_callback,
+            10
+        )
+        """
         self.get_logger().info('Waypoint Follower node started. Waiting for MoveGroup action server...')
+
+    """
+    def _listener_callback(self, msg : str) -> None:
+        try:
+            data = json.loads(msg.data)
+
+            command : str | None = data.get("arm_command", None)
+
+            if not command:
+                return
+            
+
+
+        except Exception as e:
+            self.get_logger().error(f"Failed to read coordinator command: {e}\nraw msg={msg.data}")
+    """
 
 
     # --- Method to send a goal and wait for result ---

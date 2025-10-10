@@ -42,7 +42,7 @@ def generate_launch_description():
     )
 
     # Include MoveIt! launch file
-    """moveit_launch = IncludeLaunchDescription(
+    moveit_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
             PathJoinSubstitution([
                 tm12x_moveit_config_pkg, 
@@ -51,7 +51,7 @@ def generate_launch_description():
             ])
         ]),
         launch_arguments={'use_sim_time': use_sim_time}.items()
-    )"""
+    )
 
     # Map Server - Lifecycle Node
     map_server = LifecycleNode(
@@ -195,6 +195,7 @@ def generate_launch_description():
         ]
     )
     
+    """
     # Waypoint Follower - New Node
     robot_waypoint_follower = Node(
         package='pick_nav_place',
@@ -221,7 +222,7 @@ def generate_launch_description():
         output='screen',
         emulate_tty=True
     )
-
+    """
     # Warehouse Coordinator - New Node
     warehouse_coordinator = Node(
         package='pick_nav_place',
@@ -249,7 +250,7 @@ def generate_launch_description():
         static_tf_lidar,
 
         # Arm Control Stack
-        #moveit_launch,
+        moveit_launch,
         
         # Localization Stack
         map_server,
@@ -266,9 +267,9 @@ def generate_launch_description():
         lifecycle_manager_navigation,
 
         # Custom Application Nodes
-        robot_waypoint_follower,    # Navigation
-        robot_arm_controller,       # Arm Control
-        plc_hmi_listener,           # Topic Listener
+        #robot_waypoint_follower,    # Navigation
+        #robot_arm_controller,       # Arm Control
+        #plc_hmi_listener,           # Topic Listener
         warehouse_coordinator,      # Coordination Logic
 
         # Visualization
