@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Release-7fd87f3a934eaa318b87.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "custom_nav2_bt_nodes",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "custom_nav2_bt_nodes_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-custom_nav2_bt_nodes_uninstall-Release-b87e92cdc032e34b3218.json",
+					"name" : "custom_nav2_bt_nodes_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "nav2_bt_nodes_check_path_alignment::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-nav2_bt_nodes_check_path_alignment-Release-3fe4c4bcf7e3cb1da6af.json",
+					"name" : "nav2_bt_nodes_check_path_alignment",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-Release-f4f807efacaf663a9deb.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/root/irslab_ws/build/custom_nav2_bt_nodes",
+		"source" : "/root/irslab_ws/src/custom_nav2_bt_nodes"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

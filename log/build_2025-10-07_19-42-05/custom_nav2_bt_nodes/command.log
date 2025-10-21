@@ -1,2 +1,0 @@
-Invoking command in '/root/irslab_ws/build/custom_nav2_bt_nodes': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /root/irslab_ws/src/custom_nav2_bt_nodes -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/root/irslab_ws/install/custom_nav2_bt_nodes
-Invoked command in '/root/irslab_ws/build/custom_nav2_bt_nodes' returned '1': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /root/irslab_ws/src/custom_nav2_bt_nodes -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/root/irslab_ws/install/custom_nav2_bt_nodes

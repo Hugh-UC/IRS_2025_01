@@ -1,0 +1,25 @@
+[0.045s] Invoking command in '/root/irslab_ws/build/tm_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/irslab_ws/install/tm_mod_urdf:/root/irslab_ws/install/pick_nav_place:/root/irslab_ws/install/pa_warehouse_status:/root/irslab_ws/install/hand_solo_virtual_nav:/root/irslab_ws/install/hand_solo_arm:/opt/ros/humble /usr/bin/cmake --build /root/irslab_ws/build/tm_msgs -- -j20 -l20
+[0.809s] [  8%] Built target tm_msgs__cpp
+[0.810s] [ 12%] Built target tm_msgs__rosidl_generator_c
+[0.811s] [ 12%] Built target ament_cmake_python_copy_tm_msgs
+[0.811s] [ 24%] Built target tm_msgs__rosidl_typesupport_c
+[0.811s] [ 36%] Built target tm_msgs__rosidl_typesupport_introspection_c
+[0.811s] [ 48%] Built target tm_msgs__rosidl_typesupport_introspection_cpp
+[0.811s] [ 73%] Built target tm_msgs__rosidl_typesupport_fastrtps_c
+[0.811s] [ 78%] Built target tm_msgs__rosidl_typesupport_cpp
+[0.811s] [ 84%] Built target tm_msgs__rosidl_typesupport_fastrtps_cpp
+[0.811s] [ 84%] Built target tm_msgs
+[0.811s] [ 85%] Built target tm_msgs__py
+[0.811s] [ 96%] Built target tm_msgs__rosidl_generator_py
+[0.811s] [ 99%] Built target tm_msgs__rosidl_typesupport_c__pyext
+[0.811s] [ 99%] Built target tm_msgs__rosidl_typesupport_introspection_c__pyext
+[0.811s] [100%] Built target tm_msgs__rosidl_typesupport_fastrtps_c__pyext
+[0.812s] running egg_info
+[0.812s] writing tm_msgs.egg-info/PKG-INFO
+[0.812s] writing dependency_links to tm_msgs.egg-info/dependency_links.txt
+[0.812s] writing top-level names to tm_msgs.egg-info/top_level.txt
+[0.812s] reading manifest file 'tm_msgs.egg-info/SOURCES.txt'
+[0.812s] writing manifest file 'tm_msgs.egg-info/SOURCES.txt'
+[0.812s] [100%] Built target ament_cmake_python_build_tm_msgs_egg
+[1.017s] Invoked command in '/root/irslab_ws/build/tm_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/irslab_ws/install/tm_mod_urdf:/root/irslab_ws/install/pick_nav_place:/root/irslab_ws/install/pa_warehouse_status:/root/irslab_ws/install/hand_solo_virtual_nav:/root/irslab_ws/install/hand_solo_arm:/opt/ros/humble /usr/bin/cmake --build /root/irslab_ws/build/tm_msgs -- -j20 -l20
+[1.018s] Invoking command in '/root/irslab_ws/build/tm_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/irslab_ws/install/tm_mod_urdf:/root/irslab_ws/install/pick_nav_place:/root/irslab_ws/install/pa_warehouse_status:/root/irslab_ws/install/hand_solo_virtual_nav:/root/irslab_ws/install/hand_solo_arm:/opt/ros/humble /usr/bin/cmake --install /root/irslab_ws/build/tm_msgs

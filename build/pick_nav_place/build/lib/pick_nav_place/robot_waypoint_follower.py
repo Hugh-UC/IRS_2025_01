@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 import math
 import time
+import json
+import threading
 
 import rclpy
-from rclpy.action import ActionClient
 from rclpy.node import Node
+from rclpy.executors import MultiThreadedExecutor
+from rclpy.action import ActionClient
 from geometry_msgs.msg import PoseStamped
-from nav2_msgs.action import NavigateToPose
+from nav2_msgs.action import NavigateToPose, Spin
 from std_msgs.msg import String
 
 from typing import Callable
@@ -25,10 +28,12 @@ class RobotWaypointFollower(Node):
     """
     POSITION_LENGTH : int = 3
     WAYPOINT_POSITIONS : dict[str, tuple[float, float, float]] = {
-        "home": (0.0, 0.0, 0.0),
-        "conveyor": (2.7, -0.65, 0.0),
+        "home": (0.0, 0.0, 0.1),
+        "conveyor": (2.50, -0.65, 0.1),
+        "conveyor_leave": (2.50, -0.65, 1.4),
         "drop-off": (31.0, -4.25, 4.712),
     }
+    STATUS_LABELS : list[str] = ["idle", "busy", "complete", "error"]
 
     def __init__(self):
         """
@@ -36,26 +41,143 @@ class RobotWaypointFollower(Node):
         """
         super().__init__('robot_waypoint_follower')
 
-        self.client : ActionClient = ActionClient(self, NavigateToPose, 'navigate_to_pose')
-        self.waypoint_name : str = "Unknown"
-        self._waypoint : tuple[float, float, float] = self.WAYPOINT_POSITIONS.get("home", (0.0, 0.0, 0.0))
-        self.wait_seconds : float = 0.5
+        self._client : ActionClient         = ActionClient(self, NavigateToPose, 'navigate_to_pose')
+        self._spin_client : ActionClient    = ActionClient(self, Spin, 'spin')
 
-        # initialise ros2 topic publisher
-        self.goal_checker_pub = self.create_publisher(
+        self._waypoint_name : str = "Unknown"
+        self._waypoint : tuple[float, float, float] = self.WAYPOINT_POSITIONS.get("home", (0.0, 0.0, 0.0))
+        self._wait_seconds : float = 0.5
+
+        
+        self._status : int = 0
+
+        self._goal_checker_pub = self.create_publisher(         # initialise ros2 topic publisher
             String, 
             '/pnp/current_goal_checker',        # <-- use the topic name from custom BT XML
             1
         )
 
-        # initialise waypoint status publisher
-        self.waypoint_status_pub = self.create_publisher(
+        self._waypoint_status_pub = self.create_publisher(      # initialise waypoint status publisher
             String, 
             '/pnp/waypoint_follow_status',  # dedicated topic name
             10
         )
 
+        # ROS2 Topic Subscriptions
+        self._coordinator_sub = self.create_subscription(
+            String,
+            '/pnp/coordinator',
+            self._listener_callback,
+            10
+        )
+
         self.get_logger().info('Waypoint Follower node started. Waiting for Nav2 action server...')
+
+        nav_ready = self._client.wait_for_server(timeout_sec=5.0)
+        spin_ready = self._spin_client.wait_for_server(timeout_sec=5.0)
+
+        if not nav_ready or not spin_ready:
+            self.get_logger().error('Nav2 action server not available after 5s.')
+            self._status = 3
+        else:
+            self.get_logger().info('Nav2 action server ready.')
+
+
+        self._publish_status()
+
+        # locks thread to ensure only one goal is being processed at a time
+        self._goal_lock = threading.Lock()
+
+
+
+    # --- Listener Method ---
+    def _listener_callback(self, msg : String) -> None:
+        """
+        Parses the JSON command, checks the target, and executes the specified method.
+        """
+        try:
+            data = json.loads(msg.data)
+            
+            # 1. Check if the command is for this node
+            target = data.get("node")
+            if target != self.get_name():
+                return
+            
+            command_data = data.get("command", {})
+            method_name = command_data.get("method")
+            value = command_data.get("value")
+
+            if not method_name:
+                self.get_logger().warn("Received command without a specified method.")
+                return
+
+            # 2. Check if the method exists and is callable
+            method = getattr(self, method_name, None)
+            
+            if method is None or not callable(method):
+                self.get_logger().error(f"Command Error: Method '{method_name}' not found or not callable.")
+                self._status = 3
+                self._publish_status()
+                return
+
+            # 3. Execute the method
+            self.get_logger().info(f"Executing command: {method_name}({value})")
+            
+            self._execute_new_thread(method, value)
+
+        except Exception as e:
+            self.get_logger().error(f"Failed to process coordinator command: {e}\nRaw msg={msg.data}")
+            self._status = 3
+            self._publish_status()
+
+
+    def _execute_new_thread(self, method, value = None) -> None:
+        try:
+            thread_args : tuple = ()
+
+            if value is not None and value != "":
+                thread_args = (value,)
+
+            t = threading.Thread(target=method, args=thread_args, daemon=True)
+            t.start()
+            self.get_logger().info(f"New execution thread started.")
+
+        except Exception as e:
+            self.get_logger().error(f"Error during threaded execution of {method.__name__}: {e}")
+            self._status = 3
+            self._publish_status()
+
+
+    # --- Publisher Methods --
+    def _select_goal_checker(self, precise_check = False):
+        msg = String()
+        if precise_check:
+            msg.data = "precise_goal_checker"       # use higher precision goal checker
+            self.get_logger().info('Publishing PRECISE Goal Checker ID.')
+        else:
+            msg.data = "general_goal_checker"
+            self.get_logger().info('Publishing GENERAL Goal Checker ID.')
+
+        self._goal_checker_pub.publish(msg)
+        time.sleep(0.1)         # give a moment for message to be processed by GoalCheckerSelector
+
+
+    def _publish_status(self) -> None:
+        # create message payload
+        payload : dict[str, str | int] = {
+            "node": self.get_name(),                # "robot_waypoint_follower"
+            "current_target": self._waypoint_name,
+            "status": self._get_status_name(),       # "idle", "busy", "complete", "error"
+            "timestamp": int(self.get_clock().now().nanoseconds / 1e9), # Unix timestamp
+        }
+
+        json_payload : json = json.dumps(payload)
+
+        msg : String = String()
+        msg.data = json_payload
+
+        self._waypoint_status_pub.publish(msg)
+
 
 
     # --- Method to send a goal and wait for result ---
@@ -69,12 +191,6 @@ class RobotWaypointFollower(Node):
         Returns:
             bool: True if goal was reached, False otherwise.
         """
-        if not self.client.wait_for_server(timeout_sec=5.0):
-            self.get_logger().error('Nav2 action server not available after 5s.')
-            return False
-        else:
-            self.get_logger().info('Nav2 action server ready.')
-        
         # 1. Prepare Goal
         pose.header.stamp = self.get_clock().now().to_msg()
         goal : NavigateToPose.Goal = NavigateToPose.Goal()
@@ -92,39 +208,90 @@ class RobotWaypointFollower(Node):
                 pass
         
         # 4. Send and Wait for Goal Acceptance
-        send_future = self.client.send_goal_async(goal, feedback_callback=feedback_cb)
-        rclpy.spin_until_future_complete(self, send_future)
+        send_future = self._client.send_goal_async(goal, feedback_callback=feedback_cb)
+
+        # rclpy.spin_until_future_complete(self, send_future)
+        while not send_future.done():
+            time.sleep(0.05)
+
         handle = send_future.result()
 
         if not handle or not handle.accepted:
             self.get_logger().error('Goal was rejected!')
+            self._status = 3
+            self._publish_status()
             return False
 
         # 5. Wait until navigation is complete
         result_future = handle.get_result_async()
-        rclpy.spin_until_future_complete(self, result_future)
+
+        # rclpy.spin_until_future_complete(self, result_future)
+        while not result_future.done():
+            time.sleep(0.05)
+
         result = result_future.result()
 
         # 6. Log and Return Result
-        if result is None:
-            self.get_logger().error('No result returned.')
+        if result is None or result.status != 4:
+            self.get_logger().error('Goal failed or was interupted.')
+            self._status = 3
+            self._publish_status()
             return False
 
         self.get_logger().info('Goal reached successfully!')
+        self._status = 2
+        self._publish_status()
+        
         return True
-    
 
-    def _select_goal_checker(self, precise_check = False):
-        msg = String()
-        if precise_check:
-            msg.data = "precise_goal_checker"       # use higher precision goal checker
-            self.get_logger().info('Publishing PRECISE Goal Checker ID.')
-        else:
-            msg.data = "general_goal_checker"
-            self.get_logger().info('Publishing GENERAL Goal Checker ID.')
 
-        self.goal_checker_pub.publish(msg)
-        time.sleep(0.1)         # give a moment for message to be processed by GoalCheckerSelector
+    def _send_spin_and_wait(self, yaw_rad = 0.0, precise_check = False) -> bool:
+        # 1. Prepare Goal
+        goal : Spin.Goal = Spin.Goal()
+        goal.target_yaw = float(yaw_rad)
+
+        self.get_logger().info(f"Sending Spin goal for {yaw_rad:.2f} radians...")
+
+        # 2. Select the Goal Checker
+        self._select_goal_checker(precise_check)
+
+        # 3. Send and Wait for Goal Acceptance
+        send_future = self._spin_client.send_goal_async(goal)
+
+        while not send_future.done():
+            time.sleep(0.05)
+        
+        handle = send_future.result()
+
+        handle = send_future.result()
+
+        if not handle or not handle.accepted:
+            self.get_logger().error('Goal was rejected!')
+            self._status = 3
+            self._publish_status()
+            return False
+
+        # 5. Wait until navigation is complete
+        result_future = handle.get_result_async()
+
+        # rclpy.spin_until_future_complete(self, result_future)
+        while not result_future.done():
+            time.sleep(0.05)
+
+        result = result_future.result()
+
+        # 6. Log and Return Result
+        if result is None or result.status != 4:
+            self.get_logger().error('No result returned.')
+            self._status = 3
+            self._publish_status()
+            return False
+
+        self.get_logger().info('Goal reached successfully!')
+        self._status = 2
+        self._publish_status()
+        
+        return True
 
 
     def _get_waypoint(self, key : str) -> bool:
@@ -171,8 +338,8 @@ class RobotWaypointFollower(Node):
         return ps
 
 
-    # --- Waypoint methods ---
-    def go_to_waypoint(self, pos : str) -> bool:
+    # --- Waypoint Methods ---
+    def _go_to_waypoint(self, pos : str) -> bool:
         """
         Navigates the robot to specified waypoint position.
 
@@ -182,66 +349,35 @@ class RobotWaypointFollower(Node):
         Returns:
             bool: True if navigation was successful, False otherwise.
         """
-        pos = pos.lower()
-        if not self._get_waypoint(pos):
-            # _get_waypoint handles error logging
-            return False
-        
-        self.waypoint_name : str = pos
-
-        self.get_logger().info(f"Navigating to {pos.upper()} position...")
-
-        wp : PoseStamped = self._make_pose(*self._waypoint)
-
-        return self._send_and_wait(wp)
-
-
-    def go_to_dropoff(self) -> bool:
-        """
-        Navigates to the Dropoff Station using a multiple-waypoint sequence.
-
-        Returns:
-            bool: True if navigation was successful, False otherwise.
-        """
-        self.get_logger().info("Navigating to Dropoff Station")
-        wp : list[PoseStamped] = [
-            self._make_pose(0.0, 0.0, 0.0),
-            self._make_pose(5.81, 14.0, 0.0),
-            self._make_pose(24.0, 13.0, 4.712),
-            self._make_pose(28.5, 4.33, 4.0),
-            self._make_pose(28.3, -3.27, 0.0),
-            self._make_pose(6.23, 0.035, 3.14)
-        ]
-
-        return self._run_multiple_poses(wp)
-        
-    
-    def _run_multiple_poses(self, poses : list[PoseStamped]) -> bool:
-        """
-        Executes a sequence of navigation goals one after the other.
-
-        Args:
-            poses (list[PoseStamped]): list of PoseStamped messages representing the route.
-
-        Returns:
-            bool: True if all poses were successfully reached, False otherwise.
-        """
-        self.get_logger().info(f"Starting multi-pose sequence with {len(poses)} waypoints.")
-
-        for i, pose in enumerate(poses):
-            self.waypoint_name : str = f"({i + 1})"
-
-            if not self._send_and_wait(pose):
-                self.get_logger().error(f"Failed to reach waypoint ({i+1}). Aborting sequence.")
+        with self._goal_lock:
+            if not self._check_status():
+                # _check_status handles error logging
                 return False
             
-            # Pause after success
-            self.wait_at_waypoint()
+            pos = pos.lower()
+            if not self._get_waypoint(pos):
+                # _get_waypoint handles error logging
+                return False
             
-        return True
-    
+            self._waypoint_name : str = pos
 
-    def wait_at_waypoint(self, wait_seconds : float | None = None) -> None:
+            self._status = 1
+            self._publish_status()
+
+            self.get_logger().info(f"Navigating to {pos.upper()} position...")
+
+            wp : PoseStamped = self._make_pose(*self._waypoint)
+
+            result : bool = self._send_and_wait(wp)
+
+            self._wait_at_waypoint()
+            self._status = 0
+            self._publish_status()
+
+            return result
+
+
+    def _wait_at_waypoint(self, wait_seconds : float | None = None) -> None:
         """
         Pauses execution for a specified duration at the current location.
 
@@ -249,14 +385,53 @@ class RobotWaypointFollower(Node):
             None: sleep only method.
         """
         if not wait_seconds:
-            wait_seconds = self.wait_seconds
+            wait_seconds = self._wait_seconds
 
-        self.get_logger().info(f'Waiting {wait_seconds:.1f} seconds at waypoint {self.waypoint_name}...')
+        self.get_logger().info(f'Waiting {wait_seconds:.1f} seconds at waypoint {self._waypoint_name}...')
         time.sleep(wait_seconds)
 
 
+    def _check_status(self) -> bool:
+        """
+        _summary_
+
+        Returns:
+            bool: _description_
+        """
+        if self._status == 1:
+            self.get_logger().info("Robot Navigation is 'busy'. Ignoring new command(s).")
+            return False
+        
+        if self._status == 3:
+            self.get_logger().error("Error with Robot Navigation. Ignoring new command(s).")
+            return False
+        
+        return True
+
+
+    # --- Spin Methods ---
+    def _spin(self, yaw_rad : float) -> bool:
+        with self._goal_lock:
+            if not self._check_status():
+                # _check_status handles error logging
+                return False
+            
+            self._action_name = "SPINNING (Action)"
+            self._status = 1
+            self._publish_status()
+
+            result : bool = self._send_spin_and_wait(yaw_rad)
+
+            self._wait_at_waypoint()
+            self._status = 0
+            self._publish_status()
+
+            return result
+
+
+
     # --- Getters ---
-    def get_waypoint_names(self) -> list[str]:
+    def _get_waypoint_names(self) -> list[str]:
         """
         Retrieves the list of available joint position names (keys) stored in JOINT_POSITIONS.
 
@@ -266,18 +441,28 @@ class RobotWaypointFollower(Node):
         return list(self.WAYPOINT_POSITIONS.keys())
     
 
-    def get_current_waypoint_name(self) -> str:
+    def _get_current_waypoint_name(self) -> str:
         """
         Returns the name of the last successfully reached waypoint.
 
         Returns:
             str: name of the waypoint.
         """
-        return self.waypoint_name
-    
+        return self._waypoint_name
+
+
+    def _get_status_name(self) -> str:
+        """
+        Takes the current status of the robot arm and returns its translated string representation.
+
+        Returns:
+            str: string of status name
+        """
+        return self.STATUS_LABELS[self._status]
+
 
     # --- Setters ---
-    def set_wait_seconds(self, seconds : float) -> bool:
+    def _set_wait_seconds(self, seconds : float) -> bool:
         """
         Sets the duration (in seconds) that the robot waits after reaching a waypoint.
 
@@ -288,14 +473,14 @@ class RobotWaypointFollower(Node):
             bool: True if value is updated, False otherwise.
         """
         try:
-            self.wait_seconds : float = float(seconds)
+            self._wait_seconds : float = float(seconds)
         except ValueError:
             return False
         
         return True
 
 
-    def set_waypoint_position(self, new_waypoint : tuple[float, float, float], waypoint_name : str) -> bool:
+    def _set_waypoint_position(self, new_waypoint : tuple[float, float, float], waypoint_name : str) -> bool:
         """
         Adds or updates a named joint position in the JOINT_POSITIONS dictionary.
 
@@ -336,15 +521,19 @@ def main(args=None):
     rclpy.init(args=args)
     
     node = RobotWaypointFollower()
+
+    executor = MultiThreadedExecutor()
+    executor.add_node(node)
     
     try:
         # Spin the node to keep the ActionClient alive and ready for calls
         node.get_logger().info('RobotWaypointFollower is now spinning and ready to accept commands!')
-        rclpy.spin(node)
+        executor.spin()
     except KeyboardInterrupt:
         node.get_logger().info('Navigation Commander stopped by user.')
     finally:
         node.get_logger().info('Navigation sequence complete. Shutting down.')
+        executor.remove_node(node)
         node.destroy_node()
         rclpy.shutdown()
 

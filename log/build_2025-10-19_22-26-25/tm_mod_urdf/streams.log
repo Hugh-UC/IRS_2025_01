@@ -1,0 +1,44 @@
+[1.291s] Invoking command in '/root/irslab_ws/src/tmr_ros2/tm_mod_urdf': PYTHONPATH=/root/irslab_ws/build/tm_mod_urdf/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/irslab_ws/install/tm_mod_urdf/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/tm_mod_urdf build --build-base /root/irslab_ws/build/tm_mod_urdf/build install --record /root/irslab_ws/build/tm_mod_urdf/install.log --single-version-externally-managed install_data
+[1.687s] running egg_info
+[1.687s] creating ../../../build/tm_mod_urdf/tm_mod_urdf.egg-info
+[1.687s] writing ../../../build/tm_mod_urdf/tm_mod_urdf.egg-info/PKG-INFO
+[1.687s] writing dependency_links to ../../../build/tm_mod_urdf/tm_mod_urdf.egg-info/dependency_links.txt
+[1.687s] writing entry points to ../../../build/tm_mod_urdf/tm_mod_urdf.egg-info/entry_points.txt
+[1.687s] writing requirements to ../../../build/tm_mod_urdf/tm_mod_urdf.egg-info/requires.txt
+[1.688s] writing top-level names to ../../../build/tm_mod_urdf/tm_mod_urdf.egg-info/top_level.txt
+[1.688s] writing manifest file '../../../build/tm_mod_urdf/tm_mod_urdf.egg-info/SOURCES.txt'
+[1.688s] reading manifest file '../../../build/tm_mod_urdf/tm_mod_urdf.egg-info/SOURCES.txt'
+[1.688s] writing manifest file '../../../build/tm_mod_urdf/tm_mod_urdf.egg-info/SOURCES.txt'
+[1.688s] running build
+[1.688s] running build_py
+[1.690s] creating /root/irslab_ws/build/tm_mod_urdf/build
+[1.693s] creating /root/irslab_ws/build/tm_mod_urdf/build/lib
+[1.693s] creating /root/irslab_ws/build/tm_mod_urdf/build/lib/tm_mod_urdf
+[1.693s] copying tm_mod_urdf/modify_urdf.py -> /root/irslab_ws/build/tm_mod_urdf/build/lib/tm_mod_urdf
+[1.693s] copying tm_mod_urdf/__init__.py -> /root/irslab_ws/build/tm_mod_urdf/build/lib/tm_mod_urdf
+[1.693s] copying tm_mod_urdf/modify_xacro.py -> /root/irslab_ws/build/tm_mod_urdf/build/lib/tm_mod_urdf
+[1.693s] copying tm_mod_urdf/_modify_urdf.py -> /root/irslab_ws/build/tm_mod_urdf/build/lib/tm_mod_urdf
+[1.693s] running install
+[1.693s] running install_lib
+[1.693s] creating /root/irslab_ws/install/tm_mod_urdf/lib/python3.10/site-packages/tm_mod_urdf
+[1.694s] copying /root/irslab_ws/build/tm_mod_urdf/build/lib/tm_mod_urdf/modify_urdf.py -> /root/irslab_ws/install/tm_mod_urdf/lib/python3.10/site-packages/tm_mod_urdf
+[1.694s] copying /root/irslab_ws/build/tm_mod_urdf/build/lib/tm_mod_urdf/__init__.py -> /root/irslab_ws/install/tm_mod_urdf/lib/python3.10/site-packages/tm_mod_urdf
+[1.694s] copying /root/irslab_ws/build/tm_mod_urdf/build/lib/tm_mod_urdf/modify_xacro.py -> /root/irslab_ws/install/tm_mod_urdf/lib/python3.10/site-packages/tm_mod_urdf
+[1.694s] copying /root/irslab_ws/build/tm_mod_urdf/build/lib/tm_mod_urdf/_modify_urdf.py -> /root/irslab_ws/install/tm_mod_urdf/lib/python3.10/site-packages/tm_mod_urdf
+[1.694s] byte-compiling /root/irslab_ws/install/tm_mod_urdf/lib/python3.10/site-packages/tm_mod_urdf/modify_urdf.py to modify_urdf.cpython-310.pyc
+[1.694s] byte-compiling /root/irslab_ws/install/tm_mod_urdf/lib/python3.10/site-packages/tm_mod_urdf/__init__.py to __init__.cpython-310.pyc
+[1.694s] byte-compiling /root/irslab_ws/install/tm_mod_urdf/lib/python3.10/site-packages/tm_mod_urdf/modify_xacro.py to modify_xacro.cpython-310.pyc
+[1.694s] byte-compiling /root/irslab_ws/install/tm_mod_urdf/lib/python3.10/site-packages/tm_mod_urdf/_modify_urdf.py to _modify_urdf.cpython-310.pyc
+[1.694s] running install_data
+[1.694s] creating /root/irslab_ws/install/tm_mod_urdf/share/ament_index
+[1.694s] creating /root/irslab_ws/install/tm_mod_urdf/share/ament_index/resource_index
+[1.694s] creating /root/irslab_ws/install/tm_mod_urdf/share/ament_index/resource_index/packages
+[1.694s] copying resource/tm_mod_urdf -> /root/irslab_ws/install/tm_mod_urdf/share/ament_index/resource_index/packages
+[1.694s] copying package.xml -> /root/irslab_ws/install/tm_mod_urdf/share/tm_mod_urdf
+[1.694s] running install_egg_info
+[1.695s] Copying ../../../build/tm_mod_urdf/tm_mod_urdf.egg-info to /root/irslab_ws/install/tm_mod_urdf/lib/python3.10/site-packages/tm_mod_urdf-1.1.2-py3.10.egg-info
+[1.695s] running install_scripts
+[1.706s] Installing modify_urdf script to /root/irslab_ws/install/tm_mod_urdf/lib/tm_mod_urdf
+[1.707s] Installing modify_xacro script to /root/irslab_ws/install/tm_mod_urdf/lib/tm_mod_urdf
+[1.707s] writing list of installed files to '/root/irslab_ws/build/tm_mod_urdf/install.log'
+[1.764s] Invoked command in '/root/irslab_ws/src/tmr_ros2/tm_mod_urdf' returned '0': PYTHONPATH=/root/irslab_ws/build/tm_mod_urdf/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/irslab_ws/install/tm_mod_urdf/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../../build/tm_mod_urdf build --build-base /root/irslab_ws/build/tm_mod_urdf/build install --record /root/irslab_ws/build/tm_mod_urdf/install.log --single-version-externally-managed install_data

@@ -1,0 +1,124 @@
+[0.045s] Invoking command in '/root/irslab_ws/build/custom_nav2_bt_nodes': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/irslab_ws/install/tm_mod_urdf:/root/irslab_ws/install/pick_nav_place:/root/irslab_ws/install/pa_warehouse_status:/root/irslab_ws/install/hand_solo_virtual_nav:/root/irslab_ws/install/hand_solo_arm:/opt/ros/humble /usr/bin/cmake --build /root/irslab_ws/build/custom_nav2_bt_nodes -- -j20 -l20
+[1.010s] [35m[1mConsolidate compiler generated dependencies of target nav2_bt_nodes_check_path_alignment[0m
+[1.010s] [ 50%] [32mBuilding CXX object CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/src/check_path_alignment.cpp.o[0m
+[2.911s] [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:15:1:[m[K [01;31m[Kerror: [m[K‘[01m[KCheckPathAlignment[m[K’ does not name a type
+[2.911s]    15 | [01;31m[KCheckPathAlignment[m[K::CheckPathAlignment(
+[2.911s]       | [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[2.911s] [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:22:6:[m[K [01;31m[Kerror: [m[K‘[01m[KCheckPathAlignment[m[K’ has not been declared
+[2.911s]    22 | void [01;31m[KCheckPathAlignment[m[K::initialize()
+[2.911s]       |      [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[2.914s] [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:[m[K In function ‘[01m[Kvoid nav2_behavior_tree::initialize()[m[K’:
+[2.914s] [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:25:3:[m[K [01;31m[Kerror: [m[K‘[01m[Knode_[m[K’ was not declared in this scope; did you mean ‘[01m[Kmode_t[m[K’?
+[2.915s]    25 |   [01;31m[Knode_[m[K = rclcpp::Node::make_shared("path_alignment_checker_temp_node");
+[2.915s]       |   [01;31m[K^~~~~[m[K
+[2.915s]       |   [32m[Kmode_t[m[K
+[2.919s] [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:26:3:[m[K [01;31m[Kerror: [m[K‘[01m[Ktf_buffer_[m[K’ was not declared in this scope
+[2.919s]    26 |   [01;31m[Ktf_buffer_[m[K = std::make_shared<tf2_ros::Buffer>(node_->get_clock());
+[2.919s]       |   [01;31m[K^~~~~~~~~~[m[K
+[2.923s] [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:27:3:[m[K [01;31m[Kerror: [m[K‘[01m[Ktf_listener_[m[K’ was not declared in this scope
+[2.924s]    27 |   [01;31m[Ktf_listener_[m[K = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
+[2.924s]       |   [01;31m[K^~~~~~~~~~~~[m[K
+[2.928s] [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:30:31:[m[K [01;31m[Kerror: [m[K‘[01m[Kangle_threshold_[m[K’ was not declared in this scope
+[2.929s]    30 |   getInput("angle_threshold", [01;31m[Kangle_threshold_[m[K);
+[2.929s]       |                               [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[2.933s] [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:30:3:[m[K [01;31m[Kerror: [m[K‘[01m[KgetInput[m[K’ was not declared in this scope; did you mean ‘[01m[Kgetpt[m[K’?
+[2.933s]    30 |   [01;31m[KgetInput[m[K("angle_threshold", angle_threshold_);
+[2.933s]       |   [01;31m[K^~~~~~~~[m[K
+[2.933s]       |   [32m[Kgetpt[m[K
+[2.933s] [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:[m[K At global scope:
+[2.933s] [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:33:16:[m[K [01;31m[Kerror: [m[K‘[01m[KCheckPathAlignment[m[K’ has not been declared
+[2.933s]    33 | BT::NodeStatus [01;31m[KCheckPathAlignment[m[K::tick()
+[2.933s]       |                [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[2.934s] [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:[m[K In function ‘[01m[KBT::NodeStatus nav2_behavior_tree::tick()[m[K’:
+[2.934s] [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:35:12:[m[K [01;31m[Kerror: [m[K‘[01m[KisStatusActive[m[K’ is not a member of ‘[01m[KBT[m[K’
+[2.934s]    35 |   if (!BT::[01;31m[KisStatusActive[m[K(status())) {
+[2.934s]       |            [01;31m[K^~~~~~~~~~~~~~[m[K
+[2.937s] [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:35:27:[m[K [01;31m[Kerror: [m[K‘[01m[Kstatus[m[K’ was not declared in this scope; did you mean ‘[01m[Kstatic[m[K’?
+[2.938s]    35 |   if (!BT::isStatusActive([01;31m[Kstatus[m[K())) {
+[2.938s]       |                           [01;31m[K^~~~~~[m[K
+[2.938s]       |                           [32m[Kstatic[m[K
+[2.938s] [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:39:12:[m[K [01;31m[Kerror: [m[K‘[01m[KisStatusActive[m[K’ is not a member of ‘[01m[KBT[m[K’
+[2.939s]    39 |   if (!BT::[01;31m[KisStatusActive[m[K(status())) {
+[2.939s]       |            [01;31m[K^~~~~~~~~~~~~~[m[K
+[2.941s] [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:39:27:[m[K [01;31m[Kerror: [m[K‘[01m[Kstatus[m[K’ was not declared in this scope; did you mean ‘[01m[Kstatic[m[K’?
+[2.942s]    39 |   if (!BT::isStatusActive([01;31m[Kstatus[m[K())) {
+[2.942s]       |                           [01;31m[K^~~~~~[m[K
+[2.942s]       |                           [32m[Kstatic[m[K
+[2.945s] [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:45:8:[m[K [01;31m[Kerror: [m[K‘[01m[KgetInput[m[K’ was not declared in this scope; did you mean ‘[01m[Kgetpt[m[K’?
+[2.945s]    45 |   if (![01;31m[KgetInput[m[K("path", path)) {
+[2.945s]       |        [01;31m[K^~~~~~~~[m[K
+[2.945s]       |        [32m[Kgetpt[m[K
+[2.949s] [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:61:23:[m[K [01;31m[Kerror: [m[K‘[01m[Ktf_buffer_[m[K’ was not declared in this scope
+[2.949s]    61 |     robot_transform = [01;31m[Ktf_buffer_[m[K->lookupTransform(
+[2.949s]       |                       [01;31m[K^~~~~~~~~~[m[K
+[2.953s] In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+[2.953s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+[2.953s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+[2.953s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+[2.953s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+[2.953s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+[2.953s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+[2.953s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+[2.953s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+[2.953s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+[2.954s]                  from [01m[K/opt/ros/humble/include/nav2_util/node_utils.hpp:20[m[K,
+[2.954s]                  from [01m[K/opt/ros/humble/include/nav2_behavior_tree/bt_action_node.hpp:23[m[K,
+[2.954s]                  from [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/include/custom_nav2_bt_nodes/check_path_alignment.hpp:4[m[K,
+[2.954s]                  from [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:1[m[K:
+[2.954s] [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:67:18:[m[K [01;31m[Kerror: [m[K‘[01m[Knode_[m[K’ was not declared in this scope; did you mean ‘[01m[Kmode_t[m[K’?
+[2.954s]    67 |     RCLCPP_ERROR([01;31m[Knode_[m[K->get_logger(), "Could not transform robot pose: %s", ex.what());
+[2.954s]       |                  [01;31m[K^~~~~[m[K
+[2.954s] [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:67:5:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[2.954s]    67 |     [01;31m[KRCLCPP_ERROR[m[K(node_->get_logger(), "Could not transform robot pose: %s", ex.what());
+[2.954s]       |     [01;31m[K^~~~~~~~~~~~[m[K
+[2.957s] [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:82:15:[m[K [01;31m[Kerror: [m[K‘[01m[Knode_[m[K’ was not declared in this scope; did you mean ‘[01m[Kmode_t[m[K’?
+[2.957s]    82 |   RCLCPP_INFO([01;31m[Knode_[m[K->get_logger(),
+[2.957s]       |               [01;31m[K^~~~~[m[K
+[2.957s] [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:82:3:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[2.957s]    82 |   [01;31m[KRCLCPP_INFO[m[K(node_->get_logger(),
+[2.957s]       |   [01;31m[K^~~~~~~~~~~[m[K
+[2.962s] In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+[2.963s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+[2.963s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+[2.963s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+[2.963s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+[2.963s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+[2.963s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+[2.963s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+[2.963s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+[2.963s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+[2.963s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+[2.963s]                  from [01m[K/opt/ros/humble/include/nav2_util/node_utils.hpp:20[m[K,
+[2.964s]                  from [01m[K/opt/ros/humble/include/nav2_behavior_tree/bt_action_node.hpp:23[m[K,
+[2.964s]                  from [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/include/custom_nav2_bt_nodes/check_path_alignment.hpp:4[m[K,
+[2.964s]                  from [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:1[m[K:
+[2.964s] [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:84:38:[m[K [01;31m[Kerror: [m[K‘[01m[Kangle_threshold_[m[K’ was not declared in this scope
+[2.964s]    84 |     robot_yaw, path_yaw, angle_diff, [01;31m[Kangle_threshold_[m[K);
+[2.964s]       |                                      [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[2.969s] [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:87:20:[m[K [01;31m[Kerror: [m[K‘[01m[Kangle_threshold_[m[K’ was not declared in this scope
+[2.969s]    87 |   if (angle_diff > [01;31m[Kangle_threshold_[m[K) {
+[2.969s]       |                    [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[2.972s] In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+[2.972s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+[2.972s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+[2.972s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+[2.972s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+[2.972s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+[2.972s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+[2.972s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+[2.972s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+[2.972s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+[2.972s]                  from [01m[K/opt/ros/humble/include/nav2_util/node_utils.hpp:20[m[K,
+[2.972s]                  from [01m[K/opt/ros/humble/include/nav2_behavior_tree/bt_action_node.hpp:23[m[K,
+[2.972s]                  from [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/include/custom_nav2_bt_nodes/check_path_alignment.hpp:4[m[K,
+[2.973s]                  from [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:1[m[K:
+[2.973s] [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:89:17:[m[K [01;31m[Kerror: [m[K‘[01m[Knode_[m[K’ was not declared in this scope; did you mean ‘[01m[Kmode_t[m[K’?
+[2.973s]    89 |     RCLCPP_WARN([01;31m[Knode_[m[K->get_logger(),
+[2.973s]       |                 [01;31m[K^~~~~[m[K
+[2.973s] [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:89:5:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[2.973s]    89 |     [01;31m[KRCLCPP_WARN[m[K(node_->get_logger(),
+[2.973s]       |     [01;31m[K^~~~~~~~~~~[m[K
+[3.577s] gmake[2]: *** [CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/build.make:76: CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/src/check_path_alignment.cpp.o] Error 1
+[3.577s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/all] Error 2
+[3.578s] gmake: *** [Makefile:146: all] Error 2
+[3.580s] Invoked command in '/root/irslab_ws/build/custom_nav2_bt_nodes' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/root/irslab_ws/install/tm_mod_urdf:/root/irslab_ws/install/pick_nav_place:/root/irslab_ws/install/pa_warehouse_status:/root/irslab_ws/install/hand_solo_virtual_nav:/root/irslab_ws/install/hand_solo_arm:/opt/ros/humble /usr/bin/cmake --build /root/irslab_ws/build/custom_nav2_bt_nodes -- -j20 -l20

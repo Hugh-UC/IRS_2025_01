@@ -51,6 +51,9 @@ class HSWaypointRunner(Node):
         goal = self._goal_from_joints(joints)
         send_fut = self.client.send_goal_async(goal)
         rclpy.spin_until_future_complete(self, send_fut)
+
+        self.get_logger().error(f"MADE IT PAST RCLPY")
+
         handle = send_fut.result()
         if not handle or not handle.accepted:
             self.get_logger().error('Goal rejected.')
@@ -58,6 +61,9 @@ class HSWaypointRunner(Node):
         res_fut = handle.get_result_async()
         rclpy.spin_until_future_complete(self, res_fut)
         res = res_fut.result()
+
+        self.get_logger().error(f"BOOL RESULT: {bool(res and res.status == 4)}")
+
         return bool(res and res.status == 4)  # 4 = STATUS_SUCCEEDED
 
     # --- script-style sequence (no arrays, no names) --------------------------
@@ -91,16 +97,16 @@ class HSWaypointRunner(Node):
 
     def run_boxpicker(self):
         # Waypoint 1 | Pick Box
-        if not self._send_and_wait([0.3840, 0.1047, 1.8326, 1.2217, 0.0, 0.0]): return
+        if not self._send_and_wait([0.8378, 1.0123, 0.5934, 0.0, 1.5708, 0.0]): return
         time.sleep(2.0)
 
         # Waypoint 2 | Carry Box
         if not self._send_and_wait([-0.6981, -1.5708, 2.2689, 1.0123, 0.0, 0.0]): return
-        time.sleep(2.0)
+        time.sleep(20.0)
 
         # Waypoint 3 | Drop Box
         if not self._send_and_wait([0.0, 0.5236, 1.2217, 1.2217, 0.0, 0.0]): return
-        time.sleep(2.0)
+        time.sleep(60.0)
 
         # Waypoint 4 | Home
         if not self._send_and_wait([0.0, -1.5708, 2.2689, 1.0123, 0.0, 0.0]): return

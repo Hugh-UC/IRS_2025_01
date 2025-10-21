@@ -16,6 +16,8 @@
   <exec_depend>rviz2</exec_depend>
   <exec_depend>tf2_ros</exec_depend>
   <depend>rclpy</depend>
+  <depend>std_msgs</depend>
+  <depend>std_srvs</depend>
   <depend>action_msgs</depend>
   <depend>moveit_msgs</depend>
   <depend>trajectory_msgs</depend>

@@ -1,0 +1,21 @@
+[01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:22:6:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kvoid custom_nav2_bt_nodes::CheckPathAlignment::initialize()[m[K’
+   22 | void [01;31m[KCheckPathAlignment[m[K::initialize()
+      |      [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:22:6:[m[K [01;36m[Knote: [m[Kno functions named ‘[01m[Kvoid custom_nav2_bt_nodes::CheckPathAlignment::initialize()[m[K’
+In file included from [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:1[m[K:
+[01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/include/custom_nav2_bt_nodes/check_path_alignment.hpp:17:7:[m[K [01;36m[Knote: [m[K‘[01m[Kclass custom_nav2_bt_nodes::CheckPathAlignment[m[K’ defined here
+   17 | class [01;36m[KCheckPathAlignment[m[K : public BT::ConditionNode
+      |       [01;36m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:[m[K In member function ‘[01m[Kvirtual BT::NodeStatus custom_nav2_bt_nodes::CheckPathAlignment::tick()[m[K’:
+[01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:35:12:[m[K [01;31m[Kerror: [m[K‘[01m[KisStatusActive[m[K’ is not a member of ‘[01m[KBT[m[K’
+   35 |   if (!BT::[01;31m[KisStatusActive[m[K(status())) {
+      |            [01;31m[K^~~~~~~~~~~~~~[m[K
+[01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:36:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kinitialize[m[K’ was not declared in this scope
+   36 |     [01;31m[Kinitialize[m[K();
+      |     [01;31m[K^~~~~~~~~~[m[K
+[01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:39:12:[m[K [01;31m[Kerror: [m[K‘[01m[KisStatusActive[m[K’ is not a member of ‘[01m[KBT[m[K’
+   39 |   if (!BT::[01;31m[KisStatusActive[m[K(status())) {
+      |            [01;31m[K^~~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/build.make:76: CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/src/check_path_alignment.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

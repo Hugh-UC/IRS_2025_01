@@ -1,0 +1,58 @@
+[0.030s] Invoking command in '/root/irslab_ws/build/tm5x-700_moveit_config': AMENT_PREFIX_PATH=/root/irslab_ws/install/tm_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/irslab_ws/install/tm_description:/opt/ros/humble /usr/bin/cmake /root/irslab_ws/src/tmr_ros2/tm_moveit/tm5x-700_moveit_config -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/root/irslab_ws/install/tm5x-700_moveit_config
+[0.043s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.333s] -- Configuring done
+[0.333s] -- Generating done
+[0.333s] -- Build files have been written to: /root/irslab_ws/build/tm5x-700_moveit_config
+[0.368s] Invoked command in '/root/irslab_ws/build/tm5x-700_moveit_config' returned '0': AMENT_PREFIX_PATH=/root/irslab_ws/install/tm_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/irslab_ws/install/tm_description:/opt/ros/humble /usr/bin/cmake /root/irslab_ws/src/tmr_ros2/tm_moveit/tm5x-700_moveit_config -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/root/irslab_ws/install/tm5x-700_moveit_config
+[0.368s] Invoking command in '/root/irslab_ws/build/tm5x-700_moveit_config': AMENT_PREFIX_PATH=/root/irslab_ws/install/tm_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/irslab_ws/install/tm_description:/opt/ros/humble /usr/bin/cmake --build /root/irslab_ws/build/tm5x-700_moveit_config -- -j20 -l20
+[0.521s] Invoked command in '/root/irslab_ws/build/tm5x-700_moveit_config' returned '0': AMENT_PREFIX_PATH=/root/irslab_ws/install/tm_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/irslab_ws/install/tm_description:/opt/ros/humble /usr/bin/cmake --build /root/irslab_ws/build/tm5x-700_moveit_config -- -j20 -l20
+[0.522s] Invoking command in '/root/irslab_ws/build/tm5x-700_moveit_config': AMENT_PREFIX_PATH=/root/irslab_ws/install/tm_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/irslab_ws/install/tm_description:/opt/ros/humble /usr/bin/cmake --install /root/irslab_ws/build/tm5x-700_moveit_config
+[0.674s] -- Install configuration: "Release"
+[0.674s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/ament_index/resource_index/package_run_dependencies/tm5x-700_moveit_config
+[0.674s] -- Installing: /root/irslab_ws/install/tm5x-700_moveit_config/share/ament_index/resource_index/parent_prefix_path/tm5x-700_moveit_config
+[0.674s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/environment/ament_prefix_path.sh
+[0.674s] -- Installing: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/environment/ament_prefix_path.dsv
+[0.675s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/environment/path.sh
+[0.675s] -- Installing: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/environment/path.dsv
+[0.675s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/local_setup.bash
+[0.677s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/local_setup.sh
+[0.677s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/local_setup.zsh
+[0.677s] -- Installing: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/local_setup.dsv
+[0.678s] -- Installing: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/package.dsv
+[0.692s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/ament_index/resource_index/packages/tm5x-700_moveit_config
+[0.692s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/cmake/tm5x-700_moveit_configConfig.cmake
+[0.692s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/cmake/tm5x-700_moveit_configConfig-version.cmake
+[0.692s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/package.xml
+[0.693s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/launch
+[0.693s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/launch/tm5x-700_run_move_group.launch.py
+[0.693s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/launch/setup_assistant.launch.py
+[0.693s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/launch/warehouse_db.launch.py
+[0.693s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/launch/spawn_controllers.launch.py
+[0.693s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/launch/tm5x-700_moveit.launch.py
+[0.693s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/launch/rsp.launch.py
+[0.693s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/launch/move_group.launch.py
+[0.693s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/launch/demo.launch.py
+[0.693s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/launch/moveit_rviz.launch.py
+[0.703s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/launch/static_virtual_joint_tfs.launch.py
+[0.703s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/launch/run_move_group.rviz
+[0.704s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/config
+[0.704s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/config/controllers.yaml
+[0.704s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/config/tm5x-700.urdf.xacro
+[0.704s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/config/tm5x-700.srdf
+[0.705s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/config/kinematics.yaml
+[0.705s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/config/sensors_3d.yaml
+[0.724s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/config/moveit2_controllers.yaml
+[0.743s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/config/moveit.rviz
+[0.744s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/config/joint_limits.yaml
+[0.744s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/config/ros2_controllers.yaml
+[0.744s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/config/moveit_controllers.yaml
+[0.744s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/config/pilz_cartesian_limits.yaml
+[0.744s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/config/tm5x-700.ros2_control.xacro
+[0.748s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/config/initial_positions.yaml
+[0.751s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/config/pilz_industrial_motion_planner_planning.yaml
+[0.754s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/config/chomp_planning.yaml
+[0.755s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/config/ompl_planning.yaml
+[0.755s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/rviz
+[0.755s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/rviz/moveit.rviz
+[0.756s] -- Up-to-date: /root/irslab_ws/install/tm5x-700_moveit_config/share/tm5x-700_moveit_config/.setup_assistant
+[0.794s] Invoked command in '/root/irslab_ws/build/tm5x-700_moveit_config' returned '0': AMENT_PREFIX_PATH=/root/irslab_ws/install/tm_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/irslab_ws/install/tm_description:/opt/ros/humble /usr/bin/cmake --install /root/irslab_ws/build/tm5x-700_moveit_config

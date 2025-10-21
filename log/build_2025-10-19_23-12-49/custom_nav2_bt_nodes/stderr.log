@@ -1,0 +1,70 @@
+[01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:30:3:[m[K [01;31m[Kerror: [m[Kexpected initializer before ‘[01m[Knav_msgs[m[K’
+   30 |   [01;31m[Knav_msgs[m[K::msg::Path path;
+      |   [01;31m[K^~~~~~~~[m[K
+[01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:31:3:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[Kif[m[K’
+   31 |   [01;31m[Kif[m[K (!getInput("path", path)) {
+      |   [01;31m[K^~[m[K
+[01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:37:3:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[Kif[m[K’
+   37 |   [01;31m[Kif[m[K (path.poses.size() < 1) {
+      |   [01;31m[K^~[m[K
+[01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:45:3:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[Ktry[m[K’
+   45 |   [01;31m[Ktry[m[K {
+      |   [01;31m[K^~~[m[K
+[01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:51:5:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[Kcatch[m[K’
+   51 |   } [01;31m[Kcatch[m[K (const tf2::TransformException & ex) {
+      |     [01;31m[K^~~~~[m[K
+[01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:62:33:[m[K [01;31m[Kerror: [m[K‘[01m[Kpath[m[K’ was not declared in this scope; did you mean ‘[01m[Krcpputils::fs::path[m[K’?
+   62 |   double path_yaw = tf2::getYaw([01;31m[Kpath[m[K.poses[0].pose.orientation);
+      |                                 [01;31m[K^~~~[m[K
+      |                                 [32m[Krcpputils::fs::path[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logger.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:23[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/opt/ros/humble/include/nav2_util/node_utils.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/nav2_behavior_tree/bt_action_node.hpp:23[m[K,
+                 from [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/include/custom_nav2_bt_nodes/check_path_alignment.hpp:4[m[K,
+                 from [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:1[m[K:
+[01m[K/opt/ros/humble/include/rcpputils/rcpputils/filesystem_helper.hpp:76:7:[m[K [01;36m[Knote: [m[K‘[01m[Krcpputils::fs::path[m[K’ declared here
+   76 | class [01;36m[Kpath[m[K
+      |       [01;36m[K^~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/opt/ros/humble/include/nav2_util/node_utils.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/nav2_behavior_tree/bt_action_node.hpp:23[m[K,
+                 from [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/include/custom_nav2_bt_nodes/check_path_alignment.hpp:4[m[K,
+                 from [01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:1[m[K:
+[01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:68:3:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[Kdo[m[K’
+   68 |   [01;31m[KRCLCPP_INFO[m[K(node_->get_logger(),
+      |   [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:68:3:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[Kwhile[m[K’
+   68 |   [01;31m[KRCLCPP_INFO[m[K(node_->get_logger(),
+      |   [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:73:3:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[Kif[m[K’
+   73 |   [01;31m[Kif[m[K (angle_diff > angle_threshold_) {
+      |   [01;31m[K^~[m[K
+[01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:82:3:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[Kreturn[m[K’
+   82 |   [01;31m[Kreturn[m[K BT::NodeStatus::SUCCESS;
+      |   [01;31m[K^~~~~~[m[K
+[01m[K/root/irslab_ws/src/custom_nav2_bt_nodes/src/check_path_alignment.cpp:85:1:[m[K [01;31m[Kerror: [m[Kexpected declaration before ‘[01m[K}[m[K’ token
+   85 | [01;31m[K}[m[K // namespace custom_nav2_bt_nodes
+      | [01;31m[K^[m[K
+gmake[2]: *** [CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/build.make:76: CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/src/check_path_alignment.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/nav2_bt_nodes_check_path_alignment.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

@@ -7,15 +7,28 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(backward_ros REQUIRED)
+find_package(action_msgs REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(rclcpp_action REQUIRED)
+find_package(rclcpp_lifecycle REQUIRED)
 find_package(nav2_behavior_tree REQUIRED)
 find_package(nav2_util REQUIRED)
 find_package(nav_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
-find_package(tf2_ros REQUIRED)
 find_package(tf2 REQUIRED)
+find_package(tf2_ros REQUIRED)
 find_package(behaviortree_cpp_v3 REQUIRED) # the BT library
 find_package(pluginlib REQUIRED)
+find_package(console_bridge REQUIRED)
+find_package(nav2_common REQUIRED)
+find_package(nav2_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(std_srvs REQUIRED)
+
+
+nav2_package()
 
 
 include_directories(include)
@@ -38,6 +51,7 @@ ament_target_dependencies(
   tf2
   behaviortree_cpp_v3
   pluginlib
+  console_bridge
 )
 
 install(

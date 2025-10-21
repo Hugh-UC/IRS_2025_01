@@ -1,7 +1,12 @@
 #include "custom_nav2_bt_nodes/check_path_alignment.hpp"
+#include <string>
 #include <memory>
 #include "nav2_behavior_tree/bt_conversions.hpp"
 #include "tf2/utils.h"
+#include "nav2_util/robot_utils.hpp"
+#include "nav2_util/geometry_utils.hpp"
+#include "behaviortree_cpp_v3/bt_factory.h"
+
 
 namespace custom_nav2_bt_nodes
 {
@@ -29,8 +34,8 @@ BT::NodeStatus CheckPathAlignment::tick()
   }
 
   // 1. Check Path Sanity
-  if (path.poses.size() < 2) {
-    // Need at least 2 poses to determine a direction vector
+  if (path.poses.size() < 1) {
+    // We only need the first pose since we extract the intended yaw from its orientation.
     return BT::NodeStatus::FAILURE;
   }
 
@@ -75,13 +80,17 @@ BT::NodeStatus CheckPathAlignment::tick()
 
   // Robot is sufficiently aligned
   return BT::NodeStatus::SUCCESS;
-}
+};
 
 } // namespace custom_nav2_bt_nodes
 
-#include "pluginlib/class_list_macros.hpp" 
+// --- Node Registration Block (Global Scope) ---
+BT_REGISTER_NODES(factory)
+{
+  factory.registerNodeType<custom_nav2_bt_nodes::CheckPathAlignment>("CheckPathAlignment");
+}
 
-PLUGINLIB_EXPORT_CLASS(
-  custom_nav2_bt_nodes::CheckPathAlignment,   // condition node class
-  BT::ConditionNode                           // base class (ConditionNode in this case)
-)
+//PLUGINLIB_EXPORT_CLASS(
+//  custom_nav2_bt_nodes::CheckPathAlignment,   // condition node class
+//  BT::ConditionNode                           // base class (ConditionNode in this case)
+//)

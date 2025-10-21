@@ -1,0 +1,165 @@
+-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found rclpy: 3.3.17 (/opt/ros/humble/share/rclpy/cmake)
+-- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+-- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)
+-- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+-- Found rclcpp_components: 16.0.15 (/opt/ros/humble/share/rclcpp_components/cmake)
+-- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)
+-- Found tm_msgs: 1.1.2 (/root/irslab_ws/install/tm_msgs/share/tm_msgs/cmake)
+-- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+-- Added test 'copyright' to check source files copyright and LICENSE
+-- Added test 'cppcheck' to perform static code analysis on C / C++ code
+-- Configured cppcheck include dirs: /root/irslab_ws/src/tmr_ros2/tm_test/include
+-- Configured cppcheck exclude dirs and/or files: 
+-- Added test 'cpplint' to check C / C++ code against the Google style
+-- Configured cpplint exclude dirs and/or files: 
+-- Added test 'flake8' to check Python code syntax and style conventions
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+-- Added test 'uncrustify' to check C / C++ code style
+-- Configured uncrustify additional arguments: 
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /root/irslab_ws/build/tm_test
+[35m[1mConsolidate compiler generated dependencies of target demo_send_script[0m
+[35m[1mConsolidate compiler generated dependencies of target sub_img[0m
+[35m[1mConsolidate compiler generated dependencies of target demo_ask_item[0m
+[35m[1mConsolidate compiler generated dependencies of target tm_send_command[0m
+[35m[1mConsolidate compiler generated dependencies of target demo_get_torque_feedback[0m
+[35m[1mConsolidate compiler generated dependencies of target demo_get_feedback[0m
+[35m[1mConsolidate compiler generated dependencies of target demo_connect_tm[0m
+[35m[1mConsolidate compiler generated dependencies of target demo_set_positions[0m
+[35m[1mConsolidate compiler generated dependencies of target demo_ask_sta[0m
+[35m[1mConsolidate compiler generated dependencies of target demo_set_event[0m
+[35m[1mConsolidate compiler generated dependencies of target demo_leave_listen_node[0m
+[35m[1mConsolidate compiler generated dependencies of target demo_write_item[0m
+[35m[1mConsolidate compiler generated dependencies of target demo_get_sta_response[0m
+[35m[1mConsolidate compiler generated dependencies of target demo_set_io[0m
+[  3%] [32mBuilding CXX object CMakeFiles/sub_img.dir/src/sub_img.cpp.o[0m
+[  9%] [32mBuilding CXX object CMakeFiles/tm_send_command.dir/src/send_command.cpp.o[0m
+[  9%] [32mBuilding CXX object CMakeFiles/demo_send_script.dir/src/demo_send_script.cpp.o[0m
+[ 12%] [32mBuilding CXX object CMakeFiles/demo_ask_item.dir/src/demo_ask_item.cpp.o[0m
+[ 15%] [32mBuilding CXX object CMakeFiles/demo_set_positions.dir/src/demo_set_positions.cpp.o[0m
+[ 18%] [32mBuilding CXX object CMakeFiles/demo_get_torque_feedback.dir/src/demo_get_torque_feedback.cpp.o[0m
+[ 21%] [32mBuilding CXX object CMakeFiles/demo_leave_listen_node.dir/src/demo_leave_listen_node.cpp.o[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/demo_get_feedback.dir/src/demo_get_feedback.cpp.o[0m
+[35m[1mConsolidate compiler generated dependencies of target demo_get_svr_response[0m
+[ 28%] [32mBuilding CXX object CMakeFiles/demo_connect_tm.dir/src/demo_connect_tm.cpp.o[0m
+[ 31%] [32mBuilding CXX object CMakeFiles/demo_set_event.dir/src/demo_set_event.cpp.o[0m
+[ 34%] [32mBuilding CXX object CMakeFiles/demo_get_sta_response.dir/src/demo_get_sta_response.cpp.o[0m
+[ 37%] [32mBuilding CXX object CMakeFiles/demo_write_item.dir/src/demo_write_item.cpp.o[0m
+[ 40%] [32mBuilding CXX object CMakeFiles/demo_ask_sta.dir/src/demo_ask_sta.cpp.o[0m
+[35m[1mConsolidate compiler generated dependencies of target demo_get_sct_response[0m
+[ 40%] Built target ament_cmake_python_copy_tm_test
+[ 43%] [32mBuilding CXX object CMakeFiles/demo_set_io.dir/src/demo_set_io.cpp.o[0m
+[ 46%] [32mBuilding CXX object CMakeFiles/demo_get_svr_response.dir/src/demo_get_svr_response.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/demo_get_sct_response.dir/src/demo_get_sct_response.cpp.o[0m
+running egg_info
+writing tm_test.egg-info/PKG-INFO
+writing dependency_links to tm_test.egg-info/dependency_links.txt
+writing top-level names to tm_test.egg-info/top_level.txt
+reading manifest file 'tm_test.egg-info/SOURCES.txt'
+writing manifest file 'tm_test.egg-info/SOURCES.txt'
+[ 50%] Built target ament_cmake_python_build_tm_test_egg
+[ 53%] [32m[1mLinking CXX executable demo_connect_tm[0m
+[ 56%] [32m[1mLinking CXX executable demo_ask_sta[0m
+[ 56%] Built target demo_connect_tm
+[ 56%] Built target demo_ask_sta
+[ 59%] [32m[1mLinking CXX executable demo_ask_item[0m
+[ 62%] [32m[1mLinking CXX executable tm_send_command[0m
+[ 62%] Built target demo_ask_item
+[ 62%] Built target tm_send_command
+[ 65%] [32m[1mLinking CXX executable demo_set_io[0m
+[ 65%] Built target demo_set_io
+[ 68%] [32m[1mLinking CXX executable demo_write_item[0m
+[ 71%] [32m[1mLinking CXX executable demo_set_positions[0m
+[ 71%] Built target demo_write_item
+[ 75%] [32m[1mLinking CXX executable demo_send_script[0m
+[ 75%] Built target demo_set_positions
+[ 75%] Built target demo_send_script
+[ 78%] [32m[1mLinking CXX executable demo_leave_listen_node[0m
+[ 78%] Built target demo_leave_listen_node
+[ 81%] [32m[1mLinking CXX executable demo_set_event[0m
+[ 81%] Built target demo_set_event
+[ 84%] [32m[1mLinking CXX executable demo_get_svr_response[0m
+[ 84%] Built target demo_get_svr_response
+[ 87%] [32m[1mLinking CXX executable sub_img[0m
+[ 90%] [32m[1mLinking CXX executable demo_get_sct_response[0m
+[ 93%] [32m[1mLinking CXX executable demo_get_sta_response[0m
+[ 93%] Built target demo_get_sct_response
+[ 93%] Built target demo_get_sta_response
+[ 93%] Built target sub_img
+[ 96%] [32m[1mLinking CXX executable demo_get_torque_feedback[0m
+[100%] [32m[1mLinking CXX executable demo_get_feedback[0m
+[100%] Built target demo_get_torque_feedback
+[100%] Built target demo_get_feedback
+-- Install configuration: "Release"
+-- Installing: /root/irslab_ws/install/tm_test/lib/tm_test/tm_send_command
+-- Set runtime path of "/root/irslab_ws/install/tm_test/lib/tm_test/tm_send_command" to ""
+-- Installing: /root/irslab_ws/install/tm_test/lib/tm_test/sub_img
+-- Set runtime path of "/root/irslab_ws/install/tm_test/lib/tm_test/sub_img" to ""
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/image
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/image/techman_robot.jpg
+-- Installing: /root/irslab_ws/install/tm_test/lib/tm_test/demo_send_script
+-- Set runtime path of "/root/irslab_ws/install/tm_test/lib/tm_test/demo_send_script" to ""
+-- Installing: /root/irslab_ws/install/tm_test/lib/tm_test/demo_ask_sta
+-- Set runtime path of "/root/irslab_ws/install/tm_test/lib/tm_test/demo_ask_sta" to ""
+-- Installing: /root/irslab_ws/install/tm_test/lib/tm_test/demo_connect_tm
+-- Set runtime path of "/root/irslab_ws/install/tm_test/lib/tm_test/demo_connect_tm" to ""
+-- Installing: /root/irslab_ws/install/tm_test/lib/tm_test/demo_set_event
+-- Set runtime path of "/root/irslab_ws/install/tm_test/lib/tm_test/demo_set_event" to ""
+-- Installing: /root/irslab_ws/install/tm_test/lib/tm_test/demo_set_io
+-- Set runtime path of "/root/irslab_ws/install/tm_test/lib/tm_test/demo_set_io" to ""
+-- Installing: /root/irslab_ws/install/tm_test/lib/tm_test/demo_set_positions
+-- Set runtime path of "/root/irslab_ws/install/tm_test/lib/tm_test/demo_set_positions" to ""
+-- Installing: /root/irslab_ws/install/tm_test/lib/tm_test/demo_write_item
+-- Set runtime path of "/root/irslab_ws/install/tm_test/lib/tm_test/demo_write_item" to ""
+-- Installing: /root/irslab_ws/install/tm_test/lib/tm_test/demo_ask_item
+-- Set runtime path of "/root/irslab_ws/install/tm_test/lib/tm_test/demo_ask_item" to ""
+-- Installing: /root/irslab_ws/install/tm_test/lib/tm_test/demo_get_feedback
+-- Set runtime path of "/root/irslab_ws/install/tm_test/lib/tm_test/demo_get_feedback" to ""
+-- Installing: /root/irslab_ws/install/tm_test/lib/tm_test/demo_get_torque_feedback
+-- Set runtime path of "/root/irslab_ws/install/tm_test/lib/tm_test/demo_get_torque_feedback" to ""
+-- Installing: /root/irslab_ws/install/tm_test/lib/tm_test/demo_get_sct_response
+-- Set runtime path of "/root/irslab_ws/install/tm_test/lib/tm_test/demo_get_sct_response" to ""
+-- Installing: /root/irslab_ws/install/tm_test/lib/tm_test/demo_get_sta_response
+-- Set runtime path of "/root/irslab_ws/install/tm_test/lib/tm_test/demo_get_sta_response" to ""
+-- Installing: /root/irslab_ws/install/tm_test/lib/tm_test/demo_get_svr_response
+-- Set runtime path of "/root/irslab_ws/install/tm_test/lib/tm_test/demo_get_svr_response" to ""
+-- Installing: /root/irslab_ws/install/tm_test/lib/tm_test/demo_leave_listen_node
+-- Set runtime path of "/root/irslab_ws/install/tm_test/lib/tm_test/demo_leave_listen_node" to ""
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/environment/pythonpath.sh
+-- Installing: /root/irslab_ws/install/tm_test/share/tm_test/environment/pythonpath.dsv
+-- Up-to-date: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test-1.0.2-py3.10.egg-info
+-- Installing: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test-1.0.2-py3.10.egg-info/top_level.txt
+-- Installing: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test-1.0.2-py3.10.egg-info/SOURCES.txt
+-- Installing: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test-1.0.2-py3.10.egg-info/PKG-INFO
+-- Installing: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test-1.0.2-py3.10.egg-info/dependency_links.txt
+-- Up-to-date: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test
+-- Up-to-date: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test/__init__.py
+-- Up-to-date: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test/translate_json_to_list.py
+Listing '/root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test'...
+-- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/get_status.py
+-- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/image_pub.py
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/ament_index/resource_index/package_run_dependencies/tm_test
+-- Installing: /root/irslab_ws/install/tm_test/share/ament_index/resource_index/parent_prefix_path/tm_test
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/environment/ament_prefix_path.sh
+-- Installing: /root/irslab_ws/install/tm_test/share/tm_test/environment/ament_prefix_path.dsv
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/environment/path.sh
+-- Installing: /root/irslab_ws/install/tm_test/share/tm_test/environment/path.dsv
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/local_setup.bash
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/local_setup.sh
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/local_setup.zsh
+-- Installing: /root/irslab_ws/install/tm_test/share/tm_test/local_setup.dsv
+-- Installing: /root/irslab_ws/install/tm_test/share/tm_test/package.dsv
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/ament_index/resource_index/packages/tm_test
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/cmake/tm_testConfig.cmake
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/cmake/tm_testConfig-version.cmake
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/package.xml

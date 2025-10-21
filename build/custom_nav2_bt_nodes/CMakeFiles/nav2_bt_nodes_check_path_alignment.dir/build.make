@@ -145,10 +145,6 @@ libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/libnav2_smoother_s
 libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/libnav2_goal_checker_selector_bt_node.so
 libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/libnav2_progress_checker_selector_bt_node.so
 libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/libnav2_goal_updated_controller_bt_node.so
-libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/librcl_action.so
-libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/librcl.so
-libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/libtracetools.so
-libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/librcl_lifecycle.so
 libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/libsensor_msgs__rosidl_generator_c.so
 libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_fastrtps_c.so
 libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_fastrtps_cpp.so
@@ -359,10 +355,6 @@ libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/libstatistics_msgs
 libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/libstatistics_msgs__rosidl_generator_c.so
 libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/librcl_lifecycle.so
 libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/librcl.so
-libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/librmw_implementation.so
-libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/libament_index_cpp.so
-libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/librcl_logging_spdlog.so
-libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/librcl_logging_interface.so
 libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/librcl_interfaces__rosidl_typesupport_fastrtps_c.so
 libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_fastrtps_c.so
 libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/librcl_interfaces__rosidl_typesupport_introspection_c.so
@@ -381,6 +373,10 @@ libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/librcl_interfaces_
 libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_c.so
 libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/librcl_interfaces__rosidl_generator_c.so
 libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_generator_c.so
+libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/librmw_implementation.so
+libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/libament_index_cpp.so
+libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/librcl_logging_spdlog.so
+libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/librcl_logging_interface.so
 libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/libtracetools.so
 libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/liblifecycle_msgs__rosidl_typesupport_fastrtps_c.so
 libnav2_bt_nodes_check_path_alignment.so: /opt/ros/humble/lib/librosidl_typesupport_fastrtps_c.so

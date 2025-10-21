@@ -1,0 +1,57 @@
+[0.012s] Invoking command in '/root/irslab_ws/build/tm_inspect': AMENT_PREFIX_PATH=/root/irslab_ws/install/tm_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/irslab_ws/install/tm_msgs:/opt/ros/humble LD_LIBRARY_PATH=/root/irslab_ws/install/tm_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /root/irslab_ws/src/tmr_ros2/tm_inspect -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/root/irslab_ws/install/tm_inspect
+[0.021s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.117s] -- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)
+[0.136s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.138s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.142s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.149s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.157s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.179s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.180s] -- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)
+[0.193s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[0.227s] -- Found rclcpp_action: 16.0.15 (/opt/ros/humble/share/rclcpp_action/cmake)
+[0.248s] -- Found tm_msgs: 1.1.2 (/root/irslab_ws/install/tm_msgs/share/tm_msgs/cmake)
+[0.264s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.317s] -- Added test 'copyright' to check source files copyright and LICENSE
+[0.318s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[0.319s] -- Configured cppcheck include dirs: 
+[0.319s] -- Configured cppcheck exclude dirs and/or files: 
+[0.319s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[0.319s] -- Configured cpplint exclude dirs and/or files: 
+[0.319s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.319s] -- Added test 'lint_cmake' to check CMake code style
+[0.320s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[0.320s] -- Added test 'uncrustify' to check C / C++ code style
+[0.320s] -- Configured uncrustify additional arguments: 
+[0.320s] -- Added test 'xmllint' to check XML markup files
+[0.321s] -- Configuring done
+[0.349s] -- Generating done
+[0.354s] -- Build files have been written to: /root/irslab_ws/build/tm_inspect
+[0.361s] Invoked command in '/root/irslab_ws/build/tm_inspect' returned '0': AMENT_PREFIX_PATH=/root/irslab_ws/install/tm_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/irslab_ws/install/tm_msgs:/opt/ros/humble LD_LIBRARY_PATH=/root/irslab_ws/install/tm_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /root/irslab_ws/src/tmr_ros2/tm_inspect -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/root/irslab_ws/install/tm_inspect
+[0.363s] Invoking command in '/root/irslab_ws/build/tm_inspect': AMENT_PREFIX_PATH=/root/irslab_ws/install/tm_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/irslab_ws/install/tm_msgs:/opt/ros/humble LD_LIBRARY_PATH=/root/irslab_ws/install/tm_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /root/irslab_ws/build/tm_inspect -- -j20 -l20
+[0.405s] [ 14%] [34m[1mAutomatic MOC and UIC for target robot_ui[0m
+[0.423s] [ 14%] Built target robot_ui_autogen
+[0.439s] [35m[1mConsolidate compiler generated dependencies of target robot_ui[0m
+[0.470s] [100%] Built target robot_ui
+[0.481s] Invoked command in '/root/irslab_ws/build/tm_inspect' returned '0': AMENT_PREFIX_PATH=/root/irslab_ws/install/tm_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/irslab_ws/install/tm_msgs:/opt/ros/humble LD_LIBRARY_PATH=/root/irslab_ws/install/tm_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /root/irslab_ws/build/tm_inspect -- -j20 -l20
+[0.482s] Invoking command in '/root/irslab_ws/build/tm_inspect': AMENT_PREFIX_PATH=/root/irslab_ws/install/tm_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/irslab_ws/install/tm_msgs:/opt/ros/humble LD_LIBRARY_PATH=/root/irslab_ws/install/tm_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /root/irslab_ws/build/tm_inspect
+[0.490s] -- Install configuration: "Release"
+[0.490s] -- Up-to-date: /root/irslab_ws/install/tm_inspect/lib/tm_inspect/robot_ui
+[0.490s] -- Up-to-date: /root/irslab_ws/install/tm_inspect/share/tm_inspect/launch
+[0.490s] -- Up-to-date: /root/irslab_ws/install/tm_inspect/share/tm_inspect/launch/tm_gui.launch.py
+[0.490s] -- Up-to-date: /root/irslab_ws/install/tm_inspect/share/ament_index/resource_index/package_run_dependencies/tm_inspect
+[0.490s] -- Installing: /root/irslab_ws/install/tm_inspect/share/ament_index/resource_index/parent_prefix_path/tm_inspect
+[0.490s] -- Up-to-date: /root/irslab_ws/install/tm_inspect/share/tm_inspect/environment/ament_prefix_path.sh
+[0.490s] -- Installing: /root/irslab_ws/install/tm_inspect/share/tm_inspect/environment/ament_prefix_path.dsv
+[0.490s] -- Up-to-date: /root/irslab_ws/install/tm_inspect/share/tm_inspect/environment/path.sh
+[0.490s] -- Installing: /root/irslab_ws/install/tm_inspect/share/tm_inspect/environment/path.dsv
+[0.491s] -- Up-to-date: /root/irslab_ws/install/tm_inspect/share/tm_inspect/local_setup.bash
+[0.491s] -- Up-to-date: /root/irslab_ws/install/tm_inspect/share/tm_inspect/local_setup.sh
+[0.491s] -- Up-to-date: /root/irslab_ws/install/tm_inspect/share/tm_inspect/local_setup.zsh
+[0.491s] -- Installing: /root/irslab_ws/install/tm_inspect/share/tm_inspect/local_setup.dsv
+[0.491s] -- Installing: /root/irslab_ws/install/tm_inspect/share/tm_inspect/package.dsv
+[0.491s] -- Up-to-date: /root/irslab_ws/install/tm_inspect/share/ament_index/resource_index/packages/tm_inspect
+[0.491s] -- Up-to-date: /root/irslab_ws/install/tm_inspect/share/tm_inspect/cmake/tm_inspectConfig.cmake
+[0.491s] -- Up-to-date: /root/irslab_ws/install/tm_inspect/share/tm_inspect/cmake/tm_inspectConfig-version.cmake
+[0.491s] -- Up-to-date: /root/irslab_ws/install/tm_inspect/share/tm_inspect/package.xml
+[0.493s] Invoked command in '/root/irslab_ws/build/tm_inspect' returned '0': AMENT_PREFIX_PATH=/root/irslab_ws/install/tm_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/irslab_ws/install/tm_msgs:/opt/ros/humble LD_LIBRARY_PATH=/root/irslab_ws/install/tm_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /root/irslab_ws/build/tm_inspect

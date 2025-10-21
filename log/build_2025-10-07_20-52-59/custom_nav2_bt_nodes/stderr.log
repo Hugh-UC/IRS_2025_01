@@ -1,5 +1,0 @@
-[31mCMake Error at CMakeLists.txt:62 (ament_export_package):
-  Unknown CMake command "ament_export_package".
-
-[0m
-gmake: *** [Makefile:267: cmake_check_build_system] Error 1

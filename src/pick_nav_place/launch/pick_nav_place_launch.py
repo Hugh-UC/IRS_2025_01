@@ -29,7 +29,7 @@ def generate_launch_description():
     )
 
     # Static transform publisher
-    static_tf_lidar = Node(
+    static_tf = Node(     # static_tf_lidar
         package='tf2_ros',
         executable='static_transform_publisher',
         name='static_base_to_lidar',
@@ -40,7 +40,7 @@ def generate_launch_description():
             'virtual_hand_solo/lidar_link'
         ]
     )
-
+    """
     # Include MoveIt! launch file
     moveit_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
@@ -52,6 +52,7 @@ def generate_launch_description():
         ]),
         launch_arguments={'use_sim_time': use_sim_time}.items()
     )
+    """
 
     # Map Server - Lifecycle Node
     map_server = LifecycleNode(
@@ -195,7 +196,6 @@ def generate_launch_description():
         ]
     )
     
-    """
     # Waypoint Follower - New Node
     robot_waypoint_follower = Node(
         package='pick_nav_place',
@@ -222,7 +222,7 @@ def generate_launch_description():
         output='screen',
         emulate_tty=True
     )
-    """
+    
     # Warehouse Coordinator - New Node
     warehouse_coordinator = Node(
         package='pick_nav_place',
@@ -247,10 +247,10 @@ def generate_launch_description():
         declare_use_sim_time,
         
         # TF
-        static_tf_lidar,
+        static_tf,    # static_tf_lidar
 
         # Arm Control Stack
-        moveit_launch,
+        #moveit_launch,
         
         # Localization Stack
         map_server,
@@ -267,9 +267,9 @@ def generate_launch_description():
         lifecycle_manager_navigation,
 
         # Custom Application Nodes
-        #robot_waypoint_follower,    # Navigation
-        #robot_arm_controller,       # Arm Control
-        #plc_hmi_listener,           # Topic Listener
+        robot_waypoint_follower,    # Navigation
+        robot_arm_controller,       # Arm Control
+        plc_hmi_listener,           # Topic Listener
         warehouse_coordinator,      # Coordination Logic
 
         # Visualization
