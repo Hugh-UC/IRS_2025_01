@@ -1,0 +1,71 @@
+[ 12%] Built target sub_img
+[ 12%] Built target demo_ask_sta
+[ 18%] Built target demo_set_io
+[ 25%] Built target demo_write_item
+[ 31%] Built target tm_send_command
+[ 43%] Built target demo_ask_item
+[ 43%] Built target demo_send_script
+[ 50%] Built target demo_set_event
+[ 59%] Built target demo_connect_tm
+[ 62%] Built target demo_get_torque_feedback
+[ 68%] Built target demo_get_feedback
+[ 75%] Built target demo_set_positions
+[ 81%] Built target demo_get_sta_response
+[ 87%] Built target demo_get_svr_response
+[ 93%] Built target demo_get_sct_response
+[100%] Built target demo_leave_listen_node
+[100%] Built target ament_cmake_python_copy_tm_test
+running egg_info
+writing tm_test.egg-info/PKG-INFO
+writing dependency_links to tm_test.egg-info/dependency_links.txt
+writing top-level names to tm_test.egg-info/top_level.txt
+reading manifest file 'tm_test.egg-info/SOURCES.txt'
+writing manifest file 'tm_test.egg-info/SOURCES.txt'
+[100%] Built target ament_cmake_python_build_tm_test_egg
+-- Install configuration: "Release"
+-- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/tm_send_command
+-- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/sub_img
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/image
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/image/techman_robot.jpg
+-- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_send_script
+-- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_ask_sta
+-- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_connect_tm
+-- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_set_event
+-- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_set_io
+-- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_set_positions
+-- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_write_item
+-- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_ask_item
+-- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_get_feedback
+-- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_get_torque_feedback
+-- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_get_sct_response
+-- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_get_sta_response
+-- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_get_svr_response
+-- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_leave_listen_node
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/environment/pythonpath.sh
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/environment/pythonpath.dsv
+-- Up-to-date: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test-1.0.2-py3.10.egg-info
+-- Installing: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test-1.0.2-py3.10.egg-info/top_level.txt
+-- Installing: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test-1.0.2-py3.10.egg-info/SOURCES.txt
+-- Installing: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test-1.0.2-py3.10.egg-info/PKG-INFO
+-- Installing: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test-1.0.2-py3.10.egg-info/dependency_links.txt
+-- Up-to-date: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test
+-- Up-to-date: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test/__init__.py
+-- Up-to-date: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test/translate_json_to_list.py
+Listing '/root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test'...
+-- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/get_status.py
+-- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/image_pub.py
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/ament_index/resource_index/package_run_dependencies/tm_test
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/ament_index/resource_index/parent_prefix_path/tm_test
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/environment/ament_prefix_path.sh
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/environment/ament_prefix_path.dsv
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/environment/path.sh
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/environment/path.dsv
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/local_setup.bash
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/local_setup.sh
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/local_setup.zsh
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/local_setup.dsv
+-- Installing: /root/irslab_ws/install/tm_test/share/tm_test/package.dsv
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/ament_index/resource_index/packages/tm_test
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/cmake/tm_testConfig.cmake
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/cmake/tm_testConfig-version.cmake
+-- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/package.xml

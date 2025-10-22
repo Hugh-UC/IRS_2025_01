@@ -1,0 +1,21 @@
+[3.336s] Invoking command in '/root/irslab_ws/src/hand_solo_arm': PYTHONPATH=/root/irslab_ws/build/hand_solo_arm/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/irslab_ws/install/hand_solo_arm/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/hand_solo_arm build --build-base /root/irslab_ws/build/hand_solo_arm/build install --record /root/irslab_ws/build/hand_solo_arm/install.log --single-version-externally-managed install_data
+[3.671s] running egg_info
+[3.672s] writing ../../build/hand_solo_arm/hand_solo_arm.egg-info/PKG-INFO
+[3.672s] writing dependency_links to ../../build/hand_solo_arm/hand_solo_arm.egg-info/dependency_links.txt
+[3.672s] writing entry points to ../../build/hand_solo_arm/hand_solo_arm.egg-info/entry_points.txt
+[3.672s] writing requirements to ../../build/hand_solo_arm/hand_solo_arm.egg-info/requires.txt
+[3.672s] writing top-level names to ../../build/hand_solo_arm/hand_solo_arm.egg-info/top_level.txt
+[3.673s] reading manifest file '../../build/hand_solo_arm/hand_solo_arm.egg-info/SOURCES.txt'
+[3.675s] writing manifest file '../../build/hand_solo_arm/hand_solo_arm.egg-info/SOURCES.txt'
+[3.675s] running build
+[3.675s] running build_py
+[3.675s] running install
+[3.676s] running install_lib
+[3.678s] running install_data
+[3.679s] running install_egg_info
+[3.682s] removing '/root/irslab_ws/install/hand_solo_arm/lib/python3.10/site-packages/hand_solo_arm-0.0.0-py3.10.egg-info' (and everything under it)
+[3.683s] Copying ../../build/hand_solo_arm/hand_solo_arm.egg-info to /root/irslab_ws/install/hand_solo_arm/lib/python3.10/site-packages/hand_solo_arm-0.0.0-py3.10.egg-info
+[3.684s] running install_scripts
+[3.722s] Installing hs_pick_place script to /root/irslab_ws/install/hand_solo_arm/lib/hand_solo_arm
+[3.722s] writing list of installed files to '/root/irslab_ws/build/hand_solo_arm/install.log'
+[3.804s] Invoked command in '/root/irslab_ws/src/hand_solo_arm' returned '0': PYTHONPATH=/root/irslab_ws/build/hand_solo_arm/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/root/irslab_ws/install/hand_solo_arm/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/hand_solo_arm build --build-base /root/irslab_ws/build/hand_solo_arm/build install --record /root/irslab_ws/build/hand_solo_arm/install.log --single-version-externally-managed install_data

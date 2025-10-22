@@ -31,7 +31,7 @@ class RobotWaypointFollower(Node):
         "home": (0.0, 0.0, 0.1),
         "conveyor": (2.50, -0.65, 0.1),
         "conveyor_leave": (2.50, -0.65, 1.4),
-        "drop-off": (31.0, -4.25, 4.712),
+        "drop-off": (30.6, -4.50, 4.712),
     }
     STATUS_LABELS : list[str] = ["idle", "busy", "complete", "error"]
 

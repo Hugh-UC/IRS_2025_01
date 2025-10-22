@@ -94,7 +94,7 @@ class WarehouseCoordinator(Node):
         time.sleep(12.0)
 
         # run initialisation sequence
-        self._initialisation_sequence()
+        #self._initialisation_sequence()
 
         # log startup complete
         self.get_logger().info('Coordinator startup complete!')
@@ -222,8 +222,8 @@ class WarehouseCoordinator(Node):
         if self._coord_state == 0 and (self._hmi_status == "busy" or self._hmi_status == "ready"):
             self.get_logger().info("Starting Coordination Sequence...")
 
-            self._publish_command(self.ARM, "_set_wait_seconds", 5.0)
-            self._publish_command(self.NAV, "_set_wait_seconds", 5.0)
+            self._publish_command(self.ARM, "_set_wait_seconds", 3.0)
+            self._publish_command(self.NAV, "_set_wait_seconds", 3.0)
 
             self.get_logger().info(f"STATUS READY: Box {self._current_box_size} at {self._current_box_location} detected. Starting sequence.")
             self._coord_state = 1
