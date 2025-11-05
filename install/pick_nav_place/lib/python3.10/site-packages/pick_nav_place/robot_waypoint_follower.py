@@ -8,6 +8,7 @@ import rclpy
 from rclpy.node import Node
 from rclpy.executors import MultiThreadedExecutor
 from rclpy.action import ActionClient
+from rclpy.qos import QoSProfile, ReliabilityPolicy, DurabilityPolicy
 from geometry_msgs.msg import PoseStamped
 from nav2_msgs.action import NavigateToPose, Spin
 from std_msgs.msg import String
@@ -48,13 +49,19 @@ class RobotWaypointFollower(Node):
         self._waypoint : tuple[float, float, float] = self.WAYPOINT_POSITIONS.get("home", (0.0, 0.0, 0.0))
         self._wait_seconds : float = 0.5
 
-        
         self._status : int = 0
 
-        self._goal_checker_pub = self.create_publisher(         # initialise ros2 topic publisher
+        self._goal_checker_qos : QoSProfile = QoSProfile(
+            depth = 1,
+            reliability = ReliabilityPolicy.RELIABLE,
+            durability = DurabilityPolicy.TRANSIENT_LOCAL
+        )
+
+
+        self._goal_checker_pub = self.create_publisher(     # initialise ros2 topic publisher
             String, 
-            '/pnp/current_goal_checker',        # <-- use the topic name from custom BT XML
-            1
+            '/pnp/current_goal_checker',        # topic name from custom BT XML
+            self._goal_checker_qos              # QOS profile for BT Node communication
         )
 
         self._waypoint_status_pub = self.create_publisher(      # initialise waypoint status publisher
@@ -73,8 +80,8 @@ class RobotWaypointFollower(Node):
 
         self.get_logger().info('Waypoint Follower node started. Waiting for Nav2 action server...')
 
-        nav_ready = self._client.wait_for_server(timeout_sec=5.0)
-        spin_ready = self._spin_client.wait_for_server(timeout_sec=5.0)
+        nav_ready : bool = self._client.wait_for_server(timeout_sec=5.0)
+        spin_ready : bool = self._spin_client.wait_for_server(timeout_sec=5.0)
 
         if not nav_ready or not spin_ready:
             self.get_logger().error('Nav2 action server not available after 5s.')
@@ -83,6 +90,7 @@ class RobotWaypointFollower(Node):
             self.get_logger().info('Nav2 action server ready.')
 
 
+        # publish initial status
         self._publish_status()
 
         # locks thread to ensure only one goal is being processed at a time
@@ -107,22 +115,30 @@ class RobotWaypointFollower(Node):
             method_name = command_data.get("method")
             value = command_data.get("value")
 
+            if not self._check_status():
+                # _check_status handles error logging
+                return
+
             if not method_name:
                 self.get_logger().warn("Received command without a specified method.")
                 return
 
+
             # 2. Check if the method exists and is callable
             method = getattr(self, method_name, None)
-            
+
             if method is None or not callable(method):
                 self.get_logger().error(f"Command Error: Method '{method_name}' not found or not callable.")
                 self._status = 3
                 self._publish_status()
                 return
 
-            # 3. Execute the method
+
+            # 3. Update Status adn Execute method
             self.get_logger().info(f"Executing command: {method_name}({value})")
-            
+            self._status = 1
+            self._publish_status()
+
             self._execute_new_thread(method, value)
 
         except Exception as e:
@@ -132,13 +148,29 @@ class RobotWaypointFollower(Node):
 
 
     def _execute_new_thread(self, method, value = None) -> None:
+
+        def thread_wrapper():
+            try:
+                result : bool = False
+
+                if value is not None and value != "":
+                    result = method(value)
+                else:
+                    result = method()
+
+                if result:
+                    self._status = 0
+                else:
+                    self._status = 3
+                self._publish_status()
+
+            except Exception as e:
+                self.get_logger().error(f"Error during threaded execution of {method.__name__}: {e}")
+                self._status = 3
+                self._publish_status()
+
         try:
-            thread_args : tuple = ()
-
-            if value is not None and value != "":
-                thread_args = (value,)
-
-            t = threading.Thread(target=method, args=thread_args, daemon=True)
+            t = threading.Thread(target=thread_wrapper, daemon=True)
             t.start()
             self.get_logger().info(f"New execution thread started.")
 
@@ -148,7 +180,7 @@ class RobotWaypointFollower(Node):
             self._publish_status()
 
 
-    # --- Publisher Methods --
+    # --- Goal Checker Publisher ---
     def _select_goal_checker(self, precise_check = False):
         msg = String()
         if precise_check:
@@ -162,6 +194,7 @@ class RobotWaypointFollower(Node):
         time.sleep(0.1)         # give a moment for message to be processed by GoalCheckerSelector
 
 
+    # --- Status Managers ---
     def _publish_status(self) -> None:
         # create message payload
         payload : dict[str, str | int] = {
@@ -177,6 +210,51 @@ class RobotWaypointFollower(Node):
         msg.data = json_payload
 
         self._waypoint_status_pub.publish(msg)
+
+        if self._status == 3:
+            self._clear_error()
+
+
+    def _get_status_name(self) -> str:
+        """
+        Takes the current status of the robot arm and returns its translated string representation.
+
+        Returns:
+            str: string of status name
+        """
+        return self.STATUS_LABELS[self._status]
+
+
+    def _check_status(self) -> bool:
+        """
+        _summary_
+
+        Returns:
+            bool: _description_
+        """
+        if self._status == 1:
+            self.get_logger().info("Robot Navigation is 'busy'. Ignoring new command(s).")
+            return False
+        
+        if self._status == 3:
+            self.get_logger().error("Error with Robot Navigation. Ignoring new command(s).")
+            return False
+        
+        return True
+
+
+    def _clear_error(self) -> None:
+        self.get_logger().warn('Attempting to clear error status by re-checking Nav2 server readiness...')
+
+        nav_ready = self._client.wait_for_server(timeout_sec=5.0)
+        spin_ready = self._spin_client.wait_for_server(timeout_sec=5.0)
+
+        if nav_ready and spin_ready:
+            self.get_logger().info('Nav2 action servers are READY. Resetting status to IDLE (0).')
+            self._status = 0
+
+        self._publish_status()
+
 
 
 
@@ -263,10 +341,8 @@ class RobotWaypointFollower(Node):
         
         handle = send_future.result()
 
-        handle = send_future.result()
-
         if not handle or not handle.accepted:
-            self.get_logger().error('Goal was rejected!')
+            self.get_logger().error('Spin goal was rejected!')
             self._status = 3
             self._publish_status()
             return False
@@ -287,7 +363,7 @@ class RobotWaypointFollower(Node):
             self._publish_status()
             return False
 
-        self.get_logger().info('Goal reached successfully!')
+        self.get_logger().info('Spin goal reached successfully!')
         self._status = 2
         self._publish_status()
         
@@ -350,19 +426,12 @@ class RobotWaypointFollower(Node):
             bool: True if navigation was successful, False otherwise.
         """
         with self._goal_lock:
-            if not self._check_status():
-                # _check_status handles error logging
-                return False
-            
             pos = pos.lower()
             if not self._get_waypoint(pos):
                 # _get_waypoint handles error logging
                 return False
             
             self._waypoint_name : str = pos
-
-            self._status = 1
-            self._publish_status()
 
             self.get_logger().info(f"Navigating to {pos.upper()} position...")
 
@@ -371,18 +440,16 @@ class RobotWaypointFollower(Node):
             result : bool = self._send_and_wait(wp)
 
             self._wait_at_waypoint()
-            self._status = 0
-            self._publish_status()
 
             return result
 
 
-    def _wait_at_waypoint(self, wait_seconds : float | None = None) -> None:
+    def _wait_at_waypoint(self, wait_seconds : float | None = None) -> bool:
         """
         Pauses execution for a specified duration at the current location.
 
         Returns:
-            None: sleep only method.
+            bool: True after sleep complete.
         """
         if not wait_seconds:
             wait_seconds = self._wait_seconds
@@ -390,41 +457,17 @@ class RobotWaypointFollower(Node):
         self.get_logger().info(f'Waiting {wait_seconds:.1f} seconds at waypoint {self._waypoint_name}...')
         time.sleep(wait_seconds)
 
-
-    def _check_status(self) -> bool:
-        """
-        _summary_
-
-        Returns:
-            bool: _description_
-        """
-        if self._status == 1:
-            self.get_logger().info("Robot Navigation is 'busy'. Ignoring new command(s).")
-            return False
-        
-        if self._status == 3:
-            self.get_logger().error("Error with Robot Navigation. Ignoring new command(s).")
-            return False
-        
         return True
 
 
     # --- Spin Methods ---
     def _spin(self, yaw_rad : float) -> bool:
         with self._goal_lock:
-            if not self._check_status():
-                # _check_status handles error logging
-                return False
-            
             self._action_name = "SPINNING (Action)"
-            self._status = 1
-            self._publish_status()
 
             result : bool = self._send_spin_and_wait(yaw_rad)
 
             self._wait_at_waypoint()
-            self._status = 0
-            self._publish_status()
 
             return result
 
@@ -449,16 +492,6 @@ class RobotWaypointFollower(Node):
             str: name of the waypoint.
         """
         return self._waypoint_name
-
-
-    def _get_status_name(self) -> str:
-        """
-        Takes the current status of the robot arm and returns its translated string representation.
-
-        Returns:
-            str: string of status name
-        """
-        return self.STATUS_LABELS[self._status]
 
 
     # --- Setters ---

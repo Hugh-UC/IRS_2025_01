@@ -35,17 +35,16 @@ class PLCHmiListener(Node):
         self._box_data : dict[str, Any] | None      = None
         self._box_counts : dict[str, int] | None    = None
         self._raw_data : dict[str, Any] | None      = None
-        self._previous_weight : str | None = self._get_box_weight()
+        self._box_size : str | None                 = None
+        self._box_location : str | None             = None
 
-        self._box_size : str = "Null"
-        self._box_location : str = "Null"
+        self._previous_box_size : str | None        = None
+
         self._status : int = 0
+        self._handle_error_time : float | None  = None
+        self._has_published : bool              = False
 
-        self.handle_error_time : float | None = None
-
-        # signal to send topic message
-        self._topic_signal : bool = False
-
+        
         self._hmi_status_sub = self.create_subscription(
             String,
             'hmi/unified_status', # listening to the ros2 PLC topic
@@ -65,6 +64,7 @@ class PLCHmiListener(Node):
 
 
 
+    # --- Callback Method ---
     def _listener_callback(self, msg : str) -> None:
         """
         Callback function executed on receiving a new message from the topic.
@@ -81,28 +81,41 @@ class PLCHmiListener(Node):
             self._box_counts = data.get("counts", None)
             self._raw_data = data
 
-            # log data
-            self._log_data()
+            self._box_size : str | None     = self._get_box_weight()
+            self._box_location : str | None = self._get_box_location()
+
+            self._log_data()        # log data
+
 
             if not self._check_status():
-                self._handle_status_error()
+                # error logging handled by _check_status
                 return
+            
 
             if self._detect_box_update():
-                if self._status == 0:
-                    self.get_logger().info(f"Published new PLC Status to {self._hmi_status_pub.topic_name}. New task ready!")
-                    # set and publish 'busy' status
-                    self._status = 1
-                    self._publish_status()
+                match self._status:
+                    case 0:
+                        self.get_logger().info(f"Published new PLC Status to {self._hmi_status_pub.topic_name}. New task ready!")
+                        # set and publish 'busy' status
+                        self._status = 1
+                        self._publish_status()
 
-                    self._wait_box_ready()
+                        # wait for box position to finalise
+                        self._wait_box_ready()
+                    
+                    case 1:
+                        self.get_logger().warn(f"Change Detected: Box has been removed from the conveyor before reaching the correct location.")
 
-                if self._status == 2:
-                    self._box_size = "Null"
-                    self._box_location = "Null"
+                        # clear box waiting
+                        self._stop_poll_timer()
 
-                    self._status = 0
-                    self._publish_status()
+                        self._status = 0
+                        self._publish_status()
+
+                    case 2:
+                        if not self._box_size and not self._box_location:
+                            self._status = 0
+                            self._publish_status()
 
             
         except Exception as e:
@@ -116,9 +129,10 @@ class PLCHmiListener(Node):
         payload : dict[str, str | int] = {
             "node": self.get_name(),                # "plc_hmi_listener"
             "current_target": {
-                "box_size": self._box_size,
+                "box_size": self._get_box_key(),
                 "location": self._box_location
             },
+            "total_count": self._get_total_count(),
             "status": self._get_status_name(),       # "idle", "busy", "ready", "error"
             "timestamp": int(self.get_clock().now().nanoseconds / 1e9), # Unix timestamp
         }
@@ -131,46 +145,6 @@ class PLCHmiListener(Node):
         self._hmi_status_pub.publish(msg)
 
 
-    def _check_status(self) -> bool:
-        """
-        _summary_
-
-        Returns:
-            bool: _description_
-        """
-        if self._status == 1:
-            # self.get_logger().info("Warehouse Conveyor is 'busy'. Ignoring new command(s).")
-            return False
-        
-        if self._status == 3:
-            return False
-        
-        return True
-
-
-    def _handle_status_error(self) -> None:
-        if self._status == 3:
-            current_time : float = self.get_clock().now().nanoseconds / 1e9
-
-            if not self.handle_error_time:
-                self.get_logger().error("Error with Warehouse Conveyor. Ignoring new command(s).")
-                self.get_logger().error(f"Please clear boxes to remove error!")
-                self.handle_error_time : float = self.get_clock().now().nanoseconds / 1e9
-
-            if current_time - self.handle_error_time > self.MAX_WAIT_TIME:
-                self.handle_error_time = None
-
-                if not self._get_box_location() and self._get_box_weight() == "0 kg":
-                    self._box_size = "Null"
-                    self._box_location = "Null"
-
-                    self.get_logger().info("Error has been successfully cleared. Now accepting new command(s).")
-                    self._status = 0
-                    self._publish_status()
-        
-        return
-
-
     def _get_status_name(self) -> str:
         """
         Takes the current status of the robot arm and returns its translated string representation.
@@ -181,50 +155,102 @@ class PLCHmiListener(Node):
         return self.STATUS_LABELS[self._status]
 
 
+    def _check_status(self) -> bool:
+        """
+        _summary_
+
+        Returns:
+            bool: _description_
+        """
+        if self._status == 3:
+            self._handle_status_error()
+            return False
+        
+        if self._status == 1:
+            if not self._has_published:
+                self._has_published = True
+                self.get_logger().warn("Warehouse Conveyor is 'busy'.")
+
+            return True
+        
+        self._has_published = False
+
+        return True
+
+
+    def _handle_status_error(self) -> None:
+        """
+        _summary_
+        """
+        # get current time
+        current_time : float = self.get_clock().now().nanoseconds / 1e9
+
+        # begin error timer
+        if not self._handle_error_time:
+            self.get_logger().error(f"Error with Warehouse Conveyor.")
+            self.get_logger().error(f"Please remove boxes to clear error!")
+
+            # set error timer
+            self._handle_error_time : float = self.get_clock().now().nanoseconds / 1e9
+
+            return
+
+        # check box cleared, reset status
+        if not self._box_location and not self._box_size:
+            self._handle_error_time = None      # reset error timer
+
+            # publish idle status 
+            self.get_logger().info(f"Error has been successfully cleared.")
+            self._status = 0
+            self._publish_status()
+
+            return
+
+        # handle timer expire
+        if self._handle_error_time:
+            if current_time - self._handle_error_time > self.MAX_WAIT_TIME:
+                self._handle_error_time = None      # reset error timer
+
+                # publish second error status to coordinator (notifies coordinator node is no longer responsive).
+                self.get_logger().error(f"FATAL ERROR: Error failed to clear within max wait time '{self.MAX_WAIT_TIME}' seconds.")
+                self._status = 3
+                self._publish_status()
+        
+        return
+
+
 
     # --- Box Poll/Detectors
     def _detect_box_update(self) -> bool:
-        # get current data
-        current_location: str | None = self._get_box_location()
-        current_weight: str | None = self._get_box_weight()
+        # match previous with new box weight
+        if self._box_size != self._previous_box_size:
+            self.get_logger().info(f"Change Detected: Current Weight = {self._box_size}, Previous_Weight = {self._previous_box_size}")
+            # update previous box weight
+            self._previous_box_size = self._box_size
 
-        if not current_weight:
-            self.get_logger().debug("Incomplete or null total box weight received, ignoring update.")
-            return False
-        
-        if self._status == 2 and current_weight == "0 kg":
-            self.get_logger().info(f"Change Detected: Box has been removed from the conveyor.")
-            return True
-
-        # compare and return result
-        if current_weight != self._previous_weight and current_weight != "0 kg":
-            self.get_logger().info(f"Current Weight = {current_weight}, Previous_Weight = {self._previous_weight}")
-            self._previous_weight = current_weight
-            self.get_logger().info(f"New Task Detected: Location/Weight change (L:{current_location}, W:{current_weight}).")
             return True
 
         return False
 
 
     def _wait_box_ready(self) -> None:
-        # retrieve box weight and determine expected location
-        box_weight: str | None = self._get_box_weight()
+        self._expected : tuple[str | None, str | None, float | None] = None, None, None
 
-        if not box_weight:
+        if not self._box_size:
             self.get_logger().error("Box weight was not available. Cannot determine expected location.")
             self._status = 3
             self._publish_status()
             return
 
-        box_size_key, expected_location = self._get_expected_box(box_weight)
+        expected_location = self._get_expected_location()
 
-        if not box_size_key or not expected_location:
+        if not expected_location:
             self.get_logger().error("Failed to map box weight to a known size key and expected location.")
             self._status = 3
             self._publish_status()
             return
         
-        self._expected : tuple[str, str, float] = box_size_key, expected_location, self.get_clock().now().nanoseconds / 1e9
+        self._expected = expected_location, self.get_clock().now().nanoseconds / 1e9
         
         self.get_logger().info(f"Waiting for box location to be finalised (Expected: '{expected_location}') with a {self.MAX_WAIT_TIME} second timeout...")
         
@@ -236,7 +262,7 @@ class PLCHmiListener(Node):
         current_time : float = self.get_clock().now().nanoseconds / 1e9
         current_box_location : str | None = self._get_box_location()
 
-        box_size_key, expected_location, start_time = self._expected
+        expected_location, start_time = self._expected
 
         if current_time - start_time > self.MAX_WAIT_TIME:
             self._stop_poll_timer()
@@ -244,9 +270,7 @@ class PLCHmiListener(Node):
             self.get_logger().error(f"Timed out after {self.MAX_WAIT_TIME} seconds waiting for final box location.")
             self._status = 3
             self._publish_status()
-
             return
-
 
         if current_box_location:
             if expected_location == current_box_location:
@@ -254,7 +278,7 @@ class PLCHmiListener(Node):
 
                 # SUCCESS: Return True, size, and confirmed location
                 self.get_logger().info(f"Box location '{current_box_location}' confirmed and matches expected location '{expected_location}'.")
-                self._box_size = box_size_key
+                # Update box location
                 self._box_location = current_box_location
 
                 # Ready for pickup
@@ -293,27 +317,92 @@ class PLCHmiListener(Node):
 
 
     # --- Getters ---
-    def _get_expected_box(self, weight_str: str) -> tuple[str | None, str | None]:
+    def _get_box_key(self) -> str | None:
         """
         Parses the weight string (e.g., '6 kg') to determine the box size key ('small', 'medium', 'big').
         """
+        if not self._box_size:
+            return None
+
         try:
             # 1. Extract the number from the string
-            weight_val : float = float(weight_str.lower().replace(' kg', '').strip())
+            weight_val : float = float(self._box_size.lower().replace(' kg', '').strip())
         except ValueError:
-            self.get_logger().error(f"Failed to parse weight string: {weight_str}.")
-            return None, None
+            self.get_logger().error(f"Failed to parse weight string: {self._box_size}.")
+            return None
         
         # 2. Map weight to size key (Assumed thresholds: <10=Small, <20=Medium, >=20=Big)
         if weight_val <= 5.0:
-            return ("small", "C")
+            return "small"
         elif weight_val <= 10.0:
-            return ("medium", "B")
+            return "medium"
         elif weight_val > 10.0:
-            return ("big", "A")
+            return "big"
         
         self.get_logger().error(f"Weight {weight_val} kg does not match a known box size range.")
-        return None, None
+        return None
+
+
+    def _get_expected_location(self) -> str | None:
+        """
+        Parses the box_key string (e.g. 'small') to determine the expected location ('A', 'B', 'C').
+        """
+        box_key = self._get_box_key()
+        
+        # 2. Map weight to size key (Assumed thresholds: <10=Small, <20=Medium, >=20=Big)
+        if box_key == "small":
+            return "C"
+        elif box_key == "medium":
+            return "B"
+        elif box_key == "big":
+            return "A"
+        
+        self.get_logger().error(f"Box key '{box_key}' does not match a known box size range.")
+        return None
+
+
+
+
+    def _get_box_weight(self) -> str | None:
+        """
+        Retrieves the detected box weight as a string.
+
+        Returns:
+            str | None: weight string (e.g., '6 kg', '14 kg'), or None.
+        """
+        if self._box_data:
+
+            weight : str | None = self._box_data.get('weight_raw')
+
+            weight = weight.replace("\n", "").replace(": ", "").strip()
+
+            if not weight or weight == "" or weight == "0 kg":
+                return None
+
+            return str(weight)
+        
+        return None
+
+
+    def _get_box_location(self) -> str | None:
+        """
+        Retrieves the detected box location as a string.
+
+        Returns:
+            str | None: location string (e.g., 'A', 'B', or 'C'), or None.
+        """
+        if self._box_data:
+            location : str | None = self._box_data.get('location')
+
+            location = location.replace("\n", "").replace(": ", "").replace("-", "").strip()
+
+            if not location or location == "":
+                return None
+
+            return str(location)
+
+        return None
+
 
 
     def _get_stamp(self) -> dict | None:
@@ -391,27 +480,6 @@ class PLCHmiListener(Node):
         return self._box_data
 
 
-    def _get_box_weight(self) -> str | None:
-        """
-        Retrieves the detected box weight as a string.
-
-        Returns:
-            str | None: weight string (e.g., '6 kg', '14 kg'), or None.
-        """
-        if self._box_data:
-
-            weight : str | None = self._box_data.get('weight_raw')
-
-            if not weight or weight == "":
-                return None
-
-            weight = weight.replace("\n", "").replace(": ", "").strip()
-
-            return str(weight)
-        
-        return None
-
-
     def _get_counts(self) -> dict | None:
         """
         Retrieves the last received cumulative box counts (small, medium, big, total).
@@ -474,26 +542,6 @@ class PLCHmiListener(Node):
         if self._box_counts:
             small = self._box_counts.get('small')
             return int(small) if small is not None else None
-
-        return None
-
-
-    def _get_box_location(self) -> str | None:
-        """
-        Retrieves the detected box location as a string.
-
-        Returns:
-            str | None: location string (e.g., 'A', 'B', or 'C'), or None.
-        """
-        if self._box_data:
-            location : str | None = self._box_data.get('location')
-
-            if not location or location == "":
-                return None
-            
-            location = location.replace("\n", "").replace(": ", "").replace("-", "").strip()
-
-            return str(location)
 
         return None
 

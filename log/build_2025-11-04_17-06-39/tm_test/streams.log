@@ -1,0 +1,75 @@
+[0.071s] Invoking command in '/root/irslab_ws/build/tm_test': CMAKE_PREFIX_PATH=/root/irslab_ws/install/tm_msgs:/root/irslab_ws/install/tm_test:/root/irslab_ws/install/tm_inspect:/root/irslab_ws/install/tm_driver:/root/irslab_ws/install/tm5x-900_moveit_config:/root/irslab_ws/install/tm5x-700_moveit_config:/root/irslab_ws/install/tm5-900_moveit_config:/root/irslab_ws/install/tm5-700_moveit_config:/root/irslab_ws/install/tm20_moveit_config:/root/irslab_ws/install/tm16_moveit_config:/root/irslab_ws/install/tm14x_moveit_config:/root/irslab_ws/install/tm14_moveit_config:/root/irslab_ws/install/tm12x_moveit_config:/root/irslab_ws/install/tm12_moveit_config:/root/irslab_ws/install/tm_description:/root/irslab_ws/install/custom_nav2_bt_nodes:/root/irslab_ws/install/tm_mod_urdf:/root/irslab_ws/install/pick_nav_place:/root/irslab_ws/install/pa_warehouse_status:/root/irslab_ws/install/hand_solo_virtual_nav:/root/irslab_ws/install/hand_solo_arm:/opt/ros/humble /usr/bin/cmake --build /root/irslab_ws/build/tm_test -- -j20 -l20
+[0.208s] [  6%] Built target tm_send_command
+[0.208s] [ 12%] Built target demo_ask_sta
+[0.208s] [ 25%] Built target demo_connect_tm
+[0.208s] [ 25%] Built target demo_set_io
+[0.208s] [ 31%] Built target demo_send_script
+[0.208s] [ 37%] Built target demo_set_event
+[0.208s] [ 43%] Built target demo_ask_item
+[0.208s] [ 50%] Built target demo_set_positions
+[0.208s] [ 56%] Built target demo_get_sct_response
+[0.208s] [ 62%] Built target sub_img
+[0.208s] [ 68%] Built target demo_write_item
+[0.208s] [ 78%] Built target demo_get_sta_response
+[0.208s] [ 81%] Built target demo_get_svr_response
+[0.208s] [ 87%] Built target demo_get_feedback
+[0.212s] [ 93%] Built target demo_get_torque_feedback
+[0.212s] [ 93%] Built target ament_cmake_python_copy_tm_test
+[0.212s] [100%] Built target demo_leave_listen_node
+[0.479s] running egg_info
+[0.481s] writing tm_test.egg-info/PKG-INFO
+[0.481s] writing dependency_links to tm_test.egg-info/dependency_links.txt
+[0.482s] writing top-level names to tm_test.egg-info/top_level.txt
+[0.489s] reading manifest file 'tm_test.egg-info/SOURCES.txt'
+[0.490s] writing manifest file 'tm_test.egg-info/SOURCES.txt'
+[0.530s] [100%] Built target ament_cmake_python_build_tm_test_egg
+[0.544s] Invoked command in '/root/irslab_ws/build/tm_test' returned '0': CMAKE_PREFIX_PATH=/root/irslab_ws/install/tm_msgs:/root/irslab_ws/install/tm_test:/root/irslab_ws/install/tm_inspect:/root/irslab_ws/install/tm_driver:/root/irslab_ws/install/tm5x-900_moveit_config:/root/irslab_ws/install/tm5x-700_moveit_config:/root/irslab_ws/install/tm5-900_moveit_config:/root/irslab_ws/install/tm5-700_moveit_config:/root/irslab_ws/install/tm20_moveit_config:/root/irslab_ws/install/tm16_moveit_config:/root/irslab_ws/install/tm14x_moveit_config:/root/irslab_ws/install/tm14_moveit_config:/root/irslab_ws/install/tm12x_moveit_config:/root/irslab_ws/install/tm12_moveit_config:/root/irslab_ws/install/tm_description:/root/irslab_ws/install/custom_nav2_bt_nodes:/root/irslab_ws/install/tm_mod_urdf:/root/irslab_ws/install/pick_nav_place:/root/irslab_ws/install/pa_warehouse_status:/root/irslab_ws/install/hand_solo_virtual_nav:/root/irslab_ws/install/hand_solo_arm:/opt/ros/humble /usr/bin/cmake --build /root/irslab_ws/build/tm_test -- -j20 -l20
+[0.547s] Invoking command in '/root/irslab_ws/build/tm_test': CMAKE_PREFIX_PATH=/root/irslab_ws/install/tm_msgs:/root/irslab_ws/install/tm_test:/root/irslab_ws/install/tm_inspect:/root/irslab_ws/install/tm_driver:/root/irslab_ws/install/tm5x-900_moveit_config:/root/irslab_ws/install/tm5x-700_moveit_config:/root/irslab_ws/install/tm5-900_moveit_config:/root/irslab_ws/install/tm5-700_moveit_config:/root/irslab_ws/install/tm20_moveit_config:/root/irslab_ws/install/tm16_moveit_config:/root/irslab_ws/install/tm14x_moveit_config:/root/irslab_ws/install/tm14_moveit_config:/root/irslab_ws/install/tm12x_moveit_config:/root/irslab_ws/install/tm12_moveit_config:/root/irslab_ws/install/tm_description:/root/irslab_ws/install/custom_nav2_bt_nodes:/root/irslab_ws/install/tm_mod_urdf:/root/irslab_ws/install/pick_nav_place:/root/irslab_ws/install/pa_warehouse_status:/root/irslab_ws/install/hand_solo_virtual_nav:/root/irslab_ws/install/hand_solo_arm:/opt/ros/humble /usr/bin/cmake --install /root/irslab_ws/build/tm_test
+[0.558s] -- Install configuration: "Release"
+[0.559s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/tm_send_command
+[0.559s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/sub_img
+[0.559s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/image
+[0.559s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/image/techman_robot.jpg
+[0.559s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_send_script
+[0.560s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_ask_sta
+[0.560s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_connect_tm
+[0.560s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_set_event
+[0.560s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_set_io
+[0.560s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_set_positions
+[0.561s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_write_item
+[0.561s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_ask_item
+[0.562s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_get_feedback
+[0.562s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_get_torque_feedback
+[0.563s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_get_sct_response
+[0.563s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_get_sta_response
+[0.564s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_get_svr_response
+[0.564s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_leave_listen_node
+[0.565s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/environment/pythonpath.sh
+[0.565s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/environment/pythonpath.dsv
+[0.565s] -- Up-to-date: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test-1.0.2-py3.10.egg-info
+[0.565s] -- Installing: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test-1.0.2-py3.10.egg-info/top_level.txt
+[0.565s] -- Installing: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test-1.0.2-py3.10.egg-info/SOURCES.txt
+[0.566s] -- Installing: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test-1.0.2-py3.10.egg-info/PKG-INFO
+[0.566s] -- Installing: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test-1.0.2-py3.10.egg-info/dependency_links.txt
+[0.566s] -- Up-to-date: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test
+[0.567s] -- Up-to-date: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test/__init__.py
+[0.567s] -- Up-to-date: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test/translate_json_to_list.py
+[0.621s] Listing '/root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test'...
+[0.630s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/get_status.py
+[0.630s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/image_pub.py
+[0.630s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/ament_index/resource_index/package_run_dependencies/tm_test
+[0.630s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/ament_index/resource_index/parent_prefix_path/tm_test
+[0.630s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/environment/ament_prefix_path.sh
+[0.631s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/environment/ament_prefix_path.dsv
+[0.631s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/environment/path.sh
+[0.631s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/environment/path.dsv
+[0.631s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/local_setup.bash
+[0.631s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/local_setup.sh
+[0.631s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/local_setup.zsh
+[0.631s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/local_setup.dsv
+[0.631s] -- Installing: /root/irslab_ws/install/tm_test/share/tm_test/package.dsv
+[0.632s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/ament_index/resource_index/packages/tm_test
+[0.632s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/cmake/tm_testConfig.cmake
+[0.632s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/cmake/tm_testConfig-version.cmake
+[0.632s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/package.xml
+[0.647s] Invoked command in '/root/irslab_ws/build/tm_test' returned '0': CMAKE_PREFIX_PATH=/root/irslab_ws/install/tm_msgs:/root/irslab_ws/install/tm_test:/root/irslab_ws/install/tm_inspect:/root/irslab_ws/install/tm_driver:/root/irslab_ws/install/tm5x-900_moveit_config:/root/irslab_ws/install/tm5x-700_moveit_config:/root/irslab_ws/install/tm5-900_moveit_config:/root/irslab_ws/install/tm5-700_moveit_config:/root/irslab_ws/install/tm20_moveit_config:/root/irslab_ws/install/tm16_moveit_config:/root/irslab_ws/install/tm14x_moveit_config:/root/irslab_ws/install/tm14_moveit_config:/root/irslab_ws/install/tm12x_moveit_config:/root/irslab_ws/install/tm12_moveit_config:/root/irslab_ws/install/tm_description:/root/irslab_ws/install/custom_nav2_bt_nodes:/root/irslab_ws/install/tm_mod_urdf:/root/irslab_ws/install/pick_nav_place:/root/irslab_ws/install/pa_warehouse_status:/root/irslab_ws/install/hand_solo_virtual_nav:/root/irslab_ws/install/hand_solo_arm:/opt/ros/humble /usr/bin/cmake --install /root/irslab_ws/build/tm_test

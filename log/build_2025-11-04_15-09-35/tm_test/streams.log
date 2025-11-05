@@ -1,0 +1,123 @@
+[0.024s] Invoking command in '/root/irslab_ws/build/tm_test': AMENT_PREFIX_PATH=/root/irslab_ws/install/tm_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/irslab_ws/install/tm_msgs:/opt/ros/humble LD_LIBRARY_PATH=/root/irslab_ws/install/tm_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /root/irslab_ws/src/tmr_ros2/tm_test -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/root/irslab_ws/install/tm_test
+[0.036s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.128s] -- Found rclpy: 3.3.17 (/opt/ros/humble/share/rclpy/cmake)
+[0.128s] -- Found rclcpp: 16.0.15 (/opt/ros/humble/share/rclcpp/cmake)
+[0.146s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.147s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.151s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.157s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.165s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.186s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.187s] -- Found rmw_cyclonedds_cpp: 1.3.4 (/opt/ros/humble/share/rmw_cyclonedds_cpp/cmake)
+[0.198s] -- Using RMW implementation 'rmw_cyclonedds_cpp' as default
+[0.230s] -- Found rclcpp_components: 16.0.15 (/opt/ros/humble/share/rclcpp_components/cmake)
+[0.242s] -- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)
+[0.265s] -- Found tm_msgs: 1.1.2 (/root/irslab_ws/install/tm_msgs/share/tm_msgs/cmake)
+[0.273s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.336s] -- Added test 'copyright' to check source files copyright and LICENSE
+[0.337s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[0.337s] -- Configured cppcheck include dirs: /root/irslab_ws/src/tmr_ros2/tm_test/include
+[0.337s] -- Configured cppcheck exclude dirs and/or files: 
+[0.338s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[0.338s] -- Configured cpplint exclude dirs and/or files: 
+[0.338s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.338s] -- Added test 'lint_cmake' to check CMake code style
+[0.339s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[0.339s] -- Added test 'uncrustify' to check C / C++ code style
+[0.339s] -- Configured uncrustify additional arguments: 
+[0.340s] -- Added test 'xmllint' to check XML markup files
+[0.340s] -- Configuring done
+[0.386s] -- Generating done
+[0.403s] -- Build files have been written to: /root/irslab_ws/build/tm_test
+[0.409s] Invoked command in '/root/irslab_ws/build/tm_test' returned '0': AMENT_PREFIX_PATH=/root/irslab_ws/install/tm_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/irslab_ws/install/tm_msgs:/opt/ros/humble LD_LIBRARY_PATH=/root/irslab_ws/install/tm_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /root/irslab_ws/src/tmr_ros2/tm_test -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/root/irslab_ws/install/tm_test
+[0.411s] Invoking command in '/root/irslab_ws/build/tm_test': AMENT_PREFIX_PATH=/root/irslab_ws/install/tm_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/irslab_ws/install/tm_msgs:/opt/ros/humble LD_LIBRARY_PATH=/root/irslab_ws/install/tm_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /root/irslab_ws/build/tm_test -- -j20 -l20
+[0.452s] [35m[1mConsolidate compiler generated dependencies of target demo_ask_sta[0m
+[0.453s] [35m[1mConsolidate compiler generated dependencies of target tm_send_command[0m
+[0.453s] [35m[1mConsolidate compiler generated dependencies of target demo_ask_item[0m
+[0.453s] [35m[1mConsolidate compiler generated dependencies of target sub_img[0m
+[0.453s] [35m[1mConsolidate compiler generated dependencies of target demo_set_io[0m
+[0.453s] [35m[1mConsolidate compiler generated dependencies of target demo_get_sct_response[0m
+[0.453s] [35m[1mConsolidate compiler generated dependencies of target demo_send_script[0m
+[0.454s] [35m[1mConsolidate compiler generated dependencies of target demo_leave_listen_node[0m
+[0.454s] [35m[1mConsolidate compiler generated dependencies of target demo_set_event[0m
+[0.454s] [35m[1mConsolidate compiler generated dependencies of target demo_connect_tm[0m
+[0.454s] [35m[1mConsolidate compiler generated dependencies of target demo_get_feedback[0m
+[0.455s] [35m[1mConsolidate compiler generated dependencies of target demo_get_torque_feedback[0m
+[0.455s] [35m[1mConsolidate compiler generated dependencies of target demo_get_svr_response[0m
+[0.455s] [35m[1mConsolidate compiler generated dependencies of target demo_get_sta_response[0m
+[0.456s] [35m[1mConsolidate compiler generated dependencies of target demo_set_positions[0m
+[0.461s] [35m[1mConsolidate compiler generated dependencies of target demo_write_item[0m
+[0.469s] [  6%] Built target tm_send_command
+[0.471s] [ 12%] Built target demo_get_sct_response
+[0.472s] [ 18%] Built target demo_ask_sta
+[0.474s] [ 25%] Built target demo_set_positions
+[0.474s] [ 37%] Built target demo_leave_listen_node
+[0.474s] [ 37%] Built target demo_ask_item
+[0.474s] [ 43%] Built target demo_set_io
+[0.475s] [ 50%] Built target sub_img
+[0.475s] [ 37%] Built target ament_cmake_python_copy_tm_test
+[0.475s] [ 56%] Built target demo_set_event
+[0.475s] [ 62%] Built target demo_get_torque_feedback
+[0.475s] [ 75%] Built target demo_get_feedback
+[0.475s] [ 75%] Built target demo_get_sta_response
+[0.475s] [ 81%] Built target demo_get_svr_response
+[0.475s] [ 87%] Built target demo_send_script
+[0.477s] [ 93%] Built target demo_write_item
+[0.478s] [100%] Built target demo_connect_tm
+[0.595s] running egg_info
+[0.595s] writing tm_test.egg-info/PKG-INFO
+[0.596s] writing dependency_links to tm_test.egg-info/dependency_links.txt
+[0.596s] writing top-level names to tm_test.egg-info/top_level.txt
+[0.597s] reading manifest file 'tm_test.egg-info/SOURCES.txt'
+[0.597s] writing manifest file 'tm_test.egg-info/SOURCES.txt'
+[0.617s] [100%] Built target ament_cmake_python_build_tm_test_egg
+[0.629s] Invoked command in '/root/irslab_ws/build/tm_test' returned '0': AMENT_PREFIX_PATH=/root/irslab_ws/install/tm_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/irslab_ws/install/tm_msgs:/opt/ros/humble LD_LIBRARY_PATH=/root/irslab_ws/install/tm_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /root/irslab_ws/build/tm_test -- -j20 -l20
+[0.630s] Invoking command in '/root/irslab_ws/build/tm_test': AMENT_PREFIX_PATH=/root/irslab_ws/install/tm_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/irslab_ws/install/tm_msgs:/opt/ros/humble LD_LIBRARY_PATH=/root/irslab_ws/install/tm_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /root/irslab_ws/build/tm_test
+[0.638s] -- Install configuration: "Release"
+[0.638s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/tm_send_command
+[0.638s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/sub_img
+[0.638s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/image
+[0.639s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/image/techman_robot.jpg
+[0.639s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_send_script
+[0.639s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_ask_sta
+[0.639s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_connect_tm
+[0.640s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_set_event
+[0.640s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_set_io
+[0.640s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_set_positions
+[0.640s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_write_item
+[0.640s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_ask_item
+[0.640s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_get_feedback
+[0.640s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_get_torque_feedback
+[0.641s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_get_sct_response
+[0.641s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_get_sta_response
+[0.641s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_get_svr_response
+[0.641s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/demo_leave_listen_node
+[0.641s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/environment/pythonpath.sh
+[0.641s] -- Installing: /root/irslab_ws/install/tm_test/share/tm_test/environment/pythonpath.dsv
+[0.641s] -- Up-to-date: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test-1.0.2-py3.10.egg-info
+[0.641s] -- Installing: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test-1.0.2-py3.10.egg-info/top_level.txt
+[0.641s] -- Installing: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test-1.0.2-py3.10.egg-info/SOURCES.txt
+[0.641s] -- Installing: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test-1.0.2-py3.10.egg-info/PKG-INFO
+[0.642s] -- Installing: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test-1.0.2-py3.10.egg-info/dependency_links.txt
+[0.642s] -- Up-to-date: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test
+[0.642s] -- Up-to-date: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test/__init__.py
+[0.642s] -- Up-to-date: /root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test/translate_json_to_list.py
+[0.665s] Listing '/root/irslab_ws/install/tm_test/local/lib/python3.10/dist-packages/tm_test'...
+[0.668s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/get_status.py
+[0.668s] -- Up-to-date: /root/irslab_ws/install/tm_test/lib/tm_test/image_pub.py
+[0.668s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/ament_index/resource_index/package_run_dependencies/tm_test
+[0.668s] -- Installing: /root/irslab_ws/install/tm_test/share/ament_index/resource_index/parent_prefix_path/tm_test
+[0.668s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/environment/ament_prefix_path.sh
+[0.668s] -- Installing: /root/irslab_ws/install/tm_test/share/tm_test/environment/ament_prefix_path.dsv
+[0.668s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/environment/path.sh
+[0.669s] -- Installing: /root/irslab_ws/install/tm_test/share/tm_test/environment/path.dsv
+[0.669s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/local_setup.bash
+[0.669s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/local_setup.sh
+[0.669s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/local_setup.zsh
+[0.669s] -- Installing: /root/irslab_ws/install/tm_test/share/tm_test/local_setup.dsv
+[0.669s] -- Installing: /root/irslab_ws/install/tm_test/share/tm_test/package.dsv
+[0.669s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/ament_index/resource_index/packages/tm_test
+[0.669s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/cmake/tm_testConfig.cmake
+[0.669s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/cmake/tm_testConfig-version.cmake
+[0.669s] -- Up-to-date: /root/irslab_ws/install/tm_test/share/tm_test/package.xml
+[0.671s] Invoked command in '/root/irslab_ws/build/tm_test' returned '0': AMENT_PREFIX_PATH=/root/irslab_ws/install/tm_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/root/irslab_ws/install/tm_msgs:/opt/ros/humble LD_LIBRARY_PATH=/root/irslab_ws/install/tm_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/root/irslab_ws/install/tm_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /root/irslab_ws/build/tm_test

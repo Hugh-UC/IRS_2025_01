@@ -95,8 +95,6 @@ class RobotArmController(Node):
         """
         try:
             data = json.loads(msg.data)
-
-            self.get_logger().info(f"Raw JSON: {data}")
             
             # 1. Check if the command is for this node
             target = data.get("node")
@@ -106,6 +104,10 @@ class RobotArmController(Node):
             command_data = data.get("command", {})
             method_name = command_data.get("method")
             value = command_data.get("value")
+
+            if not self._check_status():
+                # _check_status handles error logging
+                return
 
             if not method_name:
                 self.get_logger().warn("Received command without a specified method.")
@@ -132,13 +134,29 @@ class RobotArmController(Node):
 
 
     def _execute_new_thread(self, method, value = None) -> None:
+
+        def thread_wrapper():
+            try:
+                result : bool = False
+
+                if value is not None and value != "":
+                    result = method(value)
+                else:
+                    result = method()
+
+                if result:
+                    self._status = 0
+                else:
+                    self._status = 3
+                self._publish_status()
+
+            except Exception as e:
+                self.get_logger().error(f"Error during threaded execution of {method.__name__}: {e}")
+                self._status = 3
+                self._publish_status()
+
         try:
-            thread_args : tuple = ()
-
-            if value is not None and value != "":
-                thread_args = (value,)
-
-            t = threading.Thread(target=method, args=thread_args, daemon=True)
+            t = threading.Thread(target=thread_wrapper, daemon=True)
             t.start()
             self.get_logger().info(f"New execution thread started.")
 
@@ -166,6 +184,46 @@ class RobotArmController(Node):
 
         self._arm_status_pub.publish(msg)
 
+        if self._status == 3:
+            self._clear_error()
+
+
+    def _get_status_name(self) -> str:
+        """
+        Takes the current status of the robot arm and returns its translated string representation.
+
+        Returns:
+            str: string of status name
+        """
+        return self.STATUS_LABELS[self._status]
+
+
+    def _check_status(self) -> bool:
+        """
+        _summary_
+
+        Returns:
+            bool: _description_
+        """
+        if self._status == 1:
+            self.get_logger().info("Robot Arm is 'busy'. Ignoring new command(s).")
+            return False
+        
+        if self._status == 3:
+            self.get_logger().error("Error with Robot Arm. Ignoring new command(s).")
+            return False
+        
+        return True
+
+
+    def _clear_error(self) -> None:
+        self.get_logger().warn('Attempting to clear error status by re-checking MoveGroup action server readiness...')
+
+        if self._client.wait_for_server(timeout_sec=5.0):
+            self.get_logger().info('MoveGroup action server is READY. Resetting status to IDLE (0).')
+            self._status = 0
+
+        self._publish_status()
 
 
     # --- Method to send a goal and wait for result ---
@@ -216,6 +274,7 @@ class RobotArmController(Node):
         return success
 
 
+    # --- Helper method to build a MoveGroup Goal ---
     def _get_joints(self, key : str) -> bool:
         """
         [PROTECTED HELPER] Retrieves a joint position from the dictionary and updates the internal '_joints' attribute.
@@ -236,22 +295,7 @@ class RobotArmController(Node):
 
         return True
 
-    
-    def _wait_at_position(self, wait_seconds : float | None = None) -> None:
-        """
-        Pauses execution for a specified duration at the current arm position.
 
-        Returns:
-            None: sleep only method.
-        """
-        if not wait_seconds:
-            wait_seconds = self._wait_seconds
-
-        self.get_logger().info(f'Waiting {wait_seconds:.1f} seconds in position {self._arm_position}...')
-        time.sleep(wait_seconds)
-
-
-    # --- Helper method to build a MoveGroup Goal ---
     def _goal_from_joints(self) -> MoveGroup.Goal:
         """
         [PROTECTED HELPER] Creates a MoveGroup action goal message from the currently set internal '_joints' list.
@@ -297,10 +341,6 @@ class RobotArmController(Node):
             bool: True if move was successful, False otherwise.
         """
         with self._goal_lock:
-            if not self._check_status():
-                # _check_status handles error logging
-                return False
-
             pos = pos.lower()
             if not self._get_joints(pos):
                 # _get_joints handles error logging
@@ -316,8 +356,6 @@ class RobotArmController(Node):
             result : bool = self._send_and_wait()
 
             self._wait_at_position()
-            self._status = 0
-            self._publish_status()
 
             return result
 
@@ -333,10 +371,6 @@ class RobotArmController(Node):
             bool: True if move was successful, False otherwise.
         """
         with self._goal_lock:
-            if not self._check_status():
-                # _check_status handles error logging
-                return False
-
             box_size = box_size.strip().lower()
 
             pos_name : str | None = self.BOX_SIZES.get(box_size)
@@ -358,27 +392,23 @@ class RobotArmController(Node):
             result : bool = self._send_and_wait()
 
             self._wait_at_position()
-            self._status = 0
-            self._publish_status()
 
             return result
 
 
-    def _check_status(self) -> bool:
+    def _wait_at_position(self, wait_seconds : float | None = None) -> bool:
         """
-        _summary_
+        Pauses execution for a specified duration at the current arm position.
 
         Returns:
-            bool: _description_
+            bool: True after sleep complete.
         """
-        if self._status == 1:
-            self.get_logger().info("Robot Arm is 'busy'. Ignoring new command(s).")
-            return False
-        
-        if self._status == 3:
-            self.get_logger().error("Error with Robot Arm. Ignoring new command(s).")
-            return False
-        
+        if not wait_seconds:
+            wait_seconds = self._wait_seconds
+
+        self.get_logger().info(f'Waiting {wait_seconds:.1f} seconds in position {self._arm_position}...')
+        time.sleep(wait_seconds)
+
         return True
 
 
@@ -408,16 +438,6 @@ class RobotArmController(Node):
             return False
         
         return self._joints
-
-
-    def _get_status_name(self) -> str:
-        """
-        Takes the current status of the robot arm and returns its translated string representation.
-
-        Returns:
-            str: string of status name
-        """
-        return self.STATUS_LABELS[self._status]
 
 
     # --- Setters ---
