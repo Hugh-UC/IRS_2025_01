@@ -68,7 +68,7 @@ include CMakeFiles/robot_ui_autogen.dir/progress.make
 
 CMakeFiles/robot_ui_autogen:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/root/irslab_ws/build/tm_inspect/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target robot_ui"
-	/usr/bin/cmake -E cmake_autogen /root/irslab_ws/build/tm_inspect/CMakeFiles/robot_ui_autogen.dir/AutogenInfo.json Release
+	/usr/bin/cmake -E cmake_autogen /root/irslab_ws/build/tm_inspect/CMakeFiles/robot_ui_autogen.dir/AutogenInfo.json ""
 
 robot_ui_autogen: CMakeFiles/robot_ui_autogen
 robot_ui_autogen: CMakeFiles/robot_ui_autogen.dir/build.make

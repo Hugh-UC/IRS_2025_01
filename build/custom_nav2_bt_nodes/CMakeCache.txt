@@ -43,8 +43,7 @@ CMAKE_ADDR2LINE:FILEPATH=/usr/bin/addr2line
 //Path to a program.
 CMAKE_AR:FILEPATH=/usr/bin/ar
 
-//Choose the type of build, options are: None Debug Release RelWithDebInfo
-// MinSizeRel ...
+//Choose the type of build.
 CMAKE_BUILD_TYPE:STRING=Release
 
 //Enable/Disable color output during build.
@@ -397,9 +396,6 @@ nav2_common_DIR:PATH=/opt/ros/humble/share/nav2_common/cmake
 //The directory containing a CMake configuration file for nav2_msgs.
 nav2_msgs_DIR:PATH=/opt/ros/humble/share/nav2_msgs/cmake
 
-//The directory containing a CMake configuration file for nav2_ros_common.
-nav2_ros_common_DIR:PATH=nav2_ros_common_DIR-NOTFOUND
-
 //The directory containing a CMake configuration file for nav2_util.
 nav2_util_DIR:PATH=/opt/ros/humble/share/nav2_util/cmake
 
@@ -571,6 +567,8 @@ yaml_DIR:PATH=/opt/ros/humble/cmake
 CMAKE_ADDR2LINE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
 CMAKE_AR-ADVANCED:INTERNAL=1
+//STRINGS property for variable: CMAKE_BUILD_TYPE
+CMAKE_BUILD_TYPE-STRINGS:INTERNAL=Debug;Release;MinSizeRel;RelWithDebInfo
 //This is the directory where this CMakeCache.txt was created
 CMAKE_CACHEFILE_DIR:INTERNAL=/root/irslab_ws/build/custom_nav2_bt_nodes
 //Major version of cmake used to create the current loaded cache

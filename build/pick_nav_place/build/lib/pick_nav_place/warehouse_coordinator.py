@@ -76,10 +76,10 @@ class WarehouseCoordinator(Node):
         self._current_node : str | None     = None
         self._error_node : str | None       = None      # hold name of node with error
         self._error_counts : dict[str,tuple[int,Time | None]] = {         # dictionary of node error counts and error start times
-            self.COR: (0, None),
-            self.PLC: (0, None),
-            self.ARM: (0, None),
-            self.NAV: (0, None)
+            self.COR: (-1, None),
+            self.PLC: (-1, None),
+            self.ARM: (-1, None),
+            self.NAV: (-1, None)
         }
         self._error_st : Time | None        = None      # error start time
 
@@ -362,12 +362,14 @@ class WarehouseCoordinator(Node):
             )
 
             self.get_logger().warn("⚠️  Calling AMCL service to reinitialize global localisation...")
-            self._reinitialize_amcl(
+            self._execute_new_thread(self._clear_costmaps)  # clear costmaps
+            self._reinitialize_amcl(                        # send new initial pose
                 current_pose, 
                 self.GLOBAL_SEARCH_VARIANCE, 
                 self.GLOBAL_SEARCH_VARIANCE, 
                 self.GLOBAL_SEARCH_VARIANCE
             )
+            # spin robot
             self._publish_command(self.NAV, "_spin", 12.566)
 
             self._init_count = 1
@@ -385,11 +387,11 @@ class WarehouseCoordinator(Node):
 
         self.get_logger().warn(f"AMCL Initialisation Try {self._init_count}: Re-seeding amcl pose with buffered covariance {buffer:.2f}.")
 
+        # retreive current pose and covariance w/ buffer
         current_pose = self._amcl_pose
-
-        x : float   = self._amcl_x + buffer
-        y : float   = self._amcl_y + buffer
-        yaw : float = self._amcl_yaw + buffer
+        x : float    = self._amcl_x + buffer
+        y : float    = self._amcl_y + buffer
+        yaw : float  = self._amcl_yaw + buffer
 
         # send new initial pose and spin robot
         self._reinitialize_amcl(current_pose, x, y, yaw)
@@ -425,6 +427,11 @@ class WarehouseCoordinator(Node):
         # handle coordinator error
         if self._coord_state == 99:
             cor_errors, _ = self._error_counts.get(self.COR, (0, None))
+
+            # update error counter from null state (-1)
+            if cor_errors == -1:
+                cor_errors = 0
+
             cor_errors += 1
             self._error_counts[self.COR] = (cor_errors, None)   # increment coordinator error count
             if cor_errors >= self.MAX_ERRORS:
@@ -436,7 +443,7 @@ class WarehouseCoordinator(Node):
             self.get_logger().info(f"Error has cleared! Resetting to IDLE.")
             self._coord_state = 0       # set coordinator state back to 'IDLE'
 
-            return True         # MAYBE DELETE LATER --------------------------------
+            return True
 
 
         all_errors_clear : bool = True     # flag for all errors cleared
@@ -452,13 +459,18 @@ class WarehouseCoordinator(Node):
 
                 # clear error count (if Node status isn't in error)
                 if not is_error:
-                    if errors > 0 and not st:
+                    if errors >= 0:
                         self.get_logger().info(f"✅ ERROR CLEARED: Error from '{node}' cleared ({errors}/{self.MAX_ERRORS})")
 
-                    self._error_counts[node] = (0, None)                    
+                    self._error_counts[node] = (-1, None)                    
                     continue
                 
+                # error not cleared (update flag)
                 all_errors_clear = False
+
+                # update error counter from null state (-1)
+                if errors == -1:
+                    errors = 0
 
                 # create error count increment timer (if not set)
                 if not st:
@@ -467,7 +479,7 @@ class WarehouseCoordinator(Node):
                     self._error_counts[node] = (errors, st)
 
                 # increment error count after timer elapse
-                if (self.get_clock().now() - st) >= self.ERROR_CLEAR_TIMEOUT:
+                if (self.get_clock().now() - st) >= Duration(seconds=self.ERROR_CLEAR_TIMEOUT):
                     errors += 1                     # increment (Node) error count
                     st = self.get_clock().now()     # update error timeout start time
                     self._error_counts[node] = (errors, st)
@@ -477,7 +489,6 @@ class WarehouseCoordinator(Node):
                 if errors >= self.MAX_ERRORS:
                     self.get_logger().fatal(f"FATAL ERROR: Max errors received from '{node}' of {self.MAX_ERRORS}. Shutting down.")
                     rclpy.shutdown()
-                    return False
 
 
         return all_errors_clear
@@ -493,7 +504,7 @@ class WarehouseCoordinator(Node):
         self.get_logger().info("Running Initialisation Sequence...")
 
         # Ensure Arm is in Safe Moving Position
-        self._publish_command(self.ARM, "_arm_move", "home")
+        self._publish_command(self.ARM, "_arm_move", "moving")
 
         # Spin Robot to Update Sensor Position Data
         self._publish_command(self.NAV, "_spin", 12.566)
