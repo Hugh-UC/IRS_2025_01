@@ -1,19 +1,42 @@
 #!/usr/bin/env python3
+"""
+robot_waypoint_follower.py
+
+Author:         Hugh Brennan
+University:     University of Canberra
+
+Project:        Pinapple Grand Challenge
+Version:        2.0.0v
+Created:        23/08/2025
+Updated:        21/11/2025
+
+Description:
+    ROS 2 node for high-level waypoint navigation using Nav2.
+    Provides action server for navigation and spin commands.
+"""
 import math
 import time
 import json
 import threading
 
+from typing import Callable
+
 import rclpy
 from rclpy.node import Node
 from rclpy.executors import MultiThreadedExecutor
-from rclpy.action import ActionClient
+from rclpy.action import ActionClient, ActionServer, GoalResponse
+from rclpy.action.server import ServerGoalHandle
+from rclpy.action.client import ClientGoalHandle
+from rclpy.task import Future
 from rclpy.qos import QoSProfile, ReliabilityPolicy, DurabilityPolicy
 from geometry_msgs.msg import PoseStamped
 from nav2_msgs.action import NavigateToPose, Spin
+from action_msgs.msg import GoalStatus
 from std_msgs.msg import String
 
-from typing import Callable
+# --- Import for Custom Action ---
+from pnp_interfaces.action import WaypointFollower
+from pnp_interfaces.msg import CommandArguments, NavOptions, WaitDuration
 
 
 
@@ -27,352 +50,427 @@ class RobotWaypointFollower(Node):
         Node (rclpy.node): node class from ROS 2 client library,
                            core node functionality is inherited from class.
     """
-    POSITION_LENGTH : int = 3
+    # --- Class Constants ---
+    NODE_NAME : str             = 'robot_waypoint_follower'
+    ACTION_NAMES : list[str]    = ['navigate_to_pose', 'spin']
+    POSITION_LENGTH : int       = 3
     WAYPOINT_POSITIONS : dict[str, tuple[float, float, float]] = {
         "home": (0.0, 0.0, 0.1),
         "conveyor": (2.50, -0.65, 0.1),
         "conveyor_leave": (2.50, -0.65, 1.4),
         "drop-off": (30.6, -4.50, 4.712),
     }
-    STATUS_LABELS : list[str] = ["idle", "busy", "complete", "error"]
+    STATE_LABELS : list[str] = ["idle", "busy", "complete", "error"]
+    SERVICE_CALL_TIMEOUT : float = 5.0
+    EXECUTION_TRHOTTLE : float = 0.05
 
-    def __init__(self):
+    def __init__(self) -> None:
         """
-
+        Initializes the node, Nav2 Action Clients, and the WaypointFollower Action Server.
         """
-        super().__init__('robot_waypoint_follower')
+        super().__init__(self.NODE_NAME)
 
-        self._client : ActionClient         = ActionClient(self, NavigateToPose, 'navigate_to_pose')
-        self._spin_client : ActionClient    = ActionClient(self, Spin, 'spin')
+        self._client : ActionClient         = ActionClient(self, NavigateToPose, self.ACTION_NAMES[0])
+        self._spin_client : ActionClient    = ActionClient(self, Spin, self.ACTION_NAMES[1])
+        self._server : ActionServer         = ActionServer(    # Create ROS 2 Action Server
+            self,
+            WaypointFollower,
+            f'/pnp/{self.NODE_NAME}',
+            self._execute_callback,
+            goal_callback=self._goal_callback
+        )
 
-        self._waypoint_name : str = "Unknown"
         self._waypoint : tuple[float, float, float] = self.WAYPOINT_POSITIONS.get("home", (0.0, 0.0, 0.0))
-        self._wait_seconds : float = 0.5
+        self._waypoint_name : str   = "Unknown"     # current robot position
+        self._spin_yaw : float      = 0.0           # target spin distance (radians)
+        self._wait_seconds : float  = 0.5           # target wait seconds
+        self._state : int = 0      # 0: idle, 1: busy, 2: complete, 3: error
 
-        self._status : int = 0
+        # store current goal handle
+        self._goal_handle : ServerGoalHandle | None = None
 
+        # ROS 2 Topic Publishers
         self._goal_checker_qos : QoSProfile = QoSProfile(
             depth = 1,
             reliability = ReliabilityPolicy.RELIABLE,
             durability = DurabilityPolicy.TRANSIENT_LOCAL
         )
 
-
         self._goal_checker_pub = self.create_publisher(     # initialise ros2 topic publisher
             String, 
-            '/pnp/current_goal_checker',        # topic name from custom BT XML
-            self._goal_checker_qos              # QOS profile for BT Node communication
-        )
-
-        self._waypoint_status_pub = self.create_publisher(      # initialise waypoint status publisher
-            String, 
-            '/pnp/waypoint_follow_status',  # dedicated topic name
-            10
-        )
-
-        # ROS2 Topic Subscriptions
-        self._coordinator_sub = self.create_subscription(
-            String,
-            '/pnp/coordinator',
-            self._listener_callback,
-            10
+            '/pnp/current_goal_checker',                    # topic name from custom BT XML
+            self._goal_checker_qos                          # QOS profile for BT Node communication
         )
 
         self.get_logger().info('Waypoint Follower node started. Waiting for Nav2 action server...')
 
-        nav_ready : bool = self._client.wait_for_server(timeout_sec=5.0)
-        spin_ready : bool = self._spin_client.wait_for_server(timeout_sec=5.0)
+        nav_ready : bool = self._client.wait_for_server(timeout_sec=self.SERVICE_CALL_TIMEOUT)
+        spin_ready : bool = self._spin_client.wait_for_server(timeout_sec=self.SERVICE_CALL_TIMEOUT)
 
         if not nav_ready or not spin_ready:
             self.get_logger().error('Nav2 action server not available after 5s.')
-            self._status = 3
+            self._state = 3
         else:
             self.get_logger().info('Nav2 action server ready.')
-
-
-        # publish initial status
-        self._publish_status()
 
         # locks thread to ensure only one goal is being processed at a time
         self._goal_lock = threading.Lock()
 
 
-
-    # --- Listener Method ---
-    def _listener_callback(self, msg : String) -> None:
+    # --- Action Server Callbacks ---s
+    def _goal_callback(self, goal_request : WaypointFollower.Goal) -> GoalResponse:
         """
-        Parses the JSON command, checks the target, and executes the specified method.
+        Accepts or rejects a new goal based on command validity and node status.
+
+        Args:
+            goal_request (WaypointFollower.Goal): incoming goal request.
+
+        Returns:
+            GoalResponse: ACCEPT if the command is valid and node is ready, else REJECT.
         """
-        try:
-            data = json.loads(msg.data)
-            
-            # 1. Check if the command is for this node
-            target = data.get("node")
-            if target != self.get_name():
-                return
-            
-            command_data = data.get("command", {})
-            method_name = command_data.get("method")
-            value = command_data.get("value")
+        self.get_logger().info(f'Received Nav Action Goal: {goal_request.command}')
 
-            if not self._check_status():
-                # _check_status handles error logging
-                return
+        # check if command is valid class method
+        method : Callable | None = getattr(self, goal_request.command, None)
+        if not method or not callable(method):
+            self.get_logger().warn("Command Failed: Unknown command received. Rejecting new goal.")
+            return GoalResponse.REJECT
 
-            if not method_name:
-                self.get_logger().warn("Received command without a specified method.")
-                return
+        # check state ('busy'/'error')
+        if not self._check_state():
+            # _check_state handles error logging
+            return GoalResponse.REJECT
+        
+        self.get_logger().info("Command Accepted: New nav goal received!")
+        return GoalResponse.ACCEPT
 
 
-            # 2. Check if the method exists and is callable
-            method = getattr(self, method_name, None)
+    def _execute_callback(self, goal_handle : ServerGoalHandle) -> WaypointFollower.Result:
+        """
+        Called when the goal is accepted.
+        Runs accepted goal and returns the final result.
 
-            if method is None or not callable(method):
-                self.get_logger().error(f"Command Error: Method '{method_name}' not found or not callable.")
-                self._status = 3
-                self._publish_status()
-                return
+        Args:
+            goal_handle (ServerGoalHandle): handle for the accepted goal.
 
+        Returns:
+            WaypointFollower.Result: result of the action.
+        """
+        # update class goal handle
+        self._goal_handle = goal_handle
 
-            # 3. Update Status adn Execute method
-            self.get_logger().info(f"Executing command: {method_name}({value})")
-            self._status = 1
-            self._publish_status()
+        # update internal state to busy
+        self._state = 1
+        self._publish_feedback("Executing Nav goal...", log_type="info")
 
-            self._execute_new_thread(method, value)
+        # execute goal
+        result : WaypointFollower.Result = self._run_goal(goal_handle)
 
-        except Exception as e:
-            self.get_logger().error(f"Failed to process coordinator command: {e}\nRaw msg={msg.data}")
-            self._status = 3
-            self._publish_status()
+        return result
+    
 
+    # --- Goal Handle ---
+    def _run_goal(self, goal_handle : ServerGoalHandle) -> WaypointFollower.Result:
+        """
+        Performs the synchronous/blocking work for the Action Goal.
+        Parses the CommandArguments message to retrieve goal.
 
-    def _execute_new_thread(self, method, value = None) -> None:
+        Args:
+            goal_handle (ServerGoalHandle): handle for the active action goal.
 
-        def thread_wrapper():
+        Returns:
+            WaypointFollower.Result: result of the action.
+        """
+        request = goal_handle.request
+        result = WaypointFollower.Result()
+
+        success : bool = False
+
+        with self._goal_lock:
             try:
-                result : bool = False
+                # retrieve command (method) and arguments
+                command : str           = request.command
+                args : CommandArguments = request.command_arguments
 
-                if value is not None and value != "":
-                    result = method(value)
-                else:
-                    result = method()
+                # get callable command method (validated by '_goal_callback()')
+                method : Callable = getattr(self, command)
 
-                if result:
-                    self._status = 0
-                else:
-                    self._status = 3
-                self._publish_status()
+                # execute the method
+                success = method(args)
 
             except Exception as e:
-                self.get_logger().error(f"Error during threaded execution of {method.__name__}: {e}")
-                self._status = 3
-                self._publish_status()
+                result.msg = f"Exception Thrown: {e}"
+                self.get_logger().error(result.msg)
+                success = False
 
-        try:
-            t = threading.Thread(target=thread_wrapper, daemon=True)
-            t.start()
-            self.get_logger().info(f"New execution thread started.")
+            # final result
+            result.success = success
+            
+            if success:
+                result.msg = "Success: Nav goal completed."
+                goal_handle.succeed()
+                self._state = 0        # update internal status 'idle'
 
-        except Exception as e:
-            self.get_logger().error(f"Error during threaded execution of {method.__name__}: {e}")
-            self._status = 3
-            self._publish_status()
+            else:
+                if not result.msg:
+                    result.msg = "Unknown Error: Nav goal failed."
+                goal_handle.abort()
+                self._state = 3        # update internal status 'error'
+            
+            # publish final status
+            self._publish_feedback(f"Goal {command} finished.", log_type="info")
+            self._goal_handle = None    # clear goal handle
 
-
-    # --- Goal Checker Publisher ---
-    def _select_goal_checker(self, precise_check = False):
-        msg = String()
-        if precise_check:
-            msg.data = "precise_goal_checker"       # use higher precision goal checker
-            self.get_logger().info('Publishing PRECISE Goal Checker ID.')
-        else:
-            msg.data = "general_goal_checker"
-            self.get_logger().info('Publishing GENERAL Goal Checker ID.')
-
-        self._goal_checker_pub.publish(msg)
-        time.sleep(0.1)         # give a moment for message to be processed by GoalCheckerSelector
+        return result
 
 
-    # --- Status Managers ---
-    def _publish_status(self) -> None:
-        # create message payload
-        payload : dict[str, str | int] = {
-            "node": self.get_name(),                # "robot_waypoint_follower"
-            "current_target": self._waypoint_name,
-            "status": self._get_status_name(),       # "idle", "busy", "complete", "error"
-            "timestamp": int(self.get_clock().now().nanoseconds / 1e9), # Unix timestamp
-        }
+    def _publish_feedback(self, msg : str = "", dist : float | None = None, log_type : str = "") -> None:
+        """
+        Publishes feedback to the active goal handle.
 
-        json_payload : json = json.dumps(payload)
+        Args:
+            msg (str, optional): main feedback message. Defaults to "".
+            dist (float | None, optional): distance remaining to goal. Defaults to None.
+            log_type (str, optional): log message type ("info", "warn", "error", "fatal"). Defaults to "".
+        """
+        # exit if goal handle is not set
+        if not self._goal_handle:
+            self.get_logger().warn("Cannot publish feedback, no active goal handle.")
+            return
+        
+        # log message (using defined type)
+        match log_type:
+            case "info":
+                self.get_logger().info(msg)
+            case "warn":
+                self.get_logger().warn(msg)
+            case "error":
+                self.get_logger().error(msg)
+            case "fatal":
+                self.get_logger().fatal(msg)
+            case _:
+                pass
 
-        msg : String = String()
-        msg.data = json_payload
+        # create new feedback message
+        feedback : WaypointFollower.Feedback    = WaypointFollower.Feedback()
+        feedback.current_status                 = self._get_state_name()
+        feedback.status_description             = msg
 
-        self._waypoint_status_pub.publish(msg)
+        if dist is not None:
+            feedback.distance_remaining = float(dist)
 
-        if self._status == 3:
-            self._clear_error()
+        # publish feedback message
+        self._goal_handle.publish_feedback(feedback)
 
 
-    def _get_status_name(self) -> str:
+    def _get_state_name(self) -> str:
         """
         Takes the current status of the robot arm and returns its translated string representation.
 
         Returns:
             str: string of status name
         """
-        return self.STATUS_LABELS[self._status]
+        return self.STATE_LABELS[self._state]
 
 
-    def _check_status(self) -> bool:
+    def _check_state(self) -> bool:
         """
-        _summary_
+        Checks if the node is in a state to accept new goals.
 
         Returns:
-            bool: _description_
+            bool: True if Node is ready for a new command, False otherwise
         """
-        if self._status == 1:
-            self.get_logger().info("Robot Navigation is 'busy'. Ignoring new command(s).")
+        if self._state == 1:
+            self.get_logger().warn("Command Failed: Robot Navigation is 'busy'. Rejecting new goal.")
             return False
         
-        if self._status == 3:
-            self.get_logger().error("Error with Robot Navigation. Ignoring new command(s).")
+        if self._state == 3:
+            self.get_logger().error("Command Failed: Error with Robot Navigation. Ignoring new command(s).")
             return False
         
         return True
 
-
+    # _clear_error is currently depricated
     def _clear_error(self) -> None:
+        """
+        Attempts to clear an error state by re-checking Nav2 server readiness.
+        """
         self.get_logger().warn('Attempting to clear error status by re-checking Nav2 server readiness...')
 
-        nav_ready = self._client.wait_for_server(timeout_sec=5.0)
-        spin_ready = self._spin_client.wait_for_server(timeout_sec=5.0)
+        nav_ready = self._client.wait_for_server(timeout_sec=self.SERVICE_CALL_TIMEOUT)
+        spin_ready = self._spin_client.wait_for_server(timeout_sec=self.SERVICE_CALL_TIMEOUT)
 
         if nav_ready and spin_ready:
-            self.get_logger().info('Nav2 action servers are READY. Resetting status to IDLE (0).')
-            self._status = 0
-
-        self._publish_status()
+            self.get_logger().info('Nav2 action servers are READY. Resetting state to IDLE (0).')
+            self._state = 0
 
 
+    # --- Goal Checker Publisher ---
+    def _select_goal_checker(self, precise_check = False) -> None:
+        """
+        Publishes a message to select the goal checker type for navigation.
+
+        Args:
+            precise_check (bool, optional): If True, selects the precise goal checker. Defaults to False.
+        """
+        msg = String()
+        if precise_check:
+            msg.data = "precise_goal_checker"       # use higher precision goal checker
+            self._publish_feedback("Publishing PRECISE Goal Checker ID.", log_type="info")
+        else:
+            msg.data = "general_goal_checker"
+            self._publish_feedback("Publishing GENERAL Goal Checker ID.", log_type="info")
+
+        self._goal_checker_pub.publish(msg)
+        time.sleep(self.EXECUTION_TRHOTTLE)         # give a moment for message to be processed by GoalCheckerSelector
 
 
     # --- Method to send a goal and wait for result ---
-    def _send_and_wait(self, pose : PoseStamped, precise_check = False) -> bool:
+    def _send_and_wait(self, precise_check : bool = False) -> bool:
         """
         Sends a single Nav2 goal and blocks until the robot reaches the goal or fails.
 
         Args:
             pose (PoseStamped): target pose for the robot.
+            precise_check (bool): True to use precise goal checker, False for general.
 
         Returns:
             bool: True if goal was reached, False otherwise.
         """
         # 1. Prepare Goal
-        pose.header.stamp = self.get_clock().now().to_msg()
-        goal : NavigateToPose.Goal = NavigateToPose.Goal()
-        goal.pose = pose
+        pose : PoseStamped          = self._make_pose(*self._waypoint)
+        goal : NavigateToPose.Goal  = NavigateToPose.Goal()
+        goal.pose                   = pose
+        pose.header.stamp           = self.get_clock().now().to_msg()
 
         # 2. Select the Goal Checker
         self._select_goal_checker(precise_check)
 
         # 3. Define Feedback Callback
-        def feedback_cb(fb):
+        def nav_feedback_cb(fb : NavigateToPose.FeedbackMessage) -> None:
             try:
-                dist : float = fb.feedback.distance_remaining
-                self.get_logger().info(f'Distance remaining: {dist:.2f} m', throttle_duration_sec=1.0)
-            except Exception:
-                pass
+                # retrieve distance remaining to waypoint (meters)
+                dist : float        = fb.feedback.distance_remaining
+                # publish feedback message
+                feedback_msg : str  = f"Distance remaining: {dist:.2f} m"
+                self.get_logger().info(feedback_msg, throttle_duration_sec=1.0)
+                self._publish_feedback(feedback_msg, dist)
+            except Exception as e:
+                # publish feedback message
+                feedback_msg : str = f"Exception Thrown: {e}"
+                self.get_logger().info(feedback_msg, throttle_duration_sec=1.0)
+                self._publish_feedback(feedback_msg)
         
-        # 4. Send and Wait for Goal Acceptance
-        send_future = self._client.send_goal_async(goal, feedback_callback=feedback_cb)
-
-        # rclpy.spin_until_future_complete(self, send_future)
+        # 4. Send and Wait for Goal Response
+        send_future : Future = self._client.send_goal_async(goal, feedback_callback=nav_feedback_cb)
         while not send_future.done():
-            time.sleep(0.05)
+            time.sleep(self.EXECUTION_TRHOTTLE)
 
-        handle = send_future.result()
-
+        # 5. Check for Goal Acceptance
+        handle : ClientGoalHandle | None = send_future.result()
         if not handle or not handle.accepted:
-            self.get_logger().error('Goal was rejected!')
-            self._status = 3
-            self._publish_status()
+            self._state = 3
+            # publish new feedback message
+            self._publish_feedback("Nav2 Goal was rejected by server.", log_type="error")
             return False
-
-        # 5. Wait until navigation is complete
-        result_future = handle.get_result_async()
-
-        # rclpy.spin_until_future_complete(self, result_future)
-        while not result_future.done():
-            time.sleep(0.05)
-
-        result = result_future.result()
-
-        # 6. Log and Return Result
-        if result is None or result.status != 4:
-            self.get_logger().error('Goal failed or was interupted.')
-            self._status = 3
-            self._publish_status()
-            return False
-
-        self.get_logger().info('Goal reached successfully!')
-        self._status = 2
-        self._publish_status()
         
-        return True
+        # 6. Publish Goal Accepted Feedback
+        self._publish_feedback("Nav2 Goal accepted. Waiting for results...", log_type="info")
+
+        # 7. Wait Until Navigation Goal Complete
+        result_future : Future = handle.get_result_async()
+        while not result_future.done():
+            time.sleep(self.EXECUTION_TRHOTTLE)
+
+        result : NavigateToPose.Result | None = result_future.result()
+
+        # 8. Check for Successful Goal Status (GoalStatus.SUCCEEDED or 4); Log and Return Result
+        #   depricated: result is None or result.status != 4
+        success : bool = bool(result and result.status == GoalStatus.STATUS_SUCCEEDED)
+        if success:
+            self._publish_feedback("Nav Goal reached successfully.", log_type="info")
+            self._state = 2
+        else:
+            self._publish_feedback(f"Goal failed with status: {result.status}", log_type="error")
+            self._waypoint_name = "Unknown"
+            self._state = 3
+        
+        return success
 
 
-    def _send_spin_and_wait(self, yaw_rad = 0.0, precise_check = False) -> bool:
+    def _send_spin_and_wait(self, precise_check : bool = False) -> bool:
+        """
+        Sends a spin goal to Nav2 and waits for completion.
+
+        Args:
+            precise_check (bool, optional): If True, selects the precise goal checker. Defaults to False.
+
+        Returns:
+            bool: True if goal was reached, False otherwise.
+        """
         # 1. Prepare Goal
-        goal : Spin.Goal = Spin.Goal()
-        goal.target_yaw = float(yaw_rad)
-
-        self.get_logger().info(f"Sending Spin goal for {yaw_rad:.2f} radians...")
+        goal : Spin.Goal    = Spin.Goal()
+        goal.target_yaw     = float(self._spin_yaw)
 
         # 2. Select the Goal Checker
         self._select_goal_checker(precise_check)
 
-        # 3. Send and Wait for Goal Acceptance
-        send_future = self._spin_client.send_goal_async(goal)
+        # 3. Define Feedback Callback
+        def spin_feedback_cb(fb) -> None:
+            try:
+                # retrieve/calculate angle traveled/remaining in radians
+                angle_traveled : float  = fb.feedback.angular_distance_traveled
+                angle_remaining : float = self._spin_yaw - angle_traveled
+                # publish feedback message
+                feedback_msg : str = f"Spin Progress: {angle_traveled:.2f} rad(s), Remaining: {angle_remaining:.2f} rad(s)"
+                self.get_logger().info(feedback_msg, throttle_duration_sec=1.0)
+                self._publish_feedback(feedback_msg, angle_remaining)
+            except Exception as e:
+                # publish feedback message
+                feedback_msg : str = f"Exception Thrown: {e}"
+                self.get_logger().info(feedback_msg, throttle_duration_sec=1.0)
+                self._publish_feedback(feedback_msg)
 
+        # 4. Send and Wait for Goal Acceptance
+        send_future : Future = self._spin_client.send_goal_async(goal, feedback_callback=spin_feedback_cb)
         while not send_future.done():
-            time.sleep(0.05)
+            time.sleep(self.EXECUTION_TRHOTTLE)
         
-        handle = send_future.result()
-
+        # 5. Check for Goal Acceptance
+        handle : ClientGoalHandle | None = send_future.result()
         if not handle or not handle.accepted:
-            self.get_logger().error('Spin goal was rejected!')
-            self._status = 3
-            self._publish_status()
+            self._state = 3
+            # publish new feedback message
+            self._publish_feedback("Nav2 Spin Goal was rejected by server.", log_type="error")
             return False
 
-        # 5. Wait until navigation is complete
-        result_future = handle.get_result_async()
+        # 6. Publish Goal Accepted Feedback
+        self._publish_feedback("Nav2 Spin Goal accepted. Waiting for results...", log_type="info")
 
-        # rclpy.spin_until_future_complete(self, result_future)
+        # 7. Wait until navigation is complete
+        result_future : Future = handle.get_result_async()
         while not result_future.done():
-            time.sleep(0.05)
+            time.sleep(self.EXECUTION_TRHOTTLE)
 
-        result = result_future.result()
+        result : Spin.Result | None = result_future.result()
 
-        # 6. Log and Return Result
-        if result is None or result.status != 4:
-            self.get_logger().error('No result returned.')
-            self._status = 3
-            self._publish_status()
-            return False
+        # 8. Log and Return Result
+        success : bool = bool(result and result.status == GoalStatus.STATUS_SUCCEEDED)
+        if success:
+            self._publish_feedback("Nav Spin Goal reached successfully.", log_type="info")
+            self._state = 2
+        else:
+            self._publish_feedback(f"Spin Goal failed with status: {result.status}", log_type="error")
+            self._waypoint_name = "Unknown"
+            self._state = 3
 
-        self.get_logger().info('Spin goal reached successfully!')
-        self._status = 2
-        self._publish_status()
-        
-        return True
+        return success
+    
 
-
+    # --- Helper Method to Build a Nav2 Goal ---
     def _get_waypoint(self, key : str) -> bool:
         """
-        [PROTECTED HELPER] Retrieves a waypoint position from the dictionary and updates the internal '_waypoint' attribute.
+        Retrieves a waypoint position from the dictionary and updates the internal '_waypoint' attribute.
 
         Args:
             key (str): key (name) of the joint position to load.
@@ -381,10 +479,15 @@ class RobotWaypointFollower(Node):
             bool: True if the key exists and was loaded, False otherwise.
         """
         if key not in self.WAYPOINT_POSITIONS:
-            self.get_logger().error(f"Unknown Waypoint Name: {key}")
+            self._state = 3
+            # publish new feedback message
+            self._publish_feedback(f"Unknown Waypoint Name: {key}", log_type="error")
             return False
         
         self._waypoint = self.WAYPOINT_POSITIONS[key]
+
+        # publish new feedback message
+        self._publish_feedback(f"Selected Waypoint ({key}): {self._waypoint}", log_type="info")
 
         return True
     
@@ -414,63 +517,102 @@ class RobotWaypointFollower(Node):
         return ps
 
 
-    # --- Waypoint Methods ---
-    def _go_to_waypoint(self, pos : str) -> bool:
+    # --- Waypoint Method ---
+    def _go_to_waypoint(self, args : CommandArguments) -> bool:
         """
         Navigates the robot to specified waypoint position.
 
         Args:
-            pos (str): string of chosen pre-defined waypoint position in WAYPOINT_POSITIONS (e.g., 'home', 'conveyor').
+            args (CommandArguments): command arguments containing chosen waypoint position from WAYPOINT_POSITIONS (e.g., 'home', 'conveyor').
 
         Returns:
             bool: True if navigation was successful, False otherwise.
         """
-        with self._goal_lock:
-            pos = pos.lower()
-            if not self._get_waypoint(pos):
-                # _get_waypoint handles error logging
-                return False
-            
-            self._waypoint_name : str = pos
+        # retrieve target waypoint
+        pos : str = args.nav_goal.target_waypoint
+        pos = pos.lower()
+        if not self._get_waypoint(pos):
+            # _get_waypoint handles error logging
+            return False
+        
+        self._waypoint_name : str = pos
 
-            self.get_logger().info(f"Navigating to {pos.upper()} position...")
+        # publish new feedback message
+        self._publish_feedback(f"Navigating to {pos.upper()} position...", log_type="info")
 
-            wp : PoseStamped = self._make_pose(*self._waypoint)
+        # send and retrieve goal result
+        result : bool = self._send_and_wait(precise_check=True)
 
-            result : bool = self._send_and_wait(wp)
+        # pause in current position
+        self._wait_at_waypoint()
 
-            self._wait_at_waypoint()
-
-            return result
+        return result
 
 
-    def _wait_at_waypoint(self, wait_seconds : float | None = None) -> bool:
+    # --- Spin Method ---
+    def _spin(self, args : CommandArguments) -> bool:
+        """
+        Spins the robot by a specified yaw.
+
+        Args:
+            args (CommandArguments): command arguments containing target yaw rotation
+
+        Returns:
+            bool: True if spin was successful, False otherwise.
+        """
+        # retrieve target yaw angle (radians)
+        yaw_rad : float = args.nav_goal.target_spin
+        self._spin_yaw = yaw_rad
+
+        # publish new feedback message
+        self._publish_feedback(f"Sending Spin goal for {yaw_rad:.2f} radians...")
+
+        # send and retrieve goal result
+        result : bool = self._send_spin_and_wait(precise_check=True)
+
+        # pause in current position
+        self._wait_at_waypoint()
+
+        return result
+
+
+    # --- Wait Method ---
+    def _wait_at_waypoint(self, args : CommandArguments | None = None) -> bool:
         """
         Pauses execution for a specified duration at the current location.
+
+        Args:
+            args (CommandArguments | None, optional): arguments containing WaitDuration. If None, uses class default. Defaults to None.
 
         Returns:
             bool: True after sleep complete.
         """
-        if not wait_seconds:
+        # use class default if none passed
+        if args is None:
+            wait_seconds : float = self._wait_seconds
+        else:
+            wait_seconds : float = args.wait_goal.duration
+            try:
+                wait_seconds = float(wait_seconds)
+            except ValueError as e:
+                self.get_logger().error(f"ValueError: Could not use '{wait_seconds}' as duration for '_wait_at_position': {e}")
+                return False
+
+        # use class default
+        if wait_seconds == -1.0:
             wait_seconds = self._wait_seconds
 
-        self.get_logger().info(f'Waiting {wait_seconds:.1f} seconds at waypoint {self._waypoint_name}...')
+        # skip wait
+        if wait_seconds <= 0.0:
+            return False
+        
+        # publish new feedback message
+        self._publish_feedback(f"Waiting {wait_seconds:.1f} seconds at waypoint {self._waypoint_name}...")
+
+        # wait for defined duration
         time.sleep(wait_seconds)
 
         return True
-
-
-    # --- Spin Methods ---
-    def _spin(self, yaw_rad : float) -> bool:
-        with self._goal_lock:
-            self._action_name = "SPINNING (Action)"
-
-            result : bool = self._send_spin_and_wait(yaw_rad)
-
-            self._wait_at_waypoint()
-
-            return result
-
 
 
     # --- Getters ---
@@ -495,19 +637,41 @@ class RobotWaypointFollower(Node):
 
 
     # --- Setters ---
-    def _set_wait_seconds(self, seconds : float) -> bool:
+    def _set_wait_seconds(self, args : CommandArguments = None) -> bool:
         """
         Sets the duration (in seconds) that the robot waits after reaching a waypoint.
 
         Args:
-            seconds (float): new wait time in seconds.
+            args (CommandArguments): contains new wait time in seconds. Defaults to None.
 
         Returns:
             bool: True if value is updated, False otherwise.
         """
+        if args is None or not isinstance(args, CommandArguments):
+            # log and return error feedback
+            return False
+        
         try:
-            self._wait_seconds : float = float(seconds)
-        except ValueError:
+            # attempt to convert to float
+            wait_seconds = float(args.wait_goal.duration)
+
+            # ignore negative values
+            if wait_seconds < 0.0:
+                # publish new feedback message
+                self._publish_feedback(f"Warning: Value must be > or = 0.0. Ignoring attempt to set wait duration '{wait_seconds}'", log_type="warn")
+                return False
+            
+            # update duration
+            self._wait_seconds = wait_seconds
+
+            self._publish_feedback(f"Default wait duration set to {wait_seconds}s.", log_type="info")
+
+        except ValueError as e:
+            self._publish_feedback(f"ValueError: Could not set '{wait_seconds}' as new wait duration: {e}", log_type="error")
+            return False
+        
+        except Exception as e:
+            self._publish_feedback(f"ExceptionError: Could not set '{wait_seconds}' as new wait duration: {e}", log_type="error")
             return False
         
         return True
@@ -539,8 +703,13 @@ class RobotWaypointFollower(Node):
             self.get_logger().error("Waypoint name must be a non-empty string.")
             return False
         
+        if len(waypoint_name) != 3:
+            self.get_logger().error("Waypoint must have exactly 3 values (x, y, yaw).")
+            return False
+
         # set new joint position
-        self.WAYPOINT_POSITIONS[waypoint_name] = tuple(float(val) for val in new_waypoint)
+        x, y, yaw = tuple(float(val) for val in new_waypoint)
+        self.WAYPOINT_POSITIONS[waypoint_name] = (x, y, yaw)
         self.get_logger().info(f"Updated/Added new waypoint position: '{waypoint_name}'!")
 
         return True
@@ -550,6 +719,9 @@ class RobotWaypointFollower(Node):
 def main(args=None):
     """
     Initializes the ROS 2 node and spins the RobotWaypointFollower.
+
+    Args:
+        args: Optional ROS 2 node arguments.
     """
     rclpy.init(args=args)
     

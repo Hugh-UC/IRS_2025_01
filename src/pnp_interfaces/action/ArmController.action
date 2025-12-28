@@ -1,0 +1,27 @@
+# Goal definition
+# 'command' tells the server what to do
+string command      # "_arm_move", "_wait_at_position"
+
+# Arguments for the commands
+CommandArguments command_arguments      # e.g. "home", "moving", "3.0" (for _set_wait_seconds)
+
+---
+
+# Result definition
+# The result of the sent goal. True if successful, False otherwise
+bool success
+
+# Action node state
+uint8 state
+
+---
+
+# Feedback definition
+# Goal completion status
+string status
+
+# Description of status
+string status_msg
+
+# Action node state
+uint8 state

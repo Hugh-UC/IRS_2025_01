@@ -2,9 +2,9 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>pa_warehouse_status</name>
-  <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="u3276400@uni.canberra.edu.au">root</maintainer>
+  <version>1.0.0</version>
+  <description>ROS 2 Package: Containins nodes responsible for listening and publishing to the Pineapple Warehouse PLC and HMI system.</description>
+  <maintainer email="hugh.br3nn4n@gmail.com">root</maintainer>
   <license>Apache-2.0</license>
 
   <test_depend>ament_copyright</test_depend>

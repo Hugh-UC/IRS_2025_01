@@ -1,20 +1,4 @@
 #!/usr/bin/env python3
-"""
-plc_hmi_listener.py
-
-Author:         Hugh Brennan
-University:     University of Canberra
-
-Project:        Pinapple Grand Challenge
-Version:        2.0.0v
-Created:        23/08/2025
-Updated:        21/11/2025
-
-Description:
-    ROS 2 node for listening to the 'hmi/unified_status' topic.
-    Receives and parses real-time warehouse status updates, including box detection and counts,
-    and republishes processed status for use by other nodes.
-"""
 import time
 import datetime
 from datetime import timezone
@@ -35,7 +19,7 @@ class PLCHmiListener(Node):
         Node (rclpy.node): node class from ROS 2 client library,
                            core node functionality is inherited from class.
     """
-    STATE_LABELS : list[str] = ["idle", "busy", "ready", "error"]
+    STATUS_LABELS : list[str] = ["idle", "busy", "ready", "error"]
     MAX_WAIT_TIME : float   = 6.0
     POLL_FREQUENCY : float  = 0.1   # 100ms
 
@@ -56,7 +40,7 @@ class PLCHmiListener(Node):
 
         self._previous_box_size : str | None        = None
 
-        self._state : int = 0
+        self._status : int = 0
         self._handle_error_time : float | None  = None
         self._has_published : bool              = False
 
@@ -103,17 +87,17 @@ class PLCHmiListener(Node):
             self._log_data()        # log data
 
 
-            if not self._check_state():
-                # error logging handled by _check_state
+            if not self._check_status():
+                # error logging handled by _check_status
                 return
             
 
             if self._detect_box_update():
-                match self._state:
+                match self._status:
                     case 0:
-                        self.get_logger().info(f"Published new PLC state to {self._hmi_status_pub.topic_name}. New task ready!")
+                        self.get_logger().info(f"Published new PLC Status to {self._hmi_status_pub.topic_name}. New task ready!")
                         # set and publish 'busy' status
-                        self._state = 1
+                        self._status = 1
                         self._publish_status()
 
                         # wait for box position to finalise
@@ -125,12 +109,12 @@ class PLCHmiListener(Node):
                         # clear box waiting
                         self._stop_poll_timer()
 
-                        self._state = 0
+                        self._status = 0
                         self._publish_status()
 
                     case 2:
                         if not self._box_size and not self._box_location:
-                            self._state = 0
+                            self._status = 0
                             self._publish_status()
 
             
@@ -149,7 +133,7 @@ class PLCHmiListener(Node):
                 "location": self._box_location
             },
             "total_count": self._get_total_count(),
-            "status": self._get_state_name(),       # "idle", "busy", "ready", "error"
+            "status": self._get_status_name(),       # "idle", "busy", "ready", "error"
             "timestamp": int(self.get_clock().now().nanoseconds / 1e9), # Unix timestamp
         }
 
@@ -161,28 +145,28 @@ class PLCHmiListener(Node):
         self._hmi_status_pub.publish(msg)
 
 
-    def _get_state_name(self) -> str:
+    def _get_status_name(self) -> str:
         """
         Takes the current status of the robot arm and returns its translated string representation.
 
         Returns:
             str: string of status name
         """
-        return self.STATE_LABELS[self._state]
+        return self.STATUS_LABELS[self._status]
 
 
-    def _check_state(self) -> bool:
+    def _check_status(self) -> bool:
         """
         _summary_
 
         Returns:
             bool: _description_
         """
-        if self._state == 3:
+        if self._status == 3:
             self._handle_status_error()
             return False
         
-        if self._state == 1:
+        if self._status == 1:
             if not self._has_published:
                 self._has_published = True
                 self.get_logger().warn("Warehouse Conveyor is 'busy'.")
@@ -217,7 +201,7 @@ class PLCHmiListener(Node):
 
             # publish idle status 
             self.get_logger().info(f"Error has been successfully cleared.")
-            self._state = 0
+            self._status = 0
             self._publish_status()
 
             return
@@ -227,9 +211,9 @@ class PLCHmiListener(Node):
             if current_time - self._handle_error_time > self.MAX_WAIT_TIME:
                 self._handle_error_time = None      # reset error timer
 
-                # publish second error state to coordinator (notifies coordinator node is no longer responsive).
+                # publish second error status to coordinator (notifies coordinator node is no longer responsive).
                 self.get_logger().error(f"FATAL ERROR: Error failed to clear within max wait time '{self.MAX_WAIT_TIME}' seconds.")
-                self._state = 3
+                self._status = 3
                 self._publish_status()
         
         return
@@ -254,7 +238,7 @@ class PLCHmiListener(Node):
 
         if not self._box_size:
             self.get_logger().error("Box weight was not available. Cannot determine expected location.")
-            self._state = 3
+            self._status = 3
             self._publish_status()
             return
 
@@ -262,7 +246,7 @@ class PLCHmiListener(Node):
 
         if not expected_location:
             self.get_logger().error("Failed to map box weight to a known size key and expected location.")
-            self._state = 3
+            self._status = 3
             self._publish_status()
             return
         
@@ -271,7 +255,7 @@ class PLCHmiListener(Node):
         self.get_logger().info(f"Waiting for box location to be finalised (Expected: '{expected_location}') with a {self.MAX_WAIT_TIME} second timeout...")
         
         # create box location timer
-        self._state_check_timer = self.create_timer(self.POLL_FREQUENCY, self._poll_box_ready)
+        self._status_check_timer = self.create_timer(self.POLL_FREQUENCY, self._poll_box_ready)
 
 
     def _poll_box_ready(self) -> None:
@@ -284,7 +268,7 @@ class PLCHmiListener(Node):
             self._stop_poll_timer()
 
             self.get_logger().error(f"Timed out after {self.MAX_WAIT_TIME} seconds waiting for final box location.")
-            self._state = 3
+            self._status = 3
             self._publish_status()
             return
 
@@ -298,7 +282,7 @@ class PLCHmiListener(Node):
                 self._box_location = current_box_location
 
                 # Ready for pickup
-                self._state = 2
+                self._status = 2
                 self._publish_status()
 
                 return
@@ -310,9 +294,9 @@ class PLCHmiListener(Node):
 
     def _stop_poll_timer(self) -> None:
         """Cleans up the timer and state variables after success or failure."""
-        if self._state_check_timer:
-            self._state_check_timer.cancel()
-            self._state_check_timer = None
+        if self._status_check_timer:
+            self._status_check_timer.cancel()
+            self._status_check_timer = None
         
         self.expected = None, None, 0.0
 
@@ -418,6 +402,7 @@ class PLCHmiListener(Node):
             return str(location)
 
         return None
+
 
 
     def _get_stamp(self) -> dict | None:

@@ -1,22 +1,4 @@
 #!/usr/bin/env python3
-"""
-warehouse_coordinator.py
-
-Author:         Hugh Brennan
-University:     University of Canberra
-
-Project:        Pinapple Grand Challenge
-Version:        2.0.0v
-Created:        23/08/2025
-Updated:        21/11/2025
-
-Description:
-    ROS 2 node implementing a state-machine for high-level warehouse coordination.
-    This node manages the sequence of operations for robotic pick, transport, and place tasks
-    by orchestrating the robot arm, navigation, and PLC/HMI subsystems. It listens to status
-    updates from subordinate nodes, handles error recovery, and issues commands to ensure
-    robust, modular, and maintainable automation of warehouse workflows.
-"""
 import math
 import time
 import json
@@ -34,10 +16,6 @@ from std_msgs.msg import String, Empty
 from std_srvs.srv import Empty as EmptySrv
 from geometry_msgs.msg import PoseWithCovarianceStamped, Pose, Point, Quaternion
 from nav2_msgs.srv import ClearEntireCostmap
-
-from pnp_interfaces.action import ArmController
-from pnp_interfaces.action import WaypointFollower
-from pnp_interfaces.msg import CommandArguments, ArmMoveOptions, NavOptions, WaitDuration
 
 
 class WarehouseCoordinator(Node):

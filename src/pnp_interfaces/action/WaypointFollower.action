@@ -1,0 +1,15 @@
+# Goal definition
+# 'command' tells the server what to do
+string command      # "_spin", "_go_to_waypoint", "_wait_at_waypoint"
+
+# Arguments for the commands
+CommandArguments command_arguments      # e.g. "home", "6.283" (for target_rotation), "3.0" (for _set_wait_seconds)
+---
+# Result definition
+bool success
+string status
+---
+# Feedback definition
+float32 distance_remaining
+string status
+string status_description
